@@ -11,7 +11,7 @@ import java.util.List;
 public class Test {
     private static final String ALPHABET = "ACDEFGHJKMNPRSTUVWXYZ2345679";
 
-    public static void main(StringTest[] args) throws IOException, ParseException {
+    public static void main(test.StringTest[] args) throws IOException, ParseException {
         Test test = new Test();
         for (int i = 0; i < 9999; i++)
             System.out.println(test.print());
