@@ -1,4 +1,4 @@
-package JavaTest.JavaBasicTest.ArrayList;
+package JavaTest.JavaBasicTest.Collections.ArrayList;
 
 import org.junit.Test;
 

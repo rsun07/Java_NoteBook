@@ -1,4 +1,4 @@
-package JavaTest.JavaBasicTest.HashMapTest;
+package JavaTest.JavaBasicTest.HashMap;
 
 import org.junit.Test;
 
