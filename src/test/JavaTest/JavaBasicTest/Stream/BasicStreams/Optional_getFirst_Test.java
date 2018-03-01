@@ -1,4 +1,4 @@
-package JavaTest.JavaBasicTest.StreamTest.BasicStreams;
+package JavaTest.JavaBasicTest.Stream.BasicStreams;
 
 import org.junit.Test;
 

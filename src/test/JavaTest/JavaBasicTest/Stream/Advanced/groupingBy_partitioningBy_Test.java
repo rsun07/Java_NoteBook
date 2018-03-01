@@ -1,4 +1,4 @@
-package JavaTest.JavaBasicTest.StreamTest.Advanced;
+package JavaTest.JavaBasicTest.Stream.Advanced;
 
 import org.junit.Test;
 
