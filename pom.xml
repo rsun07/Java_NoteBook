@@ -19,7 +19,6 @@
         <commons.collections.version>4.0</commons.collections.version>
 
         <!-- build properties -->
-        <main.class.name>org.xiaoming.JettyServer</main.class.name>
         <build.artifact.name>notebook</build.artifact.name>
     </properties>
 
