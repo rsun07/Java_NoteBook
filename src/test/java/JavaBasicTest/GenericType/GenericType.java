@@ -1,11 +1,9 @@
 package java.JavaBasicTest.GenericType;
 
-import org.glassfish.hk2.classmodel.reflect.util.LinkedQueue;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 public class GenericType {
     public static void main(String args[]) {
