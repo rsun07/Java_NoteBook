@@ -68,6 +68,12 @@ public class BuiltInFunctionalInterfaceTests {
                 });
         print(nums1, System.out::println);
 
+        // method reference, equals to the following
+
+        Random random = new Random();
+        List<Integer> nums1_2 = getNumList(7, random::nextInt);
+        print(nums1_2, System.out::println);
+
         List<Integer> nums2 = getNumList(3,  () -> (int) (Math.random() * 100));
         print(nums2, System.out::println);
 
