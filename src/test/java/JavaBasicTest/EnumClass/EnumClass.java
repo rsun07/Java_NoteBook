@@ -1,4 +1,4 @@
-package java.JavaBasicTest.EnumClass;
+package JavaBasicTest.EnumClass;
 
 public class EnumClass {
     public static void main(String[] args) {

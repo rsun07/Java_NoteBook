@@ -1,4 +1,4 @@
-package java.JavaBasicTest.LambdaExpression;
+package JavaBasicTest.LambdaExpression;
 
 import org.junit.Test;
 

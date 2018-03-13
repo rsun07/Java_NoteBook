@@ -1,4 +1,4 @@
-package java.JavaBasicTest.EnumClass;
+package JavaBasicTest.EnumClass;
 
 import org.junit.Test;
 

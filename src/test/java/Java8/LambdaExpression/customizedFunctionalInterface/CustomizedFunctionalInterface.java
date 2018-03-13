@@ -1,4 +1,4 @@
-package JavaBasicTest.LambdaExpression;
+package Java8.LambdaExpression.customizedFunctionalInterface;
 
 // The core of Lambda Expression is
 // the implementation of the abstract function in a functional Interface
@@ -7,10 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CustomizedFunctionalInterface {
-    @FunctionalInterface
-    interface StrOperation {
-        String strOperation(String string);
-    }
 
     /**
      *
@@ -29,18 +25,10 @@ public class CustomizedFunctionalInterface {
         this.inputStr = " abc e d  \t";
     }
 
-
     @Test
     public void strTrimTraditional() {
         String result = strHandler(this.inputStr, new StrTrim());
         System.out.println(result);
-    }
-
-    class StrTrim implements StrOperation {
-        @Override
-        public String strOperation(String string) {
-            return string.trim();
-        }
     }
 
     @Test

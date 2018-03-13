@@ -1,4 +1,4 @@
-package java.RealTimePractice;
+package RealTimePractice;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package java.JavaBasicTest.Entity;
+package JavaBasicTest.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
