@@ -1,4 +1,4 @@
-package java.JavaBasicTest.Primitive;
+package JavaBasicTest.Primitive;
 
 import org.junit.Test;
 

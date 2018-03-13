@@ -1,4 +1,4 @@
-package java.JavaBasicTest.Stream.Advanced;
+package Java8.Stream.Advanced;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

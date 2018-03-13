@@ -1,4 +1,4 @@
-package java.JavaBasicTest.KeyWords;
+package JavaBasicTest.KeyWords;
 
 
 import org.junit.Test;

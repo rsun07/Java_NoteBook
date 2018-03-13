@@ -1,4 +1,4 @@
-package java.JavaBasicTest.KeyWords;
+package JavaBasicTest.KeyWords;
 
 public class InheritInPolymorphic {
     public static void main(String args[]) {

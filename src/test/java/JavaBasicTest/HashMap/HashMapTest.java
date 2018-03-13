@@ -1,4 +1,4 @@
-package java.JavaBasicTest.HashMap;
+package JavaBasicTest.HashMap;
 
 import java.util.HashMap;
 import java.util.Map;

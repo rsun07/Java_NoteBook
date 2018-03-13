@@ -1,4 +1,4 @@
-package java.JavaBasicTest.MultiThread.ProducerConsumer;
+package JavaBasicTest.MultiThread.ProducerConsumer;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

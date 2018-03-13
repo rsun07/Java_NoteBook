@@ -1,4 +1,4 @@
-package java.JavaBasicTest.MultiThread.TraditionalTread;
+package JavaBasicTest.MultiThread.TraditionalTread;
 
 import java.util.concurrent.TimeUnit;
 

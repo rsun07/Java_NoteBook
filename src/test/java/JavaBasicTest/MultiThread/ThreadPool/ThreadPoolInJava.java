@@ -1,4 +1,4 @@
-package java.JavaBasicTest.MultiThread.ThreadPool;
+package JavaBasicTest.MultiThread.ThreadPool;
 
 import java.util.concurrent.*;
 

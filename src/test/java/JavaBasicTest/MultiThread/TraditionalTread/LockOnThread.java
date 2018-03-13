@@ -1,4 +1,4 @@
-package java.JavaBasicTest.MultiThread.TraditionalTread;
+package JavaBasicTest.MultiThread.TraditionalTread;
 
 public class LockOnThread {
     // The object that used as a key should be the same object

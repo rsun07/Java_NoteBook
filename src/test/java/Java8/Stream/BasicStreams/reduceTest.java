@@ -1,4 +1,4 @@
-package java.JavaBasicTest.Stream.BasicStreams;
+package Java8.Stream.BasicStreams;
 
 import org.junit.Test;
 

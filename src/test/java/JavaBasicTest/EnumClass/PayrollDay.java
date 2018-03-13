@@ -1,4 +1,4 @@
-package java.JavaBasicTest.EnumClass;
+package JavaBasicTest.EnumClass;
 
 // The strategy enum pattern
 enum PayrollDay {

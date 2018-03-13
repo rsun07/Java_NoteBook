@@ -1,4 +1,4 @@
-package java.JavaBasicTest.GenericType;
+package JavaBasicTest.GenericType;
 
 import org.junit.Test;
 

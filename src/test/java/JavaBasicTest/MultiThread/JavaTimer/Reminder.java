@@ -1,4 +1,4 @@
-package java.JavaBasicTest.MultiThread.JavaTimer;
+package JavaBasicTest.MultiThread.JavaTimer;
 
 import java.util.Date;
 import java.util.Timer;

@@ -1,6 +1,6 @@
-package java.JavaBasicTest.Reflection;
+package JavaBasicTest.Reflection;
 
-import java.JavaBasicTest.Entity.ReflectionPerson;
+import JavaBasicTest.Entity.ReflectionPerson;
 import org.junit.Test;
 
 import java.lang.reflect.Constructor;
@@ -19,7 +19,7 @@ public class ReflectionBasic {
         IllegalAccessException, InvocationTargetException, InstantiationException {
 
         // use the 'copy reference to get the address'
-        Class clazz = Class.forName("java.JavaBasicTest.Entity.ReflectionPerson");
+        Class clazz = Class.forName("JavaBasicTest.Entity.ReflectionPerson");
 
 
         Constructor c1 = clazz.getConstructor(null);
@@ -62,7 +62,7 @@ public class ReflectionBasic {
     public void testFunctions() throws NoSuchMethodException, ClassNotFoundException,
         IllegalAccessException, InvocationTargetException, InstantiationException {
 
-        Class clazz = Class.forName("java.JavaBasicTest.Entity.ReflectionPerson");
+        Class clazz = Class.forName("JavaBasicTest.Entity.ReflectionPerson");
         Constructor c = clazz.getConstructor(null);
         ReflectionPerson p = (ReflectionPerson) c.newInstance();
         System.out.println("\n");
@@ -94,7 +94,7 @@ public class ReflectionBasic {
     @Test
     // test get fields
     public void testFields() throws Exception {
-        Class clazz = Class.forName("java.JavaBasicTest.Entity.ReflectionPerson");
+        Class clazz = Class.forName("JavaBasicTest.Entity.ReflectionPerson");
         Constructor c = clazz.getConstructor(null);
         ReflectionPerson p = (ReflectionPerson) c.newInstance();
         System.out.println("\n");
@@ -134,7 +134,7 @@ public class ReflectionBasic {
     @Test
     // test get fields
     public void testOtherFunctions() throws Exception {
-        Class clazz = Class.forName("java.JavaBasicTest.Entity.ReflectionPerson");
+        Class clazz = Class.forName("JavaBasicTest.Entity.ReflectionPerson");
 //        Constructor c = clazz.getConstructor(null);
 //        ReflectionPerson p = (ReflectionPerson) c.newInstance();
         System.out.println("\n");

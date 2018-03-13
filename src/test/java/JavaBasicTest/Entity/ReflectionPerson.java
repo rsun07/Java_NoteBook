@@ -1,4 +1,4 @@
-package java.JavaBasicTest.Entity;
+package JavaBasicTest.Entity;
 
 import java.util.Arrays;
 import java.util.List;

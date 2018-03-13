@@ -1,4 +1,4 @@
-package java.JavaBasicTest.String;
+package JavaBasicTest.String;
 
 import org.junit.Assert;
 import org.junit.Test;

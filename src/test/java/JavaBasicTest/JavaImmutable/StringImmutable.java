@@ -1,4 +1,4 @@
-package java.JavaBasicTest.JavaImmutable;
+package JavaBasicTest.JavaImmutable;
 
 import org.junit.Test;
 

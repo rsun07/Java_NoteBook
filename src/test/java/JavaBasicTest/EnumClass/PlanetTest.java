@@ -1,9 +1,7 @@
-package java.JavaBasicTest.EnumClass;
+package JavaBasicTest.EnumClass;
 
 
 import org.junit.Test;
-
-import java.util.EnumMap;
 
 public class PlanetTest {
 
