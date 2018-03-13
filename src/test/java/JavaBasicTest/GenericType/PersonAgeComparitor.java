@@ -1,6 +1,6 @@
-package java.JavaBasicTest.GenericType;
+package JavaBasicTest.GenericType;
 
-import java.JavaBasicTest.Entity.Person;
+import JavaBasicTest.Entity.Person;
 
 import java.util.Comparator;
 

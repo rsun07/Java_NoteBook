@@ -6,6 +6,8 @@ package Java8.LambdaExpression.customizedFunctionalInterface;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.function.Consumer;
+
 public class CustomizedFunctionalInterface {
 
     /**
@@ -53,5 +55,24 @@ public class CustomizedFunctionalInterface {
     public void strTrimAndToUpperCase() {
         String result = strHandler(this.inputStr, str -> str.trim().toUpperCase());
         System.out.println(result);
+    }
+
+
+
+    @Test
+    public void testMyFunctionalInterface() {
+        String s = combine(1, 4.5, "+", MyFunctionalInterface::combineThree);
+        print(s, System.out::println);
+
+        // non-static method cannot be refer from a static context
+//        s = combine(2, 6, "-", MyFunctionalInterface::combineThreeDefault);
+    }
+
+    private String combine(Integer i, Double d, String s, MyFunctionalInterface myFunctionalInterface) {
+        return myFunctionalInterface.myMethod(i, d, s);
+    }
+
+    private <T> void print(T t, Consumer<T> consumerFunction) {
+        consumerFunction.accept(t);
     }
 }

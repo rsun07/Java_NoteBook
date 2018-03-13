@@ -1,8 +1,8 @@
-package java.JavaBasicTest.GenericType;
+package JavaBasicTest.GenericType;
 
-import java.JavaBasicTest.Entity.Person;
-import java.JavaBasicTest.Entity.Student;
-import java.JavaBasicTest.Entity.Worker;
+import JavaBasicTest.Entity.Person;
+import JavaBasicTest.Entity.Student;
+import JavaBasicTest.Entity.Worker;
 import org.junit.Test;
 
 import java.util.*;

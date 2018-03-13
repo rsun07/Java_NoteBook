@@ -1,4 +1,4 @@
-package java.JavaBasicTest.Entity;
+package JavaBasicTest.Entity;
 
 public class Student extends Person {
     public Student(int age, String name) {

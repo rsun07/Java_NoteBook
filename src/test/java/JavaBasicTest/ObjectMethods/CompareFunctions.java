@@ -1,7 +1,7 @@
-package java.JavaBasicTest.ObjectMethods;
+package JavaBasicTest.ObjectMethods;
 
-import java.JavaBasicTest.GenericType.PersonAgeComparitor;
-import java.JavaBasicTest.Entity.Person;
+import JavaBasicTest.GenericType.PersonAgeComparitor;
+import JavaBasicTest.Entity.Person;
 
 import java.util.Arrays;
 import java.util.List;

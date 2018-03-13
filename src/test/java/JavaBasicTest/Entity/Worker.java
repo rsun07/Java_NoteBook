@@ -1,4 +1,4 @@
-package java.JavaBasicTest.Entity;
+package JavaBasicTest.Entity;
 
 public class Worker extends Person {
     public Worker(int age, String name) {
