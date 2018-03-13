@@ -1,4 +1,4 @@
-package Java8.LambdaExpression.customizedFunctionalInterface;
+package Java8.LambdaExpression.customized_functional_interface;
 
 // define a functional interface by myself
 // functional interface can only has one single method

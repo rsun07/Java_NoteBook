@@ -1,4 +1,4 @@
-package Java8.LambdaExpression.customizedFunctionalInterface;
+package Java8.LambdaExpression.customized_functional_interface;
 
 class StrTrim implements StrOperation {
     @Override
