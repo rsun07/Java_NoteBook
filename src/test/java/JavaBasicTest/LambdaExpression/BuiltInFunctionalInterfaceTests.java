@@ -1,4 +1,4 @@
-package java.JavaBasicTest.LambdaExpression;
+package JavaBasicTest.LambdaExpression;
 
 import org.junit.Test;
 
@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
-public class FunctionalInterfaceTests {
+public class BuiltInFunctionalInterfaceTests {
 
 
     private <T> void print(T t, Consumer<T> consumerFunction) {
