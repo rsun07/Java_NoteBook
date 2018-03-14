@@ -2,10 +2,12 @@ package Java8.JavaDate;
 
 import org.junit.Test;
 
+import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Period;
 import java.time.ZoneId;
 
 public class LocalDateAndTimeTest {
@@ -70,6 +72,29 @@ public class LocalDateAndTimeTest {
     @Test
     public void testLocalDateTimeImmutable() {
         LocalDateTime localDateTime = LocalDateTime.of(1990, 3, 28, 22, 58, 59);
+    }
 
+    // Duration : the gap between two time
+    @Test
+    public void testDuration() {
+        LocalTime time1 = LocalTime.now();
+
+        LocalTime time2 = LocalTime.now();
+
+        Duration duration = Duration.between(time1, time2);
+
+        System.out.println(duration.getNano());
+        System.out.println(duration.toMillis());
+    }
+
+    // Period : the gap between two dates
+    @Test
+    public void testPeriod() {
+        LocalDate now = LocalDate.now();
+
+        LocalDate date = LocalDate.of(1990, 3, 28);
+
+        Period period = Period.between(date, now);
+        System.out.println(period.getYears());
     }
 }
