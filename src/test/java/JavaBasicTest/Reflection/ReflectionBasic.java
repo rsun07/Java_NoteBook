@@ -1,6 +1,6 @@
 package JavaBasicTest.Reflection;
 
-import JavaBasicTest.Entity.ReflectionPerson;
+import JavaBasicTest.entity.ReflectionPerson;
 import org.junit.Test;
 
 import java.lang.reflect.Constructor;
@@ -19,7 +19,7 @@ public class ReflectionBasic {
         IllegalAccessException, InvocationTargetException, InstantiationException {
 
         // use the 'copy reference to get the address'
-        Class clazz = Class.forName("JavaBasicTest.Entity.ReflectionPerson");
+        Class clazz = Class.forName("JavaBasicTest.entity.ReflectionPerson");
 
 
         Constructor c1 = clazz.getConstructor(null);
@@ -49,7 +49,7 @@ public class ReflectionBasic {
 
         Constructor c4 = clazz.getDeclaredConstructor(List.class);
         // without this line to brute force it
-        // java.lang.IllegalAccessException: Class JavaBasicTest.Reflection.ReflectionBasic can not access a member of class JavaBasicTest.Entity.ReflectionPerson with modifiers "private"
+        // java.lang.IllegalAccessException: Class JavaBasicTest.Reflection.ReflectionBasic can not access a member of class JavaBasicTest.entity.ReflectionPerson with modifiers "private"
         c4.setAccessible(true);
         ReflectionPerson p4 = (ReflectionPerson) c4.newInstance(new ArrayList<>());
         System.out.println(p4.name);
@@ -62,7 +62,7 @@ public class ReflectionBasic {
     public void testFunctions() throws NoSuchMethodException, ClassNotFoundException,
         IllegalAccessException, InvocationTargetException, InstantiationException {
 
-        Class clazz = Class.forName("JavaBasicTest.Entity.ReflectionPerson");
+        Class clazz = Class.forName("JavaBasicTest.entity.ReflectionPerson");
         Constructor c = clazz.getConstructor(null);
         ReflectionPerson p = (ReflectionPerson) c.newInstance();
         System.out.println("\n");
@@ -94,7 +94,7 @@ public class ReflectionBasic {
     @Test
     // test get fields
     public void testFields() throws Exception {
-        Class clazz = Class.forName("JavaBasicTest.Entity.ReflectionPerson");
+        Class clazz = Class.forName("JavaBasicTest.entity.ReflectionPerson");
         Constructor c = clazz.getConstructor(null);
         ReflectionPerson p = (ReflectionPerson) c.newInstance();
         System.out.println("\n");
@@ -134,7 +134,7 @@ public class ReflectionBasic {
     @Test
     // test get fields
     public void testOtherFunctions() throws Exception {
-        Class clazz = Class.forName("JavaBasicTest.Entity.ReflectionPerson");
+        Class clazz = Class.forName("JavaBasicTest.entity.ReflectionPerson");
 //        Constructor c = clazz.getConstructor(null);
 //        ReflectionPerson p = (ReflectionPerson) c.newInstance();
         System.out.println("\n");
