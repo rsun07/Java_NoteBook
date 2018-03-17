@@ -24,6 +24,8 @@ public class BasicTest extends TestCase {
      */
 
     public void testBasicAssert() {
+        System.out.println("Run basic assert!");
+
         int actual = 3 - 2;
         int expect = 1;
         Assert.assertEquals(expect, actual);
@@ -31,28 +33,11 @@ public class BasicTest extends TestCase {
 
 
     public void testDoubleAssert() {
+        System.out.println("Run double assert!");
+
         double actual = 12.3 - 2.79;
         double expect = 9.51;
         double delta = 0.000001;
         Assert.assertEquals(actual, expect, delta);
-    }
-
-
-    public void testException() {
-        int result = 0;
-        Throwable t = null;
-
-        try {
-            result = 1/0;
-
-            // Because Developer already know, the test cannot reach this line
-            // If it reaches, the test fails.
-            Assert.fail();
-        } catch(Exception e) {
-            t = e;
-        }
-
-        Assert.assertEquals(ArithmeticException.class, t.getClass());
-        Assert.assertEquals("/ by zero", t.getMessage());
     }
 }
