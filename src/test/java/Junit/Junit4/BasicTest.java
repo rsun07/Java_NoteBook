@@ -48,7 +48,12 @@ public class BasicTest {
         int result = 1/0;
     }
 
-    @Ignore
+    @Test(timeout = 100)
+    public void testTimeout() {
+        System.out.println("----Run timeout test!");
+    }
+
+    @Ignore("Ignore for testing ignore annotation\n")
     @Test
     public void testIgnore() {
         System.out.println("---- Run ignore test!");
