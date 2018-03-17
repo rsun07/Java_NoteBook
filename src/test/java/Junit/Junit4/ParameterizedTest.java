@@ -2,6 +2,7 @@ package Junit.Junit4;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -14,6 +15,11 @@ import java.util.Collection;
 // which won't apply all the inputs
 @RunWith(Parameterized.class)
 public class ParameterizedTest {
+
+    @BeforeClass
+    public static void beforeClass() {
+        System.out.println("\n\nRunning Parameterized Test\n");
+    }
 
     private int expected;
     private int input1;
