@@ -11,7 +11,12 @@ class AnnotationApplier {
 
     @MyAnnotation(values = {"myAnnotation", "myannotation", "my_annotation"},
             myAnnotationType = MyAnnotation.MyAnnotationType.ANNOTATION)
-    void myAnnotationMethod() {
+    public void myAnnotationMethod() {
+        System.out.println("Running my annotation method");
+    }
+
+    @MyAnnotation(values = "myAnnotation")
+    public void myAnnotationMethodDefaultType() {
         System.out.println("Running my annotation method");
     }
 }

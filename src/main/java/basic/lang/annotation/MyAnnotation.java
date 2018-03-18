@@ -13,14 +13,8 @@ public @interface MyAnnotation {
     MyAnnotationType myAnnotationType() default MyAnnotationType.OTHER;
 
     enum MyAnnotationType {
-        TYPE("type"),
-        ANNOTATION("annotation"),
-        OTHER("other");
-
-        private String type;
-
-        MyAnnotationType(String type) {
-            this.type = type;
-        }
+        TYPE,
+        ANNOTATION,
+        OTHER
     }
 }
