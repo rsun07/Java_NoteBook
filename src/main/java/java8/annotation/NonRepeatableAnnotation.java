@@ -1,6 +1,5 @@
 package java8.annotation;
 
-import java.lang.annotation.Repeatable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
@@ -12,11 +11,10 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.ElementType.TYPE;
 
-@Repeatable(MyAnnotations.class)
 
-@Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE})
+@Target({TYPE, METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MyAnnotation {
+public @interface NonRepeatableAnnotation {
 
-    String value() default "My annotation";
+    String value();
 }
