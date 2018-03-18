@@ -1,4 +1,4 @@
-package basic.io;
+package basic.io.file;
 
 import org.junit.Assert;
 import org.junit.Test;
