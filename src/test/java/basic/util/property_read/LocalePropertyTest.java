@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.text.MessageFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -19,7 +18,7 @@ public class LocalePropertyTest {
      */
     @Test
     public void testDefaultLocaleProperty() {
-        ResourceBundle rb = ResourceBundle.getBundle("locale_message/message");
+        ResourceBundle rb = ResourceBundle.getBundle("property_read/message");
 
         Assert.assertEquals("en_US", rb.getLocale().toString());
         System.out.println(rb.getLocale());
@@ -36,7 +35,7 @@ public class LocalePropertyTest {
         // the bundle name is still message!!
         // no need to add "_zh_CN"
         Locale locale = new Locale("zh", "CN");
-        ResourceBundle rb = ResourceBundle.getBundle("locale_message/message", locale);
+        ResourceBundle rb = ResourceBundle.getBundle("property_read/message", locale);
 
         Assert.assertEquals("zh_CN", rb.getLocale().toString());
         Assert.assertEquals("Chinese (China)", rb.getLocale().getDisplayName());
@@ -49,7 +48,7 @@ public class LocalePropertyTest {
     @Test
     public void testNonExistLocalProperty() {
         Locale locale = new Locale("it_IT");
-        ResourceBundle rb = ResourceBundle.getBundle("locale_message/message", locale);
+        ResourceBundle rb = ResourceBundle.getBundle("property_read/message", locale);
 
         // Will use the default language first rather than default
         Assert.assertEquals("en_US", rb.getLocale().toString());
