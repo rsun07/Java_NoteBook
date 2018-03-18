@@ -1,4 +1,4 @@
-package basic.io.byte_stream;
+package basic.io.char_stream;
 
 import basic.io.Utils;
 import org.junit.After;
@@ -8,16 +8,14 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.Reader;
 
-public class FileInputStreamTest {
+public class FileReaderTest {
     private static File file;
-    private static InputStream inputStream;
+    private static Reader reader;
 
     @BeforeClass
     public static void init() {
@@ -30,18 +28,18 @@ public class FileInputStreamTest {
 
     @Before
     public void setUp() throws FileNotFoundException {
-        inputStream = new FileInputStream(file);
+        reader = new FileReader(file);
     }
 
     @After
     public void tearDown() throws IOException {
-        inputStream.close();
+        reader.close();
     }
 
     @Test
     public void testReadByByteArray() throws IOException {
-        byte[] data = new byte[256];
-        int numOfBytes = inputStream.read(data);
+        char[] data = new char[256];
+        int numOfBytes = reader.read(data);
 
         assertAndOutput(numOfBytes, data);
     }
@@ -50,12 +48,12 @@ public class FileInputStreamTest {
     // Recommended
     @Test
     public void testOutputPartialData() throws IOException {
-        byte[] data = new byte[256];
+        char[] data = new char[256];
         int temp = 0;
         int index = 0;
 
-        while( (temp = inputStream.read()) != -1) {
-            data[index++] = (byte) temp;
+        while( (temp = reader.read()) != -1) {
+            data[index++] = (char) temp;
         }
 
         assertAndOutput(index, data);
@@ -64,21 +62,21 @@ public class FileInputStreamTest {
     // Rarely used in practice
     @Test
     public void testReadByByteDoWhile() throws IOException {
-        byte[] data = new byte[256];
+        char[] data = new char[256];
         int temp = 0;
         int index = 0;
 
         do {
-            temp = inputStream.read();
+            temp = reader.read();
             if (temp != -1) {
-                data[index++] = (byte) temp;
+                data[index++] = (char) temp;
             }
         } while (temp != -1);
 
         assertAndOutput(index, data);
     }
 
-    private void assertAndOutput(int length, byte[] data) {
+    private void assertAndOutput(int length, char[] data) {
         Assert.assertEquals(236, length);
         System.out.println(length);
 
