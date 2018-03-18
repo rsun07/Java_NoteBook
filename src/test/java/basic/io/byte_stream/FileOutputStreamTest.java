@@ -1,5 +1,6 @@
 package basic.io.byte_stream;
 
+import basic.io.Utils;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -11,17 +12,12 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 public class FileOutputStreamTest {
-    private static final String FILE_PATH = "." + File.separator + "src" + File.separator + "main" + File.separator +
-            "resources" + File.separator + "io" + File.separator + "byte_stream" + File.separator;
-
-    private static final String FILE_NAME = "file_output_stream";
-
     private static File file;
     private static OutputStream outputStream;
 
     @BeforeClass
     public static void init() {
-        File fileInit = new File(FILE_PATH + FILE_NAME);
+        File fileInit = new File(Utils.FILE_PATH + Utils.OUTPUT_FILE_NAME);
 
         if (! fileInit.getParentFile().exists()) {
             fileInit.mkdirs();
