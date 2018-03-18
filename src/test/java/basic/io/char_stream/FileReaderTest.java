@@ -13,6 +13,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 
+// File Reader's code looks almost the same as FileInputStream
+// except the fact that input type change from byte[] to char[]
+
+// FileReader doesn't provide read a String option
+// in case of the input is so large that exceed the memory limit
 public class FileReaderTest {
     private static File file;
     private static Reader reader;
