@@ -10,8 +10,8 @@ public class AnnotationApplier {
     }
 
     @RepeatableAnnotation
-    @RepeatableAnnotation
-    @RepeatableAnnotation
+    @RepeatableAnnotation("Repeatable Annotation 2")
+    @RepeatableAnnotation("repeatable_annotation_3")
     public void repeatableAnnotation() {
 
     }
