@@ -35,7 +35,8 @@ public class ParallelStreamTest {
     }
 
 
-    private static final long CALCULATOR_END_INPUT = 100000000000L;
+    // private static final long CALCULATOR_END_INPUT = 100000000000L;
+    private static final long CALCULATOR_END_INPUT = 100L;
 
     @Test
     public void testForkJoin() {

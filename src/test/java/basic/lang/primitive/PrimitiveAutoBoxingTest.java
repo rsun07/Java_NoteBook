@@ -1,10 +1,12 @@
 package basic.lang.primitive;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class PrimitiveAutoBoxingTest {
 
     @Test
+    @Ignore
     public void slowBecauseLong() {
         // 7.587 s
         Long sum = 0L;
@@ -16,6 +18,7 @@ public class PrimitiveAutoBoxingTest {
     }
 
     @Test
+    @Ignore
     public void fasterBecause_long() {
         // 799 ms
         long sum = 0L;

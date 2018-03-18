@@ -13,7 +13,7 @@ public class WeakHashMapTest {
         WeakHashMap<Integer, String> map = new WeakHashMap<>();
         map.put(1, "s");
 
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100; i++) {
             System.gc();
             if (map.size() != 0) {
                 System.out.println("At iteration " + i + " the map still holds the reference on someDataObject");
@@ -41,7 +41,7 @@ public class WeakHashMapTest {
 
         System.gc();
         Runtime.getRuntime().gc();
-        Thread.sleep(5*1000);
+        Thread.sleep(100);
 
         System.out.println("After: hash map value: "+hashMap.get("keyHashMap")+" and weak hash map value: "+weakHashMap.get("keyWeakHashMap"));
     }

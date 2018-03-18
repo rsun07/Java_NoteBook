@@ -2,6 +2,7 @@ package java8.stream.Advanced;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -14,10 +15,26 @@ import java.util.stream.Collectors;
 
 public class ToMapTest {
 
-    @Test
+    private List<Person> persons;
+
+    @Before
+    public void setUp() {
+        persons =  Arrays.asList(
+                new Person("John", 22, "CA"),
+                new Person("Smith", 22, "CA"),
+                new Person("Marry", 32, "CA"),
+                new Person("Zina", 32, "CA"),
+                new Person("Mike", 32, "NY"),
+                new Person("Pi", 22, "PA"),
+                new Person("Kobe", 32, "NJ"),
+                new Person("Lee", 28, "WA")
+        );
+    }
+
+    @Test(expected = IllegalStateException.class)
     public void testSimpleToMap() {
         Map<Integer, Person> result =
-            getPersons().stream().collect(
+                persons.stream().collect(
                     // cannot have duplicate key
                     // in another words, cannot have duplicate key with different value
                     /* the 'e' here means the stream element, each instance of Person in this method */
@@ -32,7 +49,7 @@ public class ToMapTest {
     @Test
     public void testToMapThreeVariable() {
         Map<String, Person> result =
-                getPersons().stream().collect(
+                persons.stream().collect(
                         // the toMap here means the following:
                         // Construct a new Map, the key is the 'state'
                         // the value is the Person's instance
@@ -58,7 +75,7 @@ public class ToMapTest {
     @Test
     public void testToMapFourVariable() {
         Map<String, Person> result =
-                getPersons().stream().collect(
+                persons.stream().collect(
                         // the toMap here means the following:
                         // Construct a new Map, the key is the 'state'
                         // the value is the Person's instance
@@ -86,36 +103,23 @@ public class ToMapTest {
     public void testToMapGroupingBy() {
         System.out.println("\n\n");
         Map<String, List<Person>> result =
-                getPersons().stream().collect(
+                persons.stream().collect(
                             Collectors.groupingBy(Person::getState));
         System.out.println(result);
 
 
         System.out.println("\n\n");
         Map<Integer, Long> result2 =
-                getPersons().stream().collect(
+                persons.stream().collect(
                         Collectors.groupingBy(Person::getAge, Collectors.counting()));
         System.out.println(result2);
 
 
         System.out.println("\n\n");
         Map<Integer, List<Person>> result3 =
-                getPersons().stream().collect(
+                persons.stream().collect(
                         Collectors.groupingBy(Person::getAge));
         System.out.println(result3);
-    }
-
-    private List<Person> getPersons() {
-        return Arrays.asList(
-                new Person("John", 22, "CA"),
-                new Person("Smith", 22, "CA"),
-                new Person("Marry", 32, "CA"),
-                new Person("Zina", 32, "CA"),
-                new Person("Mike", 32, "NY"),
-                new Person("Pi", 22, "PA"),
-                new Person("Kobe", 32, "NJ"),
-                new Person("Lee", 28, "WA")
-        );
     }
 
     @Data

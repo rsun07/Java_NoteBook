@@ -1,5 +1,6 @@
 package java8.stream.GenerateStream;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Random;
@@ -50,7 +51,8 @@ public class generate_supplier_Test {
     // This means only for every single element in the stream, not the who stream
     // Each element is an input, for each element, it won't operation during the intermediate pipeline, it execute until the terminal operation
     // But for the whole stream, the first element may already executed by the terminal operation but the 100th element haven't go into the stream
-    @Test
+    @Test(timeout = 1000)
+    @Ignore
     public void testInfiniteStream() {
         Stream.generate(() -> new Random().nextInt(100))
                 .forEach(i -> print(i));
@@ -62,7 +64,7 @@ public class generate_supplier_Test {
 
     private static void print(int i) {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(500);
             System.out.println(Thread.currentThread() + " print: " + i);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -78,7 +80,8 @@ public class generate_supplier_Test {
         }
     }
 
-    @Test
+    @Test(timeout = 1000)
+    @Ignore
     public void testInfiniteParallelStream() {
         Stream.generate(() -> new Random().nextInt(100))
                 .parallel().forEach(generate_supplier_Test::print2);
