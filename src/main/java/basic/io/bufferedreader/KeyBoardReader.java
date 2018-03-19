@@ -27,5 +27,7 @@ public class KeyBoardReader {
         }
         
         System.out.println("Input age is: " + Integer.valueOf(line));
+
+        br.close();
     }
 }
