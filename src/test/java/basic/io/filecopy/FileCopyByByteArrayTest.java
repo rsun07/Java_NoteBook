@@ -8,21 +8,23 @@ import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
 
-import static basic.io.Utils.*;
+import static basic.io.Utils.FILE_COPY_DEST_NAME;
+import static basic.io.Utils.FILE_COPY_DEST_PATH;
+import static basic.io.Utils.FILE_COPY_SOURCE_NAME;
+import static basic.io.Utils.FILE_COPY_SOURCE_PATH;
 
-public class FileCopyByByteTest {
-
+public class FileCopyByByteArrayTest {
     @BeforeClass
     public static void setUp() {
         File destFile = new File(FILE_COPY_DEST_PATH + File.separator + FILE_COPY_DEST_NAME);
-        // destFile.deleteOnExit();
+        destFile.deleteOnExit();
     }
 
     @Test
     public void test() throws IOException {
         Instant start = Instant.now();
 
-        FileCopy fileCopier = new FileCopyByByte();
+        FileCopy fileCopier = new FileCopyByByteArray();
         fileCopier.copy(FILE_COPY_SOURCE_PATH, FILE_COPY_SOURCE_NAME, FILE_COPY_DEST_PATH, FILE_COPY_DEST_NAME);
 
         Instant end = Instant.now();
