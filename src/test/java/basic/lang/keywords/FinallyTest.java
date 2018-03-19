@@ -2,7 +2,7 @@ package basic.lang.keywords;
 
 import org.junit.Test;
 
-public class Finalizer {
+public class FinallyTest {
     @Test(expected = RuntimeException.class)
     public void testException() {
         try {
@@ -12,7 +12,7 @@ public class Finalizer {
             System.out.println(Thread.currentThread() + "Catch thread");
             throw e;
         } finally {
-            System.out.println(Thread.currentThread() + "Finalizer thread");
+            System.out.println(Thread.currentThread() + "FinallyTest thread");
         }
     }
 
@@ -25,7 +25,7 @@ public class Finalizer {
             System.out.println(Thread.currentThread() + "Catch thread");
             throw e;
         } finally {
-            System.out.println(Thread.currentThread() + "Finalizer thread");
+            System.out.println(Thread.currentThread() + "FinallyTest thread");
         }
     }
 
@@ -38,7 +38,7 @@ public class Finalizer {
             System.out.println(Thread.currentThread() + "Catch thread");
             throw e;
         } finally {
-            System.out.println(Thread.currentThread() + "Finalizer thread");
+            System.out.println(Thread.currentThread() + "FinallyTest thread");
         }
     }
 }

@@ -1,4 +1,4 @@
-package basic.lang.keywords;
+package basic.lang.inheritance;
 
 
 import org.junit.Test;

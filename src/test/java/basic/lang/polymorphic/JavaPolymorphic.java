@@ -1,4 +1,4 @@
-package basic.lang.keywords;
+package basic.lang.polymorphic;
 
 public class JavaPolymorphic {
     public static void main(String args[]) {
