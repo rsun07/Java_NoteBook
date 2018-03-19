@@ -27,4 +27,10 @@ public class Utils {
     public static final String TWO_FILE_READ_PATH =  "." + File.separator + "src" + File.separator + "main" + File.separator +
             "resources" + File.separator + "io" + File.separator + "memory_stream" + File.separator;
 
+    // For Scanner test
+    public static final String SCANNER_FILE_PATH =  "." + File.separator + "src" + File.separator + "main" + File.separator +
+            "resources" + File.separator + "io" + File.separator + "scanner" + File.separator;
+
+    public static final String SCANNER_FILE_NAME = "file";
+
 }

@@ -6,7 +6,7 @@ import basic.io.scanner.strategy.ScannerStratety;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class ScanNextPattern implements ScannerStratety {
+class ScanNextPattern implements ScannerStratety {
     // Not a strong pattern,
     // For example, 9805-96-88 still valids this pattern
     private static final String BIRTHDATE_PATTERN = "^\\d{4}-\\d{2}-\\d{2}$";

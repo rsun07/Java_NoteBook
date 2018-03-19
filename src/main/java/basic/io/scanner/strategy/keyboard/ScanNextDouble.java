@@ -6,7 +6,7 @@ import basic.io.scanner.strategy.ScannerStratety;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ScanNextDouble implements ScannerStratety {
+class ScanNextDouble implements ScannerStratety {
     @Override
     public void scan(Scanner scanner) {
         Double num = null;

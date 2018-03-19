@@ -5,7 +5,7 @@ import basic.io.scanner.strategy.ScannerStratety;
 
 import java.util.Scanner;
 
-public class ScanNextLine implements ScannerStratety {
+class ScanNextLine implements ScannerStratety {
     @Override
     public void scan(Scanner scanner) {
         StringBuilder sb = new StringBuilder();

@@ -2,6 +2,9 @@ package basic.io.scanner;
 
 import basic.io.scanner.strategy.ScannerStratety;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ScannerImpl {
@@ -18,5 +21,19 @@ public class ScannerImpl {
         stratety.scan(scanner);
         scanner.close();
         System.out.println("\n\nScanner completed!");
+    }
+
+    public void scanFilePrintToConsole(String filePath, String fileName) throws FileNotFoundException {
+        String path = filePath + File.separator + fileName;
+        File file = new File(path);
+        if (!file.exists()) {
+            System.exit(1);
+        }
+        Scanner scanner = new Scanner(new FileInputStream(file));
+
+        System.out.println("Start to scan file: " + path);
+        stratety.scan(scanner);
+        System.out.println("\nScan completed: ");
+
     }
 }
