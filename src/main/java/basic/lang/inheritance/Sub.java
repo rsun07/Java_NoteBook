@@ -1,6 +1,6 @@
 package basic.lang.inheritance;
 
-public class Sub extends Super {
+class Sub extends Super {
     Sub() {
         // In sub class, there is a hidden super constructor
         // super();

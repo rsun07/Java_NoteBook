@@ -1,6 +1,6 @@
 package basic.lang.inheritance;
 
-public class SuperNoConstructor {
+class SuperNoConstructor {
     private SuperNoConstructor() {
 
     }
