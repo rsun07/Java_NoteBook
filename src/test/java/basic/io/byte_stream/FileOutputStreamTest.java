@@ -2,7 +2,6 @@ package basic.io.byte_stream;
 
 import basic.io.Utils;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
