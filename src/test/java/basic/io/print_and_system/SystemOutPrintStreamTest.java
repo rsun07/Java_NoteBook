@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.util.function.Consumer;
 
 public class SystemOutPrintStreamTest {
 
@@ -25,5 +26,11 @@ public class SystemOutPrintStreamTest {
 
         // Same reason as above
         // printStream.close();
+    }
+
+    @Test
+    public void testFunctionalInterface() {
+        Consumer<String> output = System.out::println;
+        output.accept("Hello World!");
     }
 }
