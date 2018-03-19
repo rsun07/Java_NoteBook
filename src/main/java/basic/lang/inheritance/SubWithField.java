@@ -1,10 +1,10 @@
 package basic.lang.inheritance;
 
-class SubWithName extends SuperWithName {
+class SubWithField extends SuperWithField {
     int num = 888;
     String name = "Sub";
 
-    SubWithName() {
+    SubWithField() {
         // in fact, super() constructor will be called here
         //super();
         System.out.println("Sub constructor : num = " + num);

@@ -7,7 +7,13 @@ public class MethodAndFieldTest {
     @Test
     @Ignore("Demo test, no assert")
     public void testConstructorWithField() {
-        new SubWithName();
+        new SubWithField();
+    }
+
+    @Test
+    @Ignore("Demo test, no assert")
+    public void testStaticField() {
+        new SubStatic();
     }
 
     @Test

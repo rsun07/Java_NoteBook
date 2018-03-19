@@ -22,11 +22,11 @@ package basic.lang.inheritance;
  *    Sub  show Super number:  888
  *    }
  */
-class SuperWithName {
+class SuperWithField {
     int num = 8;
     String name = "Super";
 
-    SuperWithName() {
+    SuperWithField() {
         showSuper();
         System.out.println("Super constructor : num = " + num);
         show();
