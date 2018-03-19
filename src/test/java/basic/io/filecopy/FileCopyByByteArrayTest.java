@@ -24,8 +24,12 @@ public class FileCopyByByteArrayTest {
     public void test() throws IOException {
         Instant start = Instant.now();
 
-        FileCopy fileCopier = new FileCopyByByteArray();
-        fileCopier.copy(FILE_COPY_SOURCE_PATH, FILE_COPY_SOURCE_NAME, FILE_COPY_DEST_PATH, FILE_COPY_DEST_NAME);
+        FileCopier fileCopier = new FileCopierImpl(
+                FILE_COPY_SOURCE_PATH + File.separator + FILE_COPY_SOURCE_NAME,
+                FILE_COPY_DEST_PATH + File.separator + FILE_COPY_DEST_NAME,
+                new FileCopyByByte()
+        );
+        fileCopier.copy();
 
         Instant end = Instant.now();
 
