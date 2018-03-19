@@ -22,4 +22,9 @@ public class Utils {
     public static final String FILE_COPY_SOURCE_NAME = "source_file.jpg";
 
     public static final String FILE_COPY_DEST_NAME = "copy_dest_file";
+
+    // For two File read test in memory stream
+    public static final String TWO_FILE_READ_PATH =  "." + File.separator + "src" + File.separator + "main" + File.separator +
+            "resources" + File.separator + "io" + File.separator + "memory_stream" + File.separator;
+
 }
