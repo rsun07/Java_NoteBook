@@ -1,4 +1,4 @@
-package basic.io.scanner;
+package basic.io.scanner.strategy;
 
 import java.util.Scanner;
 

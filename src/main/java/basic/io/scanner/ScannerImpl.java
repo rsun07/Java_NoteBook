@@ -1,15 +1,17 @@
 package basic.io.scanner;
 
+import basic.io.scanner.strategy.ScannerStratety;
+
 import java.util.Scanner;
 
-class ScannerImpl {
+public class ScannerImpl {
     private ScannerStratety stratety;
 
-    ScannerImpl(ScannerStratety stratety) {
+    public ScannerImpl(ScannerStratety stratety) {
         this.stratety = stratety;
     }
 
-    void scanKeyBoardPrintToConsole() {
+    public void scanKeyBoardPrintToConsole() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Please input from keyboard:\n");

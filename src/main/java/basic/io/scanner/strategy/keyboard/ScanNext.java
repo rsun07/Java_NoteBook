@@ -1,8 +1,11 @@
-package basic.io.scanner;
+package basic.io.scanner.strategy.keyboard;
+
+import basic.io.scanner.ScannerImpl;
+import basic.io.scanner.strategy.ScannerStratety;
 
 import java.util.Scanner;
 
-public class ScanAnyKeyboard implements ScannerStratety {
+public class ScanNext implements ScannerStratety {
     @Override
     public void scan(Scanner scanner) {
         StringBuilder sb = new StringBuilder();
@@ -21,7 +24,7 @@ public class ScanAnyKeyboard implements ScannerStratety {
     }
 
     public static void main(String[] args) {
-        ScannerImpl scanner = new ScannerImpl(new ScanAnyKeyboard());
+        ScannerImpl scanner = new ScannerImpl(new ScanNext());
         scanner.scanKeyBoardPrintToConsole();
     }
 }
