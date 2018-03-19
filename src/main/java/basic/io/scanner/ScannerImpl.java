@@ -16,6 +16,7 @@ public class ScannerImpl {
 
         System.out.println("Please input from keyboard:\n");
         stratety.scan(scanner);
+        scanner.close();
         System.out.println("\n\nScanner completed!");
     }
 }
