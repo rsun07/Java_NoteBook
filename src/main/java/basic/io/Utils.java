@@ -33,4 +33,9 @@ public class Utils {
 
     public static final String SCANNER_FILE_NAME = "file";
 
+    // for Serialization test
+    public static final String SERIALIZATION_FILE_PATH =  "." + File.separator + "src" + File.separator + "main" + File.separator +
+            "resources" + File.separator + "io" + File.separator + "serialization" + File.separator;
+
+    public static final String SERIALIZATION_FILE_NAME = "file";
 }
