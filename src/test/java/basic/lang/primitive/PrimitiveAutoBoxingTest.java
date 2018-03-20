@@ -6,7 +6,7 @@ import org.junit.Test;
 public class PrimitiveAutoBoxingTest {
 
     @Test
-    @Ignore
+    @Ignore("Demo test, no assert")
     public void slowBecauseLong() {
         // 7.587 s
         Long sum = 0L;
@@ -18,7 +18,7 @@ public class PrimitiveAutoBoxingTest {
     }
 
     @Test
-    @Ignore
+    @Ignore("Demo test, no assert")
     public void fasterBecause_long() {
         // 799 ms
         long sum = 0L;

@@ -1,6 +1,6 @@
 package basic.lang.enum_;
 
-// The strategy enum pattern
+// The strategy enum_ pattern
 enum PayrollDay {
     MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY,
     SATURDAY(PayType.WEEKEND), SUNDAY(PayType.WEEKEND);
@@ -14,8 +14,8 @@ enum PayrollDay {
         return payType.pay(minutesWorked, payRate);
     }
 
-    // The strategy enum type
-    // nested enum
+    // The strategy enum_ type
+    // nested enum_
     private enum PayType {
         WEEKDAY {
             int overtimePay(int minsWorked, int payRate) {
