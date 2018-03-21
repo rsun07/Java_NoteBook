@@ -13,12 +13,7 @@ package basic.util.regex;
  *  Example: [123]-456789
  *
  */
-class PhoneNumberMatcher implements PatternMatcher {
-
-    private static final String DIGIT_PATTERN = "[1-9][0-9]{6,7}";
-    private static final String AREA_CODE_PATTERN = "(((?!000)\\d{3})|(?!0000)\\d{4})";
-    private static final String PATTERN = String.format("(((\\[%s\\])|%s)-)?%s", AREA_CODE_PATTERN, AREA_CODE_PATTERN, DIGIT_PATTERN);
-
+class PhoneNumberMatcher extends PatternMatcherImpl {
 
     /*
      * Problem solving steps:
@@ -32,10 +27,12 @@ class PhoneNumberMatcher implements PatternMatcher {
      *   Be careful, both bracket must appear at the same time.
      *   ((\\[{area_code_pattern}\\])|{area_code_pattern})-)? + {digit_pattern}
      *
-     *
      */
-    @Override
-    public boolean match(String input) {
-        return input.matches(PATTERN);
+    private static final String DIGIT_PATTERN = "[1-9][0-9]{6,7}";
+    private static final String AREA_CODE_PATTERN = "(((?!000)\\d{3})|(?!0000)\\d{4})";
+    private static final String PATTERN = String.format("(((\\[%s\\])|%s)-)?%s", AREA_CODE_PATTERN, AREA_CODE_PATTERN, DIGIT_PATTERN);
+
+    PhoneNumberMatcher() {
+        super(PATTERN);
     }
 }
