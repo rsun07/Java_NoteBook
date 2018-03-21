@@ -1,5 +1,5 @@
 package basic.util.regex;
 
-public interface PatternMatcher {
+interface PatternMatcher {
     boolean match(String input);
 }
