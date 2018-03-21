@@ -10,14 +10,14 @@ package basic.util.regex;
  *    area code could start with 0, cannot be all 0
  *  Example: 123-456789
  * 3. area code with bracket
- *  Example: (123)-456789
+ *  Example: [123]-456789
  *
  */
 class PhoneNumberMatcher implements PatternMatcher {
 
     private static final String DIGIT_PATTERN = "[1-9][0-9]{6,7}";
-    private static final String AREA_CODE_PATTERN = "(([0-9]*[1-9][0-9]*){3,4}-)?";
-    private static final String PATTERN = String.format("(\\(%s\\))|%s%s", AREA_CODE_PATTERN, AREA_CODE_PATTERN, DIGIT_PATTERN);
+    private static final String AREA_CODE_PATTERN = "(((?!000)\\d{3})|(?!0000)\\d{4})";
+    private static final String PATTERN = String.format("(((\\[%s\\])|%s)-)?%s", AREA_CODE_PATTERN, AREA_CODE_PATTERN, DIGIT_PATTERN);
 
 
     /*
@@ -25,11 +25,12 @@ class PhoneNumberMatcher implements PatternMatcher {
      * 1. Solving the format 1 first, then iterate.
      *   digit_pattern = [1-9][0-9]{6,7}
      * 2. Add area code
-     *   area_code_pattern = (([0-9]*[1-9][0-9]*){3,4}-)?
+     *   [0-9]*[1-9][0-9]* this represents any digit, cannot all 0. But hard to restrict 3, 4 digits in total
+     *   area_code_pattern = (((?!000)\d{3})|(?!0000)\d{4})
      *   pattern = area_code_pattern + digit_pattern
      * 3. Add bracket
      *   Be careful, both bracket must appear at the same time.
-     *   (\\({area_code_pattern}\\))|{area_code_pattern} + {digit_pattern}
+     *   ((\\[{area_code_pattern}\\])|{area_code_pattern})-)? + {digit_pattern}
      *
      *
      */

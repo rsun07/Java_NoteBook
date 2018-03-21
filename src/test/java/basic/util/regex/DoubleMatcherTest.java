@@ -13,16 +13,15 @@ import static org.hamcrest.CoreMatchers.is;
 
 
 @RunWith(Parameterized.class)
-public class DoubleMatcherTest {
-    private PatternMatcher matcher;
+public class DoubleMatcherTest extends RegexParameterizedTestBase {
+    public DoubleMatcherTest(String input, boolean expect) {
+        super(input, expect);
+    }
 
     @Before
     public void setUp() {
         matcher = new DoubleMatcher();
     }
-
-    private String input;
-    private boolean expect;
 
     @Parameterized.Parameters
     public static Collection<?> prepareDate() {
@@ -47,11 +46,6 @@ public class DoubleMatcherTest {
                 {"00.8", false},
         };
         return Arrays.asList(inputs);
-    }
-
-    public DoubleMatcherTest(String input, boolean expect) {
-        this.input = input;
-        this.expect = expect;
     }
 
     @Test
