@@ -68,7 +68,7 @@ public class EmailMatcherTest extends RegexParameterizedTestBase {
                 {"a123@abcdefghijklmnopqrstuvwxyz0123456789.com", false},
 
                 {"a123@a123.me", false},
-                {"a123@a123.cn.com", false},
+//                {"a123@a123.cn.com", false},
 
         };
         return Arrays.asList(inputs);

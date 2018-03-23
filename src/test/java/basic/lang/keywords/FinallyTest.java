@@ -1,5 +1,6 @@
 package basic.lang.keywords;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class FinallyTest {
@@ -30,6 +31,7 @@ public class FinallyTest {
     }
 
     @Test
+    @Ignore("will block maven running")
     public void testJVMExit() {
         try {
             System.out.println(Thread.currentThread() + "Try thread");

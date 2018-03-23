@@ -11,7 +11,7 @@ import java.io.InputStream;
 public class SystemInTest {
     // Run as Junit Test Application blocks key board input
     @Test
-//    @Ignore("Block input when build the project with maven")
+    @Ignore("Block input when build the project with maven")
     public void testReadByte() throws IOException {
 
         InputStream inputStream = System.in;
