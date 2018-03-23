@@ -77,6 +77,7 @@ public class ConstructsTest {
 
     @Test
     public void testZeroWidthPositiveLookahead() {
+        // pattern meaning: find \\d{2} where just followed by [a-z]{2}
         Pattern pattern = Pattern.compile("\\d{2}(?=[a-z]{2})");
         String input = "a18cc68eee";
         Matcher matcher = pattern.matcher(input);
@@ -108,5 +109,30 @@ public class ConstructsTest {
         // the second match start from the third 8 rather than the fifth 8
         // that's the meaning of "zero width"
         Assert.assertEquals(3, totalMatches);
+    }
+
+    @Test
+    public void testZeroWidthPositiveLookaheadBefore() {
+        // meaning here: could input matches [0-9]{2}?
+        // If could, then please match the [a-z]{2} from the [0-9]{2}
+        // Obviously, no match, because cannot find [a-z] from [0-9]
+        Pattern pattern = Pattern.compile("(?=([0-9]{2}))[a-z]{2}");
+        String input = "88ff88ff88";
+        Matcher matcher = pattern.matcher(input);
+
+        Assert.assertFalse(matcher.find());
+
+        // find 'ff' from \\w{2} matches
+        pattern = Pattern.compile("(?=\\w{2})ff");
+        input = "88ff88dd8ff8";
+        matcher = pattern.matcher(input);
+
+        int totalMatches = 0;
+        while (matcher.find()) {
+            Assert.assertEquals("ff", matcher.group());
+            totalMatches++;
+        }
+
+        Assert.assertEquals(2, totalMatches);
     }
 }
