@@ -74,6 +74,21 @@ public class PatternAndMatcherTest {
     }
 
     @Test
+    public void testFindGroup() {
+        Pattern pattern = Pattern.compile("(\\d)([a-z]{2})");
+        String input = "a1cc8eee";
+        Matcher matcher = pattern.matcher(input);
+
+        // must run matcher.find() first
+        Assert.assertTrue(matcher.find());
+        Assert.assertEquals("1cc", matcher.group());
+
+        // must run matcher.find() again, to match the next group
+        Assert.assertTrue(matcher.find());
+        Assert.assertEquals("8ee", matcher.group());
+    }
+
+    @Test
     public void testMatcherRegion() {
         Pattern pattern = Pattern.compile("\\w*(\\d)([a-z]{2})\\w*");
         String input = "a1cc8eee";

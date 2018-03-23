@@ -47,4 +47,18 @@ public class ConstructsTest {
         Assert.assertEquals("a18cc", matcher.group(1));
         Assert.assertEquals("eee", matcher.group(2));
     }
+
+//    @Test
+//    public void testNonCapturingGroup() {
+//        Pattern pattern = Pattern.compile("(\\w*)(?:\\d{2})(\\w*)");
+//        String input = "a18cc8eee";
+//        Matcher matcher = pattern.matcher(input);
+//
+//        // must run matches() function before run group() function
+//        Assert.assertTrue(matcher.matches());
+//
+//        Assert.assertEquals("a18cc8eee", matcher.group(0));
+//        Assert.assertEquals("a", matcher.group(1));
+//        Assert.assertEquals("cc8eee", matcher.group(2));
+//    }
 }
