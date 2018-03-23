@@ -1,4 +1,4 @@
-package basic.util.regex;
+package basic.util.regex.basic;
 
 interface PatternMatcher {
     boolean match(String input);

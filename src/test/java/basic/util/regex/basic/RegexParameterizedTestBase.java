@@ -1,6 +1,7 @@
-package basic.util.regex;
+package basic.util.regex.basic;
 
-public class RegexParameterizedTestBase {
+
+class RegexParameterizedTestBase {
     String input;
     boolean expect;
 

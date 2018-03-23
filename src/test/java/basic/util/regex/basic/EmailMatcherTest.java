@@ -1,4 +1,4 @@
-package basic.util.regex;
+package basic.util.regex.basic;
 
 import org.junit.Assert;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package basic.util.regex;
+package basic.util.regex.basic;
 
 class PatternMatcherImpl implements PatternMatcher {
     private String pattern;
