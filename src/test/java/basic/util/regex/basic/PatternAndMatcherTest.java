@@ -1,4 +1,4 @@
-package basic.util.regex.advanced_regex;
+package basic.util.regex.basic;
 
 import org.junit.Assert;
 import org.junit.Test;
