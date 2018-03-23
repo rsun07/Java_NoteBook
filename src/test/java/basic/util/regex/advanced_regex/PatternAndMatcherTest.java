@@ -51,6 +51,7 @@ public class PatternAndMatcherTest {
         String input = "a1cc";
         Matcher matcher = pattern.matcher(input);
 
+        // must run matches() function before run group() function
         Assert.assertTrue(matcher.matches());
 
         Assert.assertEquals("a1cc", matcher.group(0));
