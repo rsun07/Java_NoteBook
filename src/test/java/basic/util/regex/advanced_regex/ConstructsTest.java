@@ -2,6 +2,7 @@ package basic.util.regex.advanced_regex;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runners.Parameterized;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -72,5 +73,40 @@ public class ConstructsTest {
 
         Assert.assertTrue(matcher.find());
         Assert.assertEquals("d18ee", matcher.group());
+    }
+
+    @Test
+    public void testZeroWidthPositiveLookahead() {
+        Pattern pattern = Pattern.compile("\\d{2}(?=[a-z]{2})");
+        String input = "a18cc68eee";
+        Matcher matcher = pattern.matcher(input);
+
+        // must run matches() function before run group() function
+        Assert.assertTrue(matcher.find());
+        Assert.assertEquals("18", matcher.group());
+
+        // must run find() function again to match the next group
+        Assert.assertTrue(matcher.find());
+        Assert.assertEquals("68", matcher.group());
+    }
+
+    // this test is to prove Zero Width Positive Lookahead is no capturing
+    @Test
+    public void testZeroWidthPositiveLookaheadForNoCapturingFeature() {
+        Pattern pattern = Pattern.compile("\\w{2}(?=\\w{2})");
+        String input = "88888888";
+        Matcher matcher = pattern.matcher(input);
+
+        int totalMatches = 0;
+        while (matcher.find()) {
+            Assert.assertEquals("88", matcher.group());
+            totalMatches++;
+        }
+
+        // totally have 3 matches, which means
+        // the first match find 88(88)
+        // the second match start from the third 8 rather than the fifth 8
+        // that's the meaning of "zero width"
+        Assert.assertEquals(3, totalMatches);
     }
 }
