@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PatternAndMatcherTest {
+public class MatcherTest {
     @Test
     public void testMatches() {
         Pattern pattern = Pattern.compile("\\d+");
