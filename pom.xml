@@ -10,7 +10,8 @@
     <modules>
         <module>junit</module>
         <module>java</module>
-    </modules>
+    <module>testng</module>
+  </modules>
 
     <properties>
         <!-- project properties -->
