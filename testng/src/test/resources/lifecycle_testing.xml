@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="life_cycle_run
+">
+<test verbose="2" name="TestGroups">
+    <groups>
+        <run>
+        </run>
+    </groups>
+
+    <classes>
+        <class name="pers.xiaoming.notebook.lifecycle.SuiteLevelTest" />
+        <class name="pers.xiaoming.notebook.lifecycle.TestLevelTest" />
+        <class name="pers.xiaoming.notebook.lifecycle.ClassLevelTest" />
+    </classes>
+</test>
+</suite>
