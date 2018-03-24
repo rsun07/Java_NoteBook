@@ -1,4 +1,4 @@
-package junit.junit3;
+package pers.xiaoming.notebook.junit3;
 
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

@@ -1,4 +1,4 @@
-package junit.junit4;
+package pers.xiaoming.notebook.junit4;
 
 import org.junit.After;
 import org.junit.AfterClass;
