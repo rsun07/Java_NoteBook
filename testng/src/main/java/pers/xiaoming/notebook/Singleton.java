@@ -1,14 +1,19 @@
 package pers.xiaoming.notebook;
 
-public class Singleton {
-    private static String singleton;
+public class Singleton implements AutoCloseable {
+    private static String[] singleton;
 
-    public static String getSingleton() {
+    public static String[] getSingleton() {
         if (singleton == null) {
             synchronized (Singleton.class) {
-                singleton = "singleton_instance";
+                singleton = new String[10];
             }
         }
         return singleton;
+    }
+
+    @Override
+    public void close() throws Exception {
+        singleton = null;
     }
 }
