@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="group_run">
-<test verbose="2" name="TestGroups">
+<test name="TestGroups">
     <groups>
         <run>
             <include name="func_test" />
+            <include name="check_in_test" />
             <exclude name="ignore_test" />
         </run>
     </groups>
