@@ -6,4 +6,30 @@
             <package name ="pers.xiaoming.notebook.lifecycle"/>
         </packages>
     </test>
+
+    <test name="Suite Level Test">
+       <classes>
+           <class name="pers.xiaoming.notebook.lifecycle.SuiteLevelTest"/>
+       </classes>
+    </test>
+
+    <test name="Test Level Test">
+        <classes>
+            <class name="pers.xiaoming.notebook.lifecycle.TestLevelTest"/>
+        </classes>
+    </test>
+
+    <test name="Class Level Test">
+        <classes>
+            <class name="pers.xiaoming.notebook.lifecycle.ClassLevelTest"/>
+        </classes>
+    </test>
+
+    <test name="Factory Method Run">
+        <classes>
+            <class name="pers.xiaoming.notebook.lifecycle.FactoryTest"/>
+        </classes>
+    </test>
+
+
 </suite>

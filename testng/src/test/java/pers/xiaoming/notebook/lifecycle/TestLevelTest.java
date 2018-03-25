@@ -7,11 +7,11 @@ import pers.xiaoming.notebook.Singleton;
 public class TestLevelTest {
     @BeforeTest
     public void beforeTest() {
-        System.out.println("Running before Test: \t\t Get already initialized Singleton: " + Singleton.getSingleton());
+        System.out.println("--Running before Test: \t\t Get already initialized Singleton: " + Singleton.getSingleton());
     }
 
     @AfterTest
     public void afterTest() {
-        System.out.println("Running after Test.");
+        System.out.println("--Running after Test.");
     }
 }
