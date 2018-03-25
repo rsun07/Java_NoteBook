@@ -4,12 +4,43 @@
     <suite-files>
         <suite-file path="patameter_testing.xml" />
     </suite-files>
+
+    <!--suite level parameter-->
     <parameter name="expect" value="Test_String"/>
 
     <test name="TestXmlParam">
+        <!--test level parameter-->
         <parameter name="actual" value="Test_String"/>
         <classes>
-            <class name="pers.xiaoming.notebook.parameter.XmlTest"/>
+            <!--test level parameter-->
+            <parameter name="expect-int" value="8"/>
+            <class name="pers.xiaoming.notebook.parameter.XmlTest">
+                <!--test level parameter-->
+                <parameter name="actual-int" value="8"/>
+                <methods>
+                    <include name="test"/>
+                    <!--method level parameter-->
+                    <parameter name="actual-int" value="8"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="testReuseParam">
+        <!--test level parameter-->
+        <parameter name="actual" value="Test_String"/>
+        <classes>
+            <!--test level parameter-->
+            <parameter name="expect-int" value="8"/>
+            <class name="pers.xiaoming.notebook.parameter.XmlTest">
+                <!--test level parameter-->
+                <!--<parameter name="actual-int" value="88"/>-->
+                <methods>
+                    <include name="testReuseParam"/>
+                    <!--method level parameter-->
+                    <parameter name="actual-int" value="88"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
