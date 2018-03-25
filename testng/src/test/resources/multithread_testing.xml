@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="multi_thread_run" parallel="methods" thread-count="3">
+<test name="TestGroups">
+    <groups>
+        <run>
+            <include name="test" invocation-numbers="10"/>
+        </run>
+    </groups>
+
+    <classes>
+        <class name="pers.xiaoming.notebook.multithread.XmlTest">
+            <methods>
+                <include name="test" invocation-numbers="10"/>
+            </methods>
+        </class>
+    </classes>
+</test>
+</suite>
