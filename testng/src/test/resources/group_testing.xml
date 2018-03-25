@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="group_run">
-<test name="TestGroups">
-    <groups>
-        <run>
-            <include name="func_test" />
-            <include name="check_in_test" />
-            <exclude name="ignore_test" />
-        </run>
-    </groups>
+    <test name="TestGroups">
+        <groups>
+            <run>
+                <include name="func_test" />
+                <include name="check_in_test" />
+                <exclude name="ignore_test" />
+            </run>
+        </groups>
 
-    <classes>
-        <class name="pers.xiaoming.notebook.testgroup.GroupTest" />
-        <class name="pers.xiaoming.notebook.testgroup.GroupTestAmend" />
-    </classes>
-</test>
+        <classes>
+            <class name="pers.xiaoming.notebook.testgroup.GroupTest" />
+            <class name="pers.xiaoming.notebook.testgroup.GroupTestAmend" />
+        </classes>
+    </test>
 </suite>

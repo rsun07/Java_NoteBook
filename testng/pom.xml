@@ -40,6 +40,7 @@
             <suiteXmlFile>src/test/resources/group_testing.xml</suiteXmlFile>
             <suiteXmlFile>src/test/resources/depend_testing.xml</suiteXmlFile>
             <suiteXmlFile>src/test/resources/multithread_testing.xml</suiteXmlFile>
+            <suiteXmlFile>src/test/resources/paramter_testing.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="paramter_run" verbose="2">
+    <suite-files>
+        <suite-file path="patameter_testing.xml" />
+    </suite-files>
+    <parameter name="expect" value="Test_String"/>
+
+    <test name="TestXmlParam">
+        <parameter name="actual" value="Test_String"/>
+        <classes>
+            <class name="pers.xiaoming.notebook.parameter.XmlTest"/>
+        </classes>
+    </test>
+</suite>
