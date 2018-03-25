@@ -43,4 +43,11 @@
             </class>
         </classes>
     </test>
+
+    <test name="test factory">
+        <classes>
+            <class name="pers.xiaoming.notebook.parameter.MyFactory"/>
+            <class name="pers.xiaoming.notebook.parameter.FactoryTest"/>
+        </classes>
+    </test>
 </suite>
