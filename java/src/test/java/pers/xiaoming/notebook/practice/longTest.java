@@ -1,4 +1,4 @@
-package practice;
+package pers.xiaoming.notebook.practice;
 
 import org.junit.Test;
 

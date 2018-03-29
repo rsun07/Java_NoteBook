@@ -1,4 +1,4 @@
-package basic.util.object_methods;
+package pers.xiaoming.notebook.basic.util.object_methods;
 
 import org.junit.Test;
 

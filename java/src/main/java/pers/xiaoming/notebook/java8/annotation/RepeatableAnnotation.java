@@ -1,4 +1,4 @@
-package java8.annotation;
+package pers.xiaoming.notebook.java8.annotation;
 
 import java.lang.annotation.Repeatable;
 import java.lang.annotation.Retention;

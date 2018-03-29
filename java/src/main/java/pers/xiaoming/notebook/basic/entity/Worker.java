@@ -1,4 +1,4 @@
-package basic.entity;
+package pers.xiaoming.notebook.basic.entity;
 
 public class Worker extends Person {
     public Worker(int age, String name) {

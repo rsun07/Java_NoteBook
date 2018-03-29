@@ -1,4 +1,4 @@
-package basic.util.map;
+package pers.xiaoming.notebook.basic.util.map;
 
 import org.junit.Ignore;
 import org.junit.Test;

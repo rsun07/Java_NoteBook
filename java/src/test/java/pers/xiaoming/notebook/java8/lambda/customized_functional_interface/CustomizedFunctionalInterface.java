@@ -1,4 +1,4 @@
-package java8.lambda.customized_functional_interface;
+package pers.xiaoming.notebook.java8.lambda.customized_functional_interface;
 
 // The core of Lambda Expression is
 // the implementation of the abstract function in a functional Interface

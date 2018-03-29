@@ -1,4 +1,4 @@
-package basic.io.serialization;
+package pers.xiaoming.notebook.basic.io.serialization;
 
 import java.io.File;
 import java.io.FileInputStream;

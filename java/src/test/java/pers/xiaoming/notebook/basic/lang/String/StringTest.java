@@ -1,4 +1,4 @@
-package basic.lang.String;
+package pers.xiaoming.notebook.basic.lang.String;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package java8.date;
+package pers.xiaoming.notebook.java8.date;
 
 import java.text.DateFormat;
 import java.text.ParseException;

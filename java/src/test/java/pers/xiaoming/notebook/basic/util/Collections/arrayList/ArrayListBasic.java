@@ -1,4 +1,4 @@
-package basic.util.Collections.arrayList;
+package pers.xiaoming.notebook.basic.util.Collections.arrayList;
 
 import org.junit.Test;
 

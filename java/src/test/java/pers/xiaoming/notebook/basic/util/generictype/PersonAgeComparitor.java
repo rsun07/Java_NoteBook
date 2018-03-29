@@ -1,6 +1,6 @@
-package basic.util.generictype;
+package pers.xiaoming.notebook.basic.util.generictype;
 
-import basic.entity.Person;
+import pers.xiaoming.notebook.basic.entity.Person;
 
 import java.util.Comparator;
 

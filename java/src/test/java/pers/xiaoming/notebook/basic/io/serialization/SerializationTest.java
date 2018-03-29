@@ -1,6 +1,6 @@
-package basic.io.serialization;
+package pers.xiaoming.notebook.basic.io.serialization;
 
-import basic.io.Utils;
+import pers.xiaoming.notebook.basic.io.Utils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

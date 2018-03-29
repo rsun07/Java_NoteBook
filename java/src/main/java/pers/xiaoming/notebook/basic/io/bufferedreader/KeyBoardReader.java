@@ -1,4 +1,4 @@
-package basic.io.bufferedreader;
+package pers.xiaoming.notebook.basic.io.bufferedreader;
 
 import java.io.BufferedReader;
 import java.io.IOException;

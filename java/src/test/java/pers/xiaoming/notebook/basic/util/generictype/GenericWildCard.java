@@ -1,8 +1,8 @@
-package basic.util.generictype;
+package pers.xiaoming.notebook.basic.util.generictype;
 
-import basic.entity.Person;
-import basic.entity.Student;
-import basic.entity.Worker;
+import pers.xiaoming.notebook.basic.entity.Person;
+import pers.xiaoming.notebook.basic.entity.Student;
+import pers.xiaoming.notebook.basic.entity.Worker;
 import org.junit.Test;
 
 import java.util.*;

@@ -1,4 +1,4 @@
-package java8.stream.GenerateStream;
+package pers.xiaoming.notebook.java8.stream.GenerateStream;
 
 import org.junit.Test;
 

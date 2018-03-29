@@ -1,7 +1,7 @@
-package basic.io.scanner.strategy.keyboard;
+package pers.xiaoming.notebook.basic.io.scanner.strategy.keyboard;
 
-import basic.io.scanner.ScannerImpl;
-import basic.io.scanner.strategy.ScannerStratety;
+import pers.xiaoming.notebook.basic.io.scanner.ScannerImpl;
+import pers.xiaoming.notebook.basic.io.scanner.strategy.ScannerStratety;
 
 import java.util.Scanner;
 

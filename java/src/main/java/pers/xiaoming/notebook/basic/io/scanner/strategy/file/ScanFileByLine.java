@@ -1,8 +1,8 @@
-package basic.io.scanner.strategy.file;
+package pers.xiaoming.notebook.basic.io.scanner.strategy.file;
 
-import basic.io.Utils;
-import basic.io.scanner.ScannerImpl;
-import basic.io.scanner.strategy.ScannerStratety;
+import pers.xiaoming.notebook.basic.io.Utils;
+import pers.xiaoming.notebook.basic.io.scanner.ScannerImpl;
+import pers.xiaoming.notebook.basic.io.scanner.strategy.ScannerStratety;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;

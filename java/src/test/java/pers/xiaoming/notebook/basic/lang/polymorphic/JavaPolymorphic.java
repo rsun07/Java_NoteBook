@@ -1,4 +1,4 @@
-package basic.lang.polymorphic;
+package pers.xiaoming.notebook.basic.lang.polymorphic;
 
 public class JavaPolymorphic {
     public static void main(String args[]) {

@@ -1,4 +1,4 @@
-package basic.lang.polymorphic;
+package pers.xiaoming.notebook.basic.lang.polymorphic;
 
 class Super {
     int num = 0;

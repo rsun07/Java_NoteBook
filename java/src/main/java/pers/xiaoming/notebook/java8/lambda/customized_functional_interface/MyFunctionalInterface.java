@@ -1,4 +1,4 @@
-package java8.lambda.customized_functional_interface;
+package pers.xiaoming.notebook.java8.lambda.customized_functional_interface;
 
 // define a functional interface by myself
 // functional interface can only has one single method

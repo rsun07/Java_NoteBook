@@ -1,4 +1,4 @@
-package basic.lang.polymorphic;
+package pers.xiaoming.notebook.basic.lang.polymorphic;
 
 import org.junit.Ignore;
 import org.junit.Test;

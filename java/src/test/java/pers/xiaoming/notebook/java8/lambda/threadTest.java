@@ -1,4 +1,4 @@
-package basic.LambdaExpression;
+package pers.xiaoming.notebook.basic.LambdaExpression;
 
 import org.junit.Test;
 

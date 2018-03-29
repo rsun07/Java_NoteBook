@@ -1,7 +1,7 @@
-package basic.util.object_methods;
+package pers.xiaoming.notebook.basic.util.object_methods;
 
-import basic.util.generictype.PersonAgeComparitor;
-import basic.entity.Person;
+import pers.xiaoming.notebook.basic.util.generictype.PersonAgeComparitor;
+import pers.xiaoming.notebook.basic.entity.Person;
 
 import java.util.Arrays;
 import java.util.List;

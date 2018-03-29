@@ -1,4 +1,4 @@
-package basic.entity;
+package pers.xiaoming.notebook.basic.entity;
 
 import java.util.Arrays;
 import java.util.List;

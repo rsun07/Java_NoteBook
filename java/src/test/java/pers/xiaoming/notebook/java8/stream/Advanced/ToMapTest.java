@@ -1,4 +1,4 @@
-package java8.stream.Advanced;
+package pers.xiaoming.notebook.java8.stream.Advanced;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

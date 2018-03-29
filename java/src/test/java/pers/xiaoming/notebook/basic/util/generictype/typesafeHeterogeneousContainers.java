@@ -1,4 +1,4 @@
-package basic.util.generictype;
+package pers.xiaoming.notebook.basic.util.generictype;
 
 import org.junit.Test;
 

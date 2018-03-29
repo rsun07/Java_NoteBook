@@ -1,4 +1,4 @@
-package basic.lang.exception;
+package pers.xiaoming.notebook.basic.lang.exception;
 
 public class ExceptionHandling {
     public static void main(String[] args) {

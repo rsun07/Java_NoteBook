@@ -1,6 +1,6 @@
-package basic.io.scanner;
+package pers.xiaoming.notebook.basic.io.scanner;
 
-import basic.io.scanner.strategy.ScannerStratety;
+import pers.xiaoming.notebook.basic.io.scanner.strategy.ScannerStratety;
 
 import java.io.File;
 import java.io.FileInputStream;

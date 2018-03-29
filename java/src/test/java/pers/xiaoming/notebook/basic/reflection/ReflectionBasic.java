@@ -1,6 +1,6 @@
-package basic.reflection;
+package pers.xiaoming.notebook.basic.reflection;
 
-import basic.entity.ReflectionPerson;
+import pers.xiaoming.notebook.basic.entity.ReflectionPerson;
 import org.junit.Test;
 
 import java.lang.reflect.Constructor;

@@ -1,4 +1,4 @@
-package basic.lang.primitive;
+package pers.xiaoming.notebook.basic.lang.primitive;
 
 import org.junit.Ignore;
 import org.junit.Test;

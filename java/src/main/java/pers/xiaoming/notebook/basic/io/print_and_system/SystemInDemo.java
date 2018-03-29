@@ -1,4 +1,4 @@
-package basic.io.print_and_system;
+package pers.xiaoming.notebook.basic.io.print_and_system;
 
 import java.io.IOException;
 import java.io.InputStream;

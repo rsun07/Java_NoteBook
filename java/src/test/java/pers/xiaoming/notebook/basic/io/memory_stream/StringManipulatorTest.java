@@ -1,4 +1,4 @@
-package basic.io.memory_stream;
+package pers.xiaoming.notebook.basic.io.memory_stream;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package basic.util.property_read;
+package pers.xiaoming.notebook.basic.util.property_read;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package basic.lang.keywords;
+package pers.xiaoming.notebook.basic.lang.keywords;
 
 
 public class ThisPractice {

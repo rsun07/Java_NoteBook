@@ -1,4 +1,4 @@
-package basic.io.scanner.strategy;
+package pers.xiaoming.notebook.basic.io.scanner.strategy;
 
 import java.util.Scanner;
 

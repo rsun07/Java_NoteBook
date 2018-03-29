@@ -1,4 +1,4 @@
-package basic.lang.system_and_runtime;
+package pers.xiaoming.notebook.basic.lang.system_and_runtime;
 
 import org.junit.Ignore;
 import org.junit.Test;

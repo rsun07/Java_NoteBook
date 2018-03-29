@@ -1,4 +1,4 @@
-package basic.lang.annotation;
+package pers.xiaoming.notebook.basic.lang.annotation;
 
 import org.junit.Assert;
 import org.junit.Test;

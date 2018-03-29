@@ -1,4 +1,4 @@
-package basic.io.filecopy;
+package pers.xiaoming.notebook.basic.io.filecopy;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -8,10 +8,10 @@ import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
 
-import static basic.io.Utils.FILE_COPY_DEST_NAME;
-import static basic.io.Utils.FILE_COPY_DEST_PATH;
-import static basic.io.Utils.FILE_COPY_SOURCE_NAME;
-import static basic.io.Utils.FILE_COPY_SOURCE_PATH;
+import static pers.xiaoming.notebook.basic.io.Utils.FILE_COPY_DEST_NAME;
+import static pers.xiaoming.notebook.basic.io.Utils.FILE_COPY_DEST_PATH;
+import static pers.xiaoming.notebook.basic.io.Utils.FILE_COPY_SOURCE_NAME;
+import static pers.xiaoming.notebook.basic.io.Utils.FILE_COPY_SOURCE_PATH;
 
 public class FileCopyByByteArrayTest {
     @BeforeClass

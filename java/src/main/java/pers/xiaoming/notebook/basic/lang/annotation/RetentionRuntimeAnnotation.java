@@ -1,4 +1,4 @@
-package basic.lang.annotation;
+package pers.xiaoming.notebook.basic.lang.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

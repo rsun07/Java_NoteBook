@@ -1,4 +1,4 @@
-package basic.entity;
+package pers.xiaoming.notebook.basic.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

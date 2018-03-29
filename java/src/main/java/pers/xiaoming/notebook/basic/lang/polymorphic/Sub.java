@@ -1,4 +1,4 @@
-package basic.lang.polymorphic;
+package pers.xiaoming.notebook.basic.lang.polymorphic;
 
 class Sub extends Super {
     int num = 1;

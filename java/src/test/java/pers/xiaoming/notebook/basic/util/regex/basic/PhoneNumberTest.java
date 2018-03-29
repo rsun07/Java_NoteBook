@@ -1,4 +1,4 @@
-package basic.util.regex.basic;
+package pers.xiaoming.notebook.basic.util.regex.basic;
 
 import org.junit.Assert;
 import org.junit.Before;

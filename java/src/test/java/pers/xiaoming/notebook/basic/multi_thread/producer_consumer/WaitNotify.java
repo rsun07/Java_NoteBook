@@ -1,4 +1,4 @@
-package basic.multi_thread.producer_consumer;
+package pers.xiaoming.notebook.basic.multi_thread.producer_consumer;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

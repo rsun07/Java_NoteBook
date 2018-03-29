@@ -1,4 +1,4 @@
-package basic.lang.annotation;
+package pers.xiaoming.notebook.basic.lang.annotation;
 
 @RetentionSourceAnnotation("retention source")
 @RetentionClassAnnotation("retention class")

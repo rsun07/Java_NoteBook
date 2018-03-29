@@ -1,4 +1,4 @@
-package basic.lang.enum_;
+package pers.xiaoming.notebook.basic.lang.enum_;
 
 enum ExtendedOperation implements Operation {
     EXP("^") {

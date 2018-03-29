@@ -1,4 +1,4 @@
-package basic.lang.enum_;
+package pers.xiaoming.notebook.basic.lang.enum_;
 
 // Enum type with data and behavior
 enum Planet {

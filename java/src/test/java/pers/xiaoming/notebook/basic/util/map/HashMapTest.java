@@ -1,4 +1,4 @@
-package basic.util.map;
+package pers.xiaoming.notebook.basic.util.map;
 
 import java.util.HashMap;
 import java.util.Map;

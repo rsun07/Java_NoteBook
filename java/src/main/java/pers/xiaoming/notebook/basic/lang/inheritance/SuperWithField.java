@@ -1,4 +1,4 @@
-package basic.lang.inheritance;
+package pers.xiaoming.notebook.basic.lang.inheritance;
 
 /* When construct subclass, the superclass will be construct first.
  *  But the superclass is not a single object in memory heap, it is inside the subclass object.

@@ -1,4 +1,4 @@
-package java8.stream.BasicStreams;
+package pers.xiaoming.notebook.java8.stream.BasicStreams;
 
 import org.junit.Test;
 

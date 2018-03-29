@@ -1,13 +1,12 @@
-package basic.io.bufferedreader;
+package pers.xiaoming.notebook.basic.io.bufferedreader;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
-import static basic.io.Utils.FILE_PATH;
-import static basic.io.Utils.INPUT_FILE_NAME;
+import static pers.xiaoming.notebook.basic.io.Utils.FILE_PATH;
+import static pers.xiaoming.notebook.basic.io.Utils.INPUT_FILE_NAME;
 
 public class BufferedFileReader {
     public static void main(String[] args) throws IOException {

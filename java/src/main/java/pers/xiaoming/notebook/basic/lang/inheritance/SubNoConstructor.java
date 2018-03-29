@@ -1,4 +1,4 @@
-package basic.lang.inheritance;
+package pers.xiaoming.notebook.basic.lang.inheritance;
 
 // Super Class has no constructor
 // Sub class cannot be constructed

@@ -1,4 +1,4 @@
-package basic.multi_thread.threadpool;
+package pers.xiaoming.notebook.basic.multi_thread.threadpool;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

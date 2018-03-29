@@ -1,6 +1,6 @@
-package basic.io.char_stream;
+package pers.xiaoming.notebook.basic.io.char_stream;
 
-import basic.io.Utils;
+import pers.xiaoming.notebook.basic.io.Utils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package java8.lambda.built_in_functional_interface;
+package pers.xiaoming.notebook.java8.lambda.built_in_functional_interface;
 
 import org.junit.Test;
 
