@@ -1,21 +1,20 @@
 package pers.xiaoming.notebook.basic.util.map;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class HashMapTest {
-    private Map<Integer, Integer> map = new HashMap<>();
+    @Test
+    public void testContains() {
+        Map<MyObject, Object> map = new HashMap<>();
+        MyObject object = new MyObject("object", 1);
+        MyObject copy = new MyObject("object", 1);
 
-    public static void main(String args[]) {
-        HashMapTest test = new HashMapTest();
-        test.run();
-    }
+        map.put(object, null);
 
-    private void run() {
-        map.put(1, 1);
-        map.put(2, 2);
-        for (int i : map.keySet()) {
-            System.out.println(i);
-        }
+        Assert.assertTrue(map.containsKey(copy));
     }
 }
