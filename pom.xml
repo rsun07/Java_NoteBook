@@ -11,7 +11,7 @@
         <module>junit</module>
         <module>java</module>
         <module>testng</module>
-        <module>log4j</module>
+        <module>logging</module>
     </modules>
 
     <properties>

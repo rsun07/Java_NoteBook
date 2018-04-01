@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 public class DebugLogging implements Logging {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
+    private Logger logger = LoggerFactory.getLogger("Debug");
 
     public void log(String msg) {
            logger.debug(msg);
