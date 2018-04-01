@@ -1,9 +1,11 @@
 package pers.xiaoming.notebook;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@Ignore("Demo test, only print to console")
 public class Slf4jTest {
     private Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
