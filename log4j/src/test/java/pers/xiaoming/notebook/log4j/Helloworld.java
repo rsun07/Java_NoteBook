@@ -6,13 +6,13 @@ import org.junit.Test;
 import org.apache.log4j.Logger;
 import pers.xiaoming.notebook.utils.PathUtils;
 
-public class Log4jHelloworld {
+public class Helloworld {
 
-    private static Logger logger = Logger.getLogger(Log4jHelloworld.class);
+    private static Logger logger = Logger.getLogger(Helloworld.class);
 
     @Test
     public void testXml() {
-        DOMConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/log4j/helloworld.xml");
+        DOMConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/helloworld.xml");
         logger.debug("Hello world Log4j XML");
     }
 

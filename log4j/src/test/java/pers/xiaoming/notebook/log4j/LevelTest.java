@@ -9,7 +9,7 @@ import org.junit.Test;
 import pers.xiaoming.notebook.utils.PathUtils;
 
 public class LevelTest {
-    private static Logger logger = Logger.getLogger(Log4jHelloworld.class);
+    private static Logger logger = Logger.getLogger(Helloworld.class);
 
     // ALL < DEBUG < INFO < WARN < ERROR < FATAL < OFF
     // The properties file setting, log level is WARN
@@ -19,9 +19,9 @@ public class LevelTest {
 
     /*
         Output:
-            2018-03-31 22:47:50 ERROR Log4jHelloworld:40 - error
-            2018-03-31 22:47:50 FATAL Log4jHelloworld:45 - fatal
-            2018-03-31 22:47:50 WARN  Log4jHelloworld:35 - warn
+            2018-03-31 22:47:50 ERROR HelloWorld:40 - error
+            2018-03-31 22:47:50 FATAL HelloWorld:45 - fatal
+            2018-03-31 22:47:50 WARN  HelloWorld:35 - warn
 
 
      */

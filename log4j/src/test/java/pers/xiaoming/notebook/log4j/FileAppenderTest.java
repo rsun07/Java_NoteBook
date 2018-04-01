@@ -8,7 +8,7 @@ import org.junit.Test;
 import pers.xiaoming.notebook.utils.PathUtils;
 
 public class FileAppenderTest {
-    private static Logger logger = Logger.getLogger(Log4jHelloworld.class);
+    private static Logger logger = Logger.getLogger(Helloworld.class);
     @BeforeClass
     public static void setup() {
         PropertyConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/log4j/fileappender.properties");
