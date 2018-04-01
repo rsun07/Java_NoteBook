@@ -1,13 +1,13 @@
 <!-- turn debug=true on for logback-test.xml to help debug logging configurations. -->
 <configuration debug="true">
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <appender name="FILEOUT" class="ch.qos.logback.core.FileAppender">
+    <appender name="FILEOUT" class="org.apache.log4j.FileAppender">
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
@@ -26,7 +26,7 @@
     <!--</appender>-->
 
     <!-- Turn on debug logging for DebugLogging class. -->
-    <logger name="pers.xiaoming.notebook.slf4j" level="DEBUG" />
+    <logger name="pers.xiaoming.notebook.slf4j.DebugLogging" level="DEBUG" />
 
     <!-- Turn on debug logging for all loggers under pers.xiaoming.notebook.slf4j -->
     <logger name="pers.xiaoming.notebook.slf4j.ErrorLogging" level="ERROR" />
