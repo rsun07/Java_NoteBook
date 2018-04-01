@@ -1,6 +1,21 @@
 # Java_NoteBook
 
-My NoteBook for learning and testing Java
+Notebook for learning Basic Java, Java new features, Java logging tools, Java testing tools and so on.
 
-Some of them are old programs I wrote in Shcool, they may not as good as what my skill is now.
-But still track my growing in learning Java
+Structure
+
+|-Notebook
+
+|--java
+|----Basic java library
+|----Java 8 new features
+
+|--Junit
+|----Junit3
+|----Junit4
+
+|--TestNG
+
+|--logging (Log4j, logback, slf4j)
+
+
