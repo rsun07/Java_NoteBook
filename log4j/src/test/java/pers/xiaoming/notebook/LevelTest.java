@@ -1,13 +1,12 @@
 package pers.xiaoming.notebook;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import pers.xiaoming.notebook.utils.PathUtils;
-
-import java.util.Map;
-import java.util.Properties;
 
 public class LevelTest {
     private static Logger logger = Logger.getLogger(Log4jHelloworld.class);
@@ -33,26 +32,42 @@ public class LevelTest {
 
     @Test
     public void testDebug() {
-        logger.debug("debug");
+        Assert.assertFalse(logger.isDebugEnabled());
+        if (logger.isDebugEnabled()) {
+            logger.debug("debug");
+        }
     }
 
     @Test
     public void testInfo() {
-        logger.info("info");
+        Assert.assertFalse(logger.isInfoEnabled());
+        if (logger.isInfoEnabled()) {
+            logger.info("info");
+        }
     }
 
     @Test
     public void testWarn() {
-        logger.warn("warn");
+        // logger.isWarnEnabled() method not exist
+        Assert.assertTrue(logger.isEnabledFor(Level.WARN));
+        if (logger.isEnabledFor(Level.WARN)) {
+            logger.warn("warn");
+        }
     }
 
     @Test
     public void testError() {
-        logger.error("error");
+        Assert.assertTrue(logger.isEnabledFor(Level.ERROR));
+        if (logger.isEnabledFor(Level.ERROR)) {
+            logger.error("error");
+        }
     }
 
     @Test
     public void testFatal() {
-        logger.fatal("fatal");
+        Assert.assertTrue(logger.isEnabledFor(Level.FATAL));
+        if (logger.isEnabledFor(Level.FATAL)) {
+            logger.fatal("fatal");
+        }
     }
 }
