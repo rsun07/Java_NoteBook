@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>pers.xiaoming.notebook</groupId>
+    <artifactId>logging</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>slf4j-logback-xml</artifactId>
+  <name>slf4j-logback-xml</name>
+
+  <properties>
+    <!--Log4j tests are mostly output manually demo,
+    not run during maven build-->
+    <!--<maven.test.skip>true</maven.test.skip>-->
+    <slf4j.version>1.7.25</slf4j.version>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+  </dependencies>
+
+</project>
