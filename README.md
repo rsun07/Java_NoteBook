@@ -4,18 +4,18 @@ Notebook for learning Basic Java, Java new features, Java logging tools, Java te
 
 Structure
 
-|-Notebook 
+|-Notebook <br />
 
-|--java 
-|----Basic java library 
-|----Java 8 new features 
+|--java <br />
+|----Basic java library <br />
+|----Java 8 new features <br />
 
-|--Junit 
-|----Junit3 
-|----Junit4 
+|--Junit <br />
+|----Junit3 <br />
+|----Junit4 <br />
 
-|--TestNG 
+|--TestNG <br />
 
-|--logging (Log4j, logback, slf4j) 
+|--logging (Log4j, logback, slf4j) <br />
 
 
