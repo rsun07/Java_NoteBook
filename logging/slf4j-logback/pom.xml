@@ -9,26 +9,17 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>logback-slf4j</artifactId>
-  <name>logback-slf4j</name>
-
-  <url>http://maven.apache.org</url>
+  <artifactId>slf4j-logback</artifactId>
+  <name>slf4j-logback</name>
 
   <properties>
     <!--Log4j tests are mostly output manually demo,
     not run during maven build-->
     <!--<maven.test.skip>true</maven.test.skip>-->
-    <log4j.version>1.2.17</log4j.version>
     <slf4j.version>1.7.25</slf4j.version>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>
-
     <!--<dependency>-->
       <!--<groupId>org.slf4j</groupId>-->
       <!--<artifactId>slf4j-simple</artifactId>-->
@@ -42,16 +33,10 @@
     </dependency>
 
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>${slf4j.version}</version>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.3</version>
     </dependency>
-
-    <!--<dependency>-->
-      <!--<groupId>ch.qos.logback</groupId>-->
-      <!--<artifactId>logback-classic</artifactId>-->
-      <!--<version>1.2.3</version>-->
-    <!--</dependency>-->
 
   </dependencies>
 
