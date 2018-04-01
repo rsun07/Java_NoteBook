@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook;
+package pers.xiaoming.notebook.log4j;
 
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.xml.DOMConfigurator;
@@ -12,13 +12,13 @@ public class Log4jHelloworld {
 
     @Test
     public void testXml() {
-        DOMConfigurator.configure(PathUtils.TEST_RESOURCE_DIR + "/helloworld.xml");
+        DOMConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/helloworld.xml");
         logger.debug("Hello world Log4j XML");
     }
 
     @Test
     public void testProperties() {
-        PropertyConfigurator.configure(PathUtils.TEST_RESOURCE_DIR  + "/helloworld.properties");
+        PropertyConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/helloworld.properties");
         logger.debug("Hello world Log4j Properties");
     }
 }

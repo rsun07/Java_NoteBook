@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook;
+package pers.xiaoming.notebook.log4j;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -27,7 +27,7 @@ public class LevelTest {
      */
     @BeforeClass
     public static void setup() {
-        PropertyConfigurator.configure(PathUtils.TEST_RESOURCE_DIR  + "/level.properties");
+        PropertyConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/level.properties");
     }
 
     @Test

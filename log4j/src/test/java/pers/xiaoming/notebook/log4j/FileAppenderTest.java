@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook;
+package pers.xiaoming.notebook.log4j;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -11,7 +11,7 @@ public class FileAppenderTest {
     private static Logger logger = Logger.getLogger(Log4jHelloworld.class);
     @BeforeClass
     public static void setup() {
-        PropertyConfigurator.configure(PathUtils.TEST_RESOURCE_DIR  + "/fileappender.properties");
+        PropertyConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/fileappender.properties");
     }
 
     @Ignore("Demo test")
