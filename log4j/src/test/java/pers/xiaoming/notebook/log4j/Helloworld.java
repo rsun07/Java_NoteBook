@@ -18,7 +18,7 @@ public class Helloworld {
 
     @Test
     public void testProperties() {
-        PropertyConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/log4j/helloworld.properties");
+        PropertyConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/helloworld.properties");
         logger.debug("Hello world Log4j Properties");
     }
 }

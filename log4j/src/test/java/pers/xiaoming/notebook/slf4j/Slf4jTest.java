@@ -7,4 +7,9 @@ public class Slf4jTest {
     public void testDebug() {
         new DebugLogging().log("debug log");
     }
+
+    @Test
+    public void testError() {
+        new ErrorLogging().log("error log");
+    }
 }
