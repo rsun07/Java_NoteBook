@@ -10,8 +10,9 @@
     <modules>
         <module>junit</module>
         <module>java</module>
-    <module>testng</module>
-  </modules>
+        <module>testng</module>
+        <module>log4j</module>
+    </modules>
 
     <properties>
         <!-- project properties -->

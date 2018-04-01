@@ -14,6 +14,7 @@ import java.util.List;
 public class ReflectionBasic {
 
     @Test
+    @SuppressWarnings("unchecked")
     // test reflection constructors
     public void testConstructor() throws ClassNotFoundException, NoSuchMethodException,
         IllegalAccessException, InvocationTargetException, InstantiationException {
@@ -58,6 +59,7 @@ public class ReflectionBasic {
     }
 
     @Test
+    @SuppressWarnings("unchecked")
     // test reflection functions
     public void testFunctions() throws NoSuchMethodException, ClassNotFoundException,
         IllegalAccessException, InvocationTargetException, InstantiationException {
