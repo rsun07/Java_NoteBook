@@ -15,6 +15,9 @@
   <url>http://maven.apache.org</url>
 
   <properties>
+    <!--Log4j tests are mostly output manually demo,
+    not run during maven build-->
+    <maven.test.skip>true</maven.test.skip>
   </properties>
 
   <dependencies>
