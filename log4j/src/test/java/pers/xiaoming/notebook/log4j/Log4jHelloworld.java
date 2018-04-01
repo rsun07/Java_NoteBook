@@ -12,13 +12,13 @@ public class Log4jHelloworld {
 
     @Test
     public void testXml() {
-        DOMConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/helloworld.xml");
+        DOMConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/log4j/helloworld.xml");
         logger.debug("Hello world Log4j XML");
     }
 
     @Test
     public void testProperties() {
-        PropertyConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/helloworld.properties");
+        PropertyConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/log4j/helloworld.properties");
         logger.debug("Hello world Log4j Properties");
     }
 }

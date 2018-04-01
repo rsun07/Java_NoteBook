@@ -27,7 +27,7 @@ public class LevelTest {
      */
     @BeforeClass
     public static void setup() {
-        PropertyConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/level.properties");
+        PropertyConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/log4j/level.properties");
     }
 
     @Test

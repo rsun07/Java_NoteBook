@@ -11,7 +11,7 @@ public class FileAppenderTest {
     private static Logger logger = Logger.getLogger(Log4jHelloworld.class);
     @BeforeClass
     public static void setup() {
-        PropertyConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/fileappender.properties");
+        PropertyConfigurator.configure(PathUtils.LOG4J_TEST_RESOURCE_DIR + "/log4j/fileappender.properties");
     }
 
     @Ignore("Demo test")
