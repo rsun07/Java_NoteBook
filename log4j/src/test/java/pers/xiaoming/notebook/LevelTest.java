@@ -1,11 +1,13 @@
-package pers.xiaoming.notebook.level;
+package pers.xiaoming.notebook;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import pers.xiaoming.notebook.helloworld.Log4jHelloworld;
 import pers.xiaoming.notebook.utils.PathUtils;
+
+import java.util.Map;
+import java.util.Properties;
 
 public class LevelTest {
     private static Logger logger = Logger.getLogger(Log4jHelloworld.class);

@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.helloworld;
+package pers.xiaoming.notebook;
 
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.xml.DOMConfigurator;
