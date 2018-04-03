@@ -11,7 +11,7 @@
   <name>jdbc</name>
 
   <properties>
-    <mysql.version>6.0.6</mysql.version>
+    <mysql.version>5.1.38</mysql.version>
   </properties>
 
   <dependencies>
