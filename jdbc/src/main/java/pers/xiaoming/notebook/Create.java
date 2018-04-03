@@ -10,9 +10,10 @@ public class Create {
 
 
     public int insert() throws IOException, SQLException {
-        Connection conn = ConnManager.getConn();
-        Statement stmt = conn.createStatement();
-        int count = stmt.executeUpdate(QUERY);
-        return count;
+        try (Connection conn = ConnManager.getConn();
+             Statement stmt = conn.createStatement()) {
+            int count = stmt.executeUpdate(QUERY);
+            return count;
+        }
     }
 }

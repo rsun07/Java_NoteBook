@@ -18,10 +18,12 @@ public class Get {
     }
 
     public ResultSet getRs() throws IOException, SQLException {
-        Connection conn = ConnManager.getConn();
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(QUERY);
-        return rs;
+        try (Connection conn = ConnManager.getConn();
+             Statement stmt = conn.createStatement()) {
+
+            ResultSet rs = stmt.executeQuery(QUERY);
+            return rs;
+        }
     }
 
     private List<Student> rsToStudents(ResultSet rs) throws SQLException {
