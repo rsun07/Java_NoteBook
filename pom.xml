@@ -12,7 +12,8 @@
         <module>java</module>
         <module>testng</module>
         <module>logging</module>
-    </modules>
+    <module>jdbc</module>
+  </modules>
 
     <properties>
         <!-- project properties -->
