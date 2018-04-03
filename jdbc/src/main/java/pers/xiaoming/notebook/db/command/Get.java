@@ -28,7 +28,7 @@ public class Get {
         }
     }
 
-    public Student get(int id) throws IOException, SQLException {
+    public Student run(int id) throws IOException, SQLException {
         return rsToStudents(getRs()).get(0);
     }
 
