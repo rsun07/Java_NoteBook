@@ -14,7 +14,11 @@
     <!-- Send logs to both console and file audit -->
     <logger name="pers.xiaoming.notebook" level="DEBUG"
             additivity="false">
-        <appender-ref ref="FILE-OUT" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <logger name="com.mysql.jdbc" level="DEBUG"
+            additivity="false">
         <appender-ref ref="STDOUT" />
     </logger>
 

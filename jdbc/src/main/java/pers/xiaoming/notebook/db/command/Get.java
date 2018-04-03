@@ -18,19 +18,7 @@ public class Get {
 
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            return rsToStudents(rs);
+            return Utils.rsToStudents(rs);
         }
-    }
-
-    private Student rsToStudents(ResultSet rs) throws SQLException {
-        Student student = null;
-
-        while (rs.next()) {
-            int id = rs.getInt("id");
-            String name = rs.getString("name");
-            double score = rs.getDouble("score");
-            student = new Student(id, name, score);
-        }
-        return student;
     }
 }
