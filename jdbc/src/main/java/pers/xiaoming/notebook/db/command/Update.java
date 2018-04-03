@@ -8,18 +8,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class Create {
-    private static final String QUERY = "INSERT INTO student (name, score) values (?, ?)";
+public class Update {
+    private static final String QUERY = "UPDATE student SET name = ?, score = ? WHERE id = ?";
 
 
-    public int create(Student student) throws IOException, SQLException {
+    public void update(Student student) throws IOException, SQLException {
         try (Connection conn = ConnManager.getConn();
              PreparedStatement ps = conn.prepareStatement(QUERY)) {
 
             ps.setString(1, student.getName());
             ps.setDouble(2, student.getScore());
-            int count = ps.executeUpdate();
-            return count;
+            ps.setInt(3, student.getId());
+            ps.executeUpdate();
         }
     }
 }
