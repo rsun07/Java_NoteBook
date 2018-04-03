@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Delete {
-    private static final String QUERY = "DELETE student WHERE id = ?";
+    private static final String QUERY = "DELETE FROM student WHERE id = ?";
 
     public void run(int id) throws IOException, SQLException {
         try (Connection conn = ConnManager.getConn();

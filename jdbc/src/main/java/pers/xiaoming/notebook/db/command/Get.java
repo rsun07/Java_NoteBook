@@ -8,11 +8,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Get {
-    private static final String QUERY = "SELECT name, score FROM student WHERE id = ?";
+    private static final String QUERY = "SELECT id, name, score FROM student WHERE id = ?";
 
     public Student run(int id) throws IOException, SQLException {
         try (Connection conn = ConnManager.getConn();
@@ -20,19 +18,19 @@ public class Get {
 
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            return rsToStudents(rs).get(0);
+            return rsToStudents(rs);
         }
     }
 
-    private List<Student> rsToStudents(ResultSet rs) throws SQLException {
-        List<Student> students = new ArrayList<>();
+    private Student rsToStudents(ResultSet rs) throws SQLException {
+        Student student = null;
 
         while (rs.next()) {
             int id = rs.getInt("id");
             String name = rs.getString("name");
             double score = rs.getDouble("score");
-            students.add(new Student(id, name, score));
+            student = new Student(id, name, score);
         }
-        return students;
+        return student;
     }
 }
