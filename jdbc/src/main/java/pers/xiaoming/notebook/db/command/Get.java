@@ -1,5 +1,6 @@
-package pers.xiaoming.notebook;
+package pers.xiaoming.notebook.db.command;
 
+import pers.xiaoming.notebook.db.ConnManager;
 import pers.xiaoming.notebook.entity.Student;
 
 import java.io.IOException;

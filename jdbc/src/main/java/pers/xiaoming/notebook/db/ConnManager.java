@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook;
+package pers.xiaoming.notebook.db;
 
 import java.io.File;
 import java.io.FileReader;

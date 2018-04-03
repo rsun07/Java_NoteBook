@@ -1,12 +1,12 @@
-package pers.xiaoming.notebook;
+package pers.xiaoming.notebook.db.command;
 
+import pers.xiaoming.notebook.db.ConnManager;
 import pers.xiaoming.notebook.entity.Student;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Create {
     private static final String QUERY = "INSERT INTO student (name, score) values (?, ?)";
