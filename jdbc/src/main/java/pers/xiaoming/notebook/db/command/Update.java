@@ -12,7 +12,7 @@ public class Update {
     private static final String QUERY = "UPDATE student SET name = ?, score = ? WHERE id = ?";
 
 
-    public void update(Student student) throws IOException, SQLException {
+    public void run(Student student) throws IOException, SQLException {
         try (Connection conn = ConnManager.getConn();
              PreparedStatement ps = conn.prepareStatement(QUERY)) {
 

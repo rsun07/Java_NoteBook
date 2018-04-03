@@ -12,32 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Get {
-    private static final String SELECT_ALL_QUERY = "SELECT name, score FROM student";
-
-    private static final String SELECT_BY_ID_QUERY = "SELECT name, score FROM student WHERE id = ?";
-
-    public List<Student> getAll() throws IOException, SQLException {
-        return rsToStudents(getRs());
-    }
-
-    public ResultSet getRs() throws IOException, SQLException {
-        try (Connection conn = ConnManager.getConn();
-             PreparedStatement ps = conn.prepareStatement(SELECT_ALL_QUERY)) {
-            ResultSet rs = ps.executeQuery(SELECT_ALL_QUERY);
-            return rs;
-        }
-    }
+    private static final String QUERY = "SELECT name, score FROM student WHERE id = ?";
 
     public Student run(int id) throws IOException, SQLException {
-        return rsToStudents(getRs()).get(0);
-    }
-
-    public ResultSet getRs(int id) throws IOException, SQLException {
         try (Connection conn = ConnManager.getConn();
-             PreparedStatement ps = conn.prepareStatement(SELECT_BY_ID_QUERY)) {
+             PreparedStatement ps = conn.prepareStatement(QUERY)) {
+
             ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery(SELECT_ALL_QUERY);
-            return rs;
+            ResultSet rs = ps.executeQuery();
+            return rsToStudents(rs).get(0);
         }
     }
 

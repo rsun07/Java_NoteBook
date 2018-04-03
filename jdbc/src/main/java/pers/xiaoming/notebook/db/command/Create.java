@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class Create {
     private static final String QUERY = "INSERT INTO student (name, score) values (?, ?)";
 
-    public int create(Student student) throws IOException, SQLException {
+    public int run(Student student) throws IOException, SQLException {
         try (Connection conn = ConnManager.getConn();
              PreparedStatement ps = conn.prepareStatement(QUERY)) {
 

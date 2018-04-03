@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class TruncateTable {
     private static final String QUERY = "TRUNCATE TABLE student";
 
-    public void truncate() throws IOException, SQLException {
+    public void run() throws IOException, SQLException {
         try (Connection conn = ConnManager.getConn();
              PreparedStatement ps = conn.prepareStatement(QUERY)) {
             ps.executeUpdate();

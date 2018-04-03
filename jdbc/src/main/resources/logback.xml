@@ -12,13 +12,13 @@
     </appender>
 
     <!-- Send logs to both console and file audit -->
-    <logger name="pers.xiaoming.notebook" level="info"
+    <logger name="pers.xiaoming.notebook" level="DEBUG"
             additivity="false">
         <appender-ref ref="FILE-OUT" />
         <appender-ref ref="STDOUT" />
     </logger>
 
-    <root level="ALL">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT" />
     </root>
 

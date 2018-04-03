@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class ConnManager {
-    private static final String CONFIG_PATH = "."+ File.separator + "jdbc" + File.separator + "src" + File.separator + "main"
+    private static final String CONFIG_PATH = "." + File.separator + "src" + File.separator + "main"
             + File.separator + "resources" + File.separator;
 
     public static Connection getConn() throws IOException, SQLException {
