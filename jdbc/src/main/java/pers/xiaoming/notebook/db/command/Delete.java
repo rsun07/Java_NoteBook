@@ -8,17 +8,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class Create {
-    private static final String QUERY = "INSERT INTO student (name, score) values (?, ?)";
+public class Delete {
+    private static final String QUERY = "DELETE student WHERE id = ?";
 
-    public int create(Student student) throws IOException, SQLException {
+    public void delete(int id) throws IOException, SQLException {
         try (Connection conn = ConnManager.getConn();
              PreparedStatement ps = conn.prepareStatement(QUERY)) {
 
-            ps.setString(1, student.getName());
-            ps.setDouble(2, student.getScore());
-            int count = ps.executeUpdate();
-            return count;
+            ps.setInt(1, id);
+            ps.executeUpdate();
         }
     }
 }
