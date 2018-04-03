@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Insert {
+public class Create {
     private static final String QUERY = "INSERT INTO student (name, score) values (50, 88)";
 
 
