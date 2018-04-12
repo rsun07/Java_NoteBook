@@ -16,6 +16,7 @@
 
   <modules>
     <module>log4j</module>
+    <module>slf4j-log4j</module>
     <module>slf4j-logback</module>
     <module>slf4j-logback-xml</module>
     <module>slf4j-simplelogger</module>
