@@ -1,10 +1,10 @@
-package pers.xiaoming.notebook.concurrent.synchronized_and_lock.read_write_lock;
+package pers.xiaoming.notebook.concurrent.synchronized_and_lock.locks;
 
 import org.junit.Test;
 import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
 public class ReadWriteLockTest {
-    private RWLockDemo testClass = new RWLockDemo();
+    private ReadWriteLockDemo testClass = new ReadWriteLockDemo();
 
     /*
     // no wait time

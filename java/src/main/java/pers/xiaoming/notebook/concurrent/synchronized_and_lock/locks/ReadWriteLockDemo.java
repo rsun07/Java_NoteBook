@@ -1,11 +1,11 @@
-package pers.xiaoming.notebook.concurrent.synchronized_and_lock.read_write_lock;
+package pers.xiaoming.notebook.concurrent.synchronized_and_lock.locks;
 
 import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-class RWLockDemo {
+class ReadWriteLockDemo {
     private ReadWriteLock rwLock = new ReentrantReadWriteLock();
 
     void write() {
