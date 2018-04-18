@@ -22,7 +22,7 @@ public class SyncPrintsTest {
         print1
     */
     @Test
-    public void test() throws InterruptedException {
+    public void testSynchronizedReentrant() {
         SyncPrintsSub syncPrints = new SyncPrintsSub();
         System.out.println("\nFrom call Print3");
         syncPrints.print3();
@@ -50,7 +50,7 @@ public class SyncPrintsTest {
         print1
      */
     @Test
-    public void testReentrantLockFail() throws InterruptedException {
+    public void testReentrantLock() {
         ReentrantLockPrintsSub lockPrints = new ReentrantLockPrintsSub();
 
         System.out.println("\nFrom call Print3");
