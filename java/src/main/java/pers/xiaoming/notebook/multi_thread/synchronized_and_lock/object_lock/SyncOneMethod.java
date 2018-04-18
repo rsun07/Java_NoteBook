@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.multi_thread.synchronized_.object_lock;
+package pers.xiaoming.notebook.multi_thread.synchronized_and_lock.object_lock;
 
 class SyncOneMethod implements IObjectLock {
     public synchronized void methodA() {
