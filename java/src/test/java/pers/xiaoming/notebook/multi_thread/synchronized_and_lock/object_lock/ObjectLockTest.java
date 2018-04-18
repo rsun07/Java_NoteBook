@@ -5,25 +5,23 @@ import org.junit.Test;
 
 // prove that synchronized in method signature is object lock
 // the lock is the object
+
+// static methods use class lock, different from object lock
 @Ignore("demo tests")
 public class ObjectLockTest {
+    private SyncMethodDemo testClass = new SyncMethodDemo();
+
 
     /*
-        Executing Method A
-        Executing Method B
-        Executing Method B
-        Executing Method B
-
-        // wait 1s After B finish to finish
-        Executing Method A
-        Executing Method A
+    // no waiting time
+        Executing Non Synchronized Method
+        Executing Synchronized Method
      */
     @Test
     public void testSyncOneMethod() throws InterruptedException {
-        IObjectLock testClass = new SyncOneMethod();
 
-        Thread t1 = new Thread(() -> runA(testClass));
-        Thread t2 = new Thread(() -> runB(testClass));
+        Thread t1 = new Thread(testClass::nonSyncMethod);
+        Thread t2 = new Thread(testClass::syncMethod);
         t1.start();
         t2.start();
         t1.join();
@@ -31,22 +29,15 @@ public class ObjectLockTest {
     }
 
     /*
-        Executing Method A
+        Executing Synchronized Method
+
         // wait 500ms
-        Executing Method A
-        // wait 500ms
-        Executing Method A
-        // finish very fast!
-        Executing Method B
-        Executing Method B
-        Executing Method B
+        Executing Synchronized Method Copy
      */
     @Test
-    public void testSyncTwoMethod() throws InterruptedException {
-        IObjectLock testClass = new SyncBothMethod();
-
-        Thread t1 = new Thread(() -> runA(testClass));
-        Thread t2 = new Thread(() -> runB(testClass));
+    public void testSyncBothMethods() throws InterruptedException {
+        Thread t1 = new Thread(testClass::syncMethod);
+        Thread t2 = new Thread(testClass::syncMethodCopy);
         t1.start();
         t2.start();
         t1.join();
@@ -54,38 +45,50 @@ public class ObjectLockTest {
     }
 
     /*
-    Same result as testSyncOneMethod()
-        Executing Method A
-        Executing Method B
-        Executing Method B
-        Executing Method B
-        // wait 500 ms
-        Executing Method A
-        // wait 500ms
-        Executing Method A
+    // no waiting time
+        Executing Synchronized Method
+        Executing Synchronized Method
      */
     @Test
     public void testSyncTwoMethodTwoObject() throws InterruptedException {
-        IObjectLock testClassA = new SyncBothMethod();
-        IObjectLock testClassB = new SyncBothMethod();
+        SyncMethodDemo testClassCopy = new SyncMethodDemo();
 
-        Thread t1 = new Thread(() -> runA(testClassA));
-        Thread t2 = new Thread(() -> runB(testClassB));
+        Thread t1 = new Thread(testClass::syncMethod);
+        Thread t2 = new Thread(testClassCopy::syncMethod);
         t1.start();
         t2.start();
         t1.join();
         t2.join();
     }
 
-    void runA(IObjectLock testClass) {
-        for (int i = 0; i < 3; i++) {
-            testClass.methodA();
-        }
+    /*
+    // no waiting time
+        Executing Synchronized Method
+        // wait 500ms
+        Executing Static Synchronized Method
+     */
+    @Test
+    public void testOneSyncStaticMethod() throws InterruptedException {
+        Thread t1 = new Thread(testClass::syncMethod);
+        Thread t2 = new Thread(SyncMethodDemo::staticSyncMethod);
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
     }
 
-    void runB(IObjectLock testClass) {
-        for (int i = 0; i < 3; i++) {
-            testClass.methodB();
-        }
+    /*
+    // no waiting time
+        Executing Synchronized Method
+        Executing Static Synchronized Method Copy
+     */
+    @Test
+    public void testBothSyncStaticMethod() throws InterruptedException {
+        Thread t1 = new Thread(SyncMethodDemo::staticSyncMethod);
+        Thread t2 = new Thread(SyncMethodDemo::staticSyncMethodCopy);
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
     }
 }
