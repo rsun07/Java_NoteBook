@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.concurrent.reentrant;
+package pers.xiaoming.notebook.concurrent.synchronized_and_lock.reentrant;
 
 import org.junit.Ignore;
 import org.junit.Test;

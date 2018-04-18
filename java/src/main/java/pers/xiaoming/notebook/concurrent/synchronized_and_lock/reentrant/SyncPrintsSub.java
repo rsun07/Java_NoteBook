@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.concurrent.reentrant;
+package pers.xiaoming.notebook.concurrent.synchronized_and_lock.reentrant;
 
 import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
