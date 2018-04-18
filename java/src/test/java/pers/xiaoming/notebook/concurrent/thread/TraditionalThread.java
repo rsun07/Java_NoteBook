@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.concurrent.traditional_thread;
+package pers.xiaoming.notebook.concurrent.thread;
 
 import org.junit.Test;
 
