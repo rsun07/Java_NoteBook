@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.multi_thread.synchronized_and_lock.reentrant;
+package pers.xiaoming.notebook.multi_thread.reentrant;
 
 class SyncPrintsSub extends SyncPrints {
     synchronized void print3() {
