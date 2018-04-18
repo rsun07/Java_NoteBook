@@ -1,5 +1,7 @@
 package pers.xiaoming.notebook.multi_thread.reentrant;
 
+import pers.xiaoming.notebook.multi_thread.util.ThreadSleep;
+
 import java.util.concurrent.locks.ReentrantLock;
 
 class ReentrantLockPrints {
@@ -9,7 +11,7 @@ class ReentrantLockPrints {
         relock.lock();
         try {
             System.out.println("print1");
-            sleep();
+            ThreadSleep.sleep();
         } finally {
             relock.unlock();
         }
@@ -20,17 +22,9 @@ class ReentrantLockPrints {
         try {
             System.out.println("print2");
             print1();
-            sleep();
+            ThreadSleep.sleep();
         } finally {
             relock.unlock();
-        }
-    }
-
-    void sleep() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 }
