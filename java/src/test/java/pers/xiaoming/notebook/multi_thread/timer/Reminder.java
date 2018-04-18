@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.basic.multi_thread.timer;
+package pers.xiaoming.notebook.multi_thread.timer;
 
 import java.util.Date;
 import java.util.Timer;

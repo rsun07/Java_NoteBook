@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.basic.multi_thread.traditional_thread;
+package pers.xiaoming.notebook.multi_thread.traditional_thread;
 
 public class LockOnThread {
     // The object that used as a key should be the same object

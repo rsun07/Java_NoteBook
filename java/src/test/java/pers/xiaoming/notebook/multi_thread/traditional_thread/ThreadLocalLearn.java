@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.basic.multi_thread.traditional_thread;
+package pers.xiaoming.notebook.multi_thread.traditional_thread;
 
 import java.util.HashMap;
 import java.util.Map;
