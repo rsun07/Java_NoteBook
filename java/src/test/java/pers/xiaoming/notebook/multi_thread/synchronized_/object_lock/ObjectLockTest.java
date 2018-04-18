@@ -2,6 +2,8 @@ package pers.xiaoming.notebook.multi_thread.synchronized_.object_lock;
 
 import org.junit.Test;
 
+// prove that synchronized in method signature is object lock
+// the lock is the object
 public class ObjectLockTest {
 
     /*
@@ -43,6 +45,30 @@ public class ObjectLockTest {
 
         Thread t1 = new Thread(() -> runA(testClass));
         Thread t2 = new Thread(() -> runB(testClass));
+        t1.start();
+        t2.start();
+        t1.join();
+        t2.join();
+    }
+
+    /*
+    Same result as testSyncOneMethod()
+        Executing Method A
+        Executing Method B
+        Executing Method B
+        Executing Method B
+        // wait 500 ms
+        Executing Method A
+        // wait 500ms
+        Executing Method A
+     */
+    @Test
+    public void testSyncTwoMethodTwoObject() throws InterruptedException {
+        IObjectLock testClassA = new SyncBothMethod();
+        IObjectLock testClassB = new SyncBothMethod();
+
+        Thread t1 = new Thread(() -> runA(testClassA));
+        Thread t2 = new Thread(() -> runB(testClassB));
         t1.start();
         t2.start();
         t1.join();
