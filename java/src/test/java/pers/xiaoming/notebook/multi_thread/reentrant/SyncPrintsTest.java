@@ -22,6 +22,7 @@ public class SyncPrintsTest {
         print1
     */
     @Test
+    @Ignore("demo tests")
     public void testSynchronizedReentrant() {
         SyncPrintsSub syncPrints = new SyncPrintsSub();
         System.out.println("\nFrom call Print3");

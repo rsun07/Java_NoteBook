@@ -1,5 +1,6 @@
 package pers.xiaoming.notebook.multi_thread.synchronized_and_lock.exception_release;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /*
@@ -16,6 +17,7 @@ import org.junit.Test;
     1 / 1 = 1
 
  */
+@Ignore("demo tests")
 public class ExcpetionLockReleaseTest {
     @Test
     public void test() throws InterruptedException {
