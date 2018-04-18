@@ -8,17 +8,13 @@ class SyncPrints {
 
     synchronized void print2() {
         System.out.println("print2");
+        print1();
         sleep();
     }
 
-    synchronized void print3() {
-        System.out.println("print3");
-        sleep();
-    }
-
-    private void sleep() {
+    void sleep() {
         try {
-            Thread.sleep(10000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
