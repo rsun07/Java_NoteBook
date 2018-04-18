@@ -1,9 +1,11 @@
 package pers.xiaoming.notebook.multi_thread.synchronized_.object_lock;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 // prove that synchronized in method signature is object lock
 // the lock is the object
+@Ignore("demo tests")
 public class ObjectLockTest {
 
     /*
