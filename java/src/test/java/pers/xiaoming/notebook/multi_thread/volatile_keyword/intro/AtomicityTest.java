@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.time.Period;
 
 public class AtomicityTest {
     /*
@@ -12,8 +11,21 @@ public class AtomicityTest {
         Time cost is around 110ms
      */
     @Test
-    public void failAtomicity() {
-        FailAtomicity testClass = new FailAtomicity();
+    public void testFailAtomicity() {
+        test(false);
+    }
+
+    /*
+        Result is guarantee to be 1000000,
+        Time cost is 128
+     */
+    @Test
+    public void testAchieveAtomicity() {
+        test(true);
+    }
+
+    private void test(boolean isSynchroized) {
+        AtomicityDemo testClass = new AtomicityDemo();
 
         Instant start = Instant.now();
 
@@ -21,15 +33,23 @@ public class AtomicityTest {
             new Thread(
                 () -> {
                     for (int j = 0; j < 1000; j++) {
-                        testClass.addRes();
+                        if (isSynchroized) {
+                            testClass.addResSynchronized();
+                        } else {
+                            testClass.addRes();
+                        }
                     }
                 }
             ).start();
         }
 
+        while(Thread.activeCount() > 2) {
+            Thread.yield();
+        }
+
         Instant end = Instant.now();
 
         System.out.printf("Result is %d, \nTime cost is %s\n",
-                testClass.getRes(), Duration.between(start, end).toMillis());
+                testClass.getRes(isSynchroized), Duration.between(start, end).toMillis());
     }
 }
