@@ -9,10 +9,6 @@ class AtomicAdd implements ConcurrentAdd {
         this.res = new AtomicInteger();
     }
 
-    public AtomicAdd(int intiVal) {
-        this.res = new AtomicInteger(intiVal);
-    }
-
     @Override
     public int add() {
         return add(1);
