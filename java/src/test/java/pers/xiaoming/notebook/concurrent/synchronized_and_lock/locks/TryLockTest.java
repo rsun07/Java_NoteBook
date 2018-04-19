@@ -1,7 +1,9 @@
 package pers.xiaoming.notebook.concurrent.synchronized_and_lock.locks;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore("demo tests")
 public class TryLockTest {
     private TryLockDemo testClass = new TryLockDemo();
 

@@ -1,8 +1,10 @@
 package pers.xiaoming.notebook.concurrent.atomicity;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore("don't run in mvn build")
 public class AtomicityTest {
     private static final int CONCURRENT_THREAD_NUM = 1000;
     private static final int RUN_FREQUENCY = 1000;

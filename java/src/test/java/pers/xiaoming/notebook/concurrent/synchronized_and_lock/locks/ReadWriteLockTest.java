@@ -1,8 +1,10 @@
 package pers.xiaoming.notebook.concurrent.synchronized_and_lock.locks;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
+@Ignore("demo tests")
 public class ReadWriteLockTest {
     private ReadWriteLockDemo testClass = new ReadWriteLockDemo();
 

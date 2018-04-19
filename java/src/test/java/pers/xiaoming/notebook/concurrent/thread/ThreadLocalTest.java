@@ -1,7 +1,9 @@
 package pers.xiaoming.notebook.concurrent.thread;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore("demo tests")
 public class ThreadLocalTest {
 
     /*

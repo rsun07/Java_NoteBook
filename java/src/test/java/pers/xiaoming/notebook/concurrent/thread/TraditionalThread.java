@@ -1,5 +1,6 @@
 package pers.xiaoming.notebook.concurrent.thread;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Random;
@@ -8,6 +9,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 
+@Ignore("demo tests")
 public class TraditionalThread {
 
     @Test
