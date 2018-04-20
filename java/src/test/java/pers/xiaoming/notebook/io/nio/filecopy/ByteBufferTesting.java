@@ -100,4 +100,24 @@ public class ByteBufferTesting {
             buffer.clear();
         }
     }
+
+    // use debug mode to see what happens
+    @Test
+    public void testWithoutClear() throws IOException {
+        while (true) {
+            int eof = inChannel.read(buffer);
+
+            if (eof == -1) {
+                break;
+            }
+
+            buffer.flip();
+
+            outChannel.write(buffer);
+
+            // without clear, the position never set back to 0
+            // only the first bufferBytes will write into dest file
+            // buffer.clear();
+        }
+    }
 }
