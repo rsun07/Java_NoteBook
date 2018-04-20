@@ -8,15 +8,15 @@ import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
 
-import static pers.xiaoming.notebook.io.Utils.FILE_COPY_DEST_NAME;
+import static pers.xiaoming.notebook.io.Utils.IMAGE_COPY_DEST_NAME;
 import static pers.xiaoming.notebook.io.Utils.FILE_COPY_DEST_PATH;
-import static pers.xiaoming.notebook.io.Utils.FILE_COPY_SOURCE_NAME;
+import static pers.xiaoming.notebook.io.Utils.IMAGE_COPY_SOURCE_NAME;
 import static pers.xiaoming.notebook.io.Utils.FILE_COPY_SOURCE_PATH;
 
 public class FileCopyTest {
     @BeforeClass
     public static void setUp() {
-        File destFile = new File(FILE_COPY_DEST_PATH + File.separator + FILE_COPY_DEST_NAME);
+        File destFile = new File(FILE_COPY_DEST_PATH + File.separator + IMAGE_COPY_DEST_NAME);
         // destFile.deleteOnExit();
     }
 
@@ -24,8 +24,8 @@ public class FileCopyTest {
     public void test() throws IOException {
         Instant start = Instant.now();
 
-        FileCopierNIOImpl.copy(FILE_COPY_SOURCE_PATH + File.separator + FILE_COPY_SOURCE_NAME,
-                FILE_COPY_DEST_PATH + File.separator + FILE_COPY_DEST_NAME);
+        FileCopierNIOImpl.copy(FILE_COPY_SOURCE_PATH + File.separator + IMAGE_COPY_SOURCE_NAME,
+                FILE_COPY_DEST_PATH + File.separator + IMAGE_COPY_DEST_NAME);
 
         Instant end = Instant.now();
 

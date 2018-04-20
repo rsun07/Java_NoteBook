@@ -19,9 +19,13 @@ public class Utils {
     public static final String FILE_COPY_DEST_PATH = "." + File.separator + "src" + File.separator + "main" + File.separator +
             "resources" + File.separator + "io" + File.separator + "filecopy" + File.separator+ "copyoutput" + File.separator;
 
-    public static final String FILE_COPY_SOURCE_NAME = "source_file.jpg";
+    public static final String IMAGE_COPY_SOURCE_NAME = "source_img.jpg";
 
-    public static final String FILE_COPY_DEST_NAME = "copy_dest_file.jpg";
+    public static final String IMAGE_COPY_DEST_NAME = "copy_dest_img.jpg";
+
+    public static final String FILE_COPY_SOURCE_NAME = "source_file.txt";
+
+    public static final String FILE_COPY_DEST_NAME = "copy_dest_file.txt";
 
     // For two File read test in memory stream
     public static final String TWO_FILE_READ_PATH =  "." + File.separator + "src" + File.separator + "main" + File.separator +

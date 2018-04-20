@@ -14,7 +14,7 @@ public class FileCopyByByteTest {
 
     @BeforeClass
     public static void setUp() {
-        File destFile = new File(FILE_COPY_DEST_PATH + File.separator + FILE_COPY_DEST_NAME);
+        File destFile = new File(FILE_COPY_DEST_PATH + File.separator + IMAGE_COPY_DEST_NAME);
         // destFile.deleteOnExit();
     }
 
@@ -23,8 +23,8 @@ public class FileCopyByByteTest {
         Instant start = Instant.now();
 
         FileCopier fileCopier = new FileCopierImpl(
-                FILE_COPY_SOURCE_PATH + File.separator + FILE_COPY_SOURCE_NAME,
-                FILE_COPY_DEST_PATH + File.separator + FILE_COPY_DEST_NAME,
+                FILE_COPY_SOURCE_PATH + File.separator + IMAGE_COPY_SOURCE_NAME,
+                FILE_COPY_DEST_PATH + File.separator + IMAGE_COPY_DEST_NAME,
                 new FileCopyByByteArray()
         );
         fileCopier.copy();
