@@ -3,6 +3,8 @@ package pers.xiaoming.notebook.concurrent.thread;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.util.concurrent.CountDownLatch;
+
 @Ignore("demo tests")
 public class ThreadLocalTest {
 
@@ -18,10 +20,6 @@ public class ThreadLocalTest {
     public void testNoThreadLocal() {
         ThreadLocalDemo testClass = new NoThreadLocalDemo();
         test(testClass);
-
-        while (Thread.activeCount() > 2) {
-            Thread.yield();
-        }
 
         System.out.println("Result in Main Thread is : " + testClass.getRes());
         System.out.println("Name in Main Thread is : " + testClass.getName());
@@ -40,27 +38,36 @@ public class ThreadLocalTest {
         ThreadLocalDemo testClass = new UseThreadLocalDemo();
         test(testClass);
 
-        while (Thread.activeCount() > 2) {
-            Thread.yield();
-        }
-
         System.out.println("Result in Main Thread is : " + testClass.getRes());
         System.out.println("Name in Main Thread is : " + testClass.getName());
     }
 
+    private CountDownLatch countDownLatch = new CountDownLatch(2);
+
     private void test(ThreadLocalDemo testClass) {
+
         new Thread(() -> this.run(testClass)).start();
         new Thread(() -> this.run(testClass)).start();
+
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     private void run(ThreadLocalDemo testClass) {
+
         for (int i = 0; i < 100; i++) {
             testClass.add();
         }
+
         System.out.println("Result in " + Thread.currentThread() + " is : " + testClass.getRes());
 
         testClass.setName(Thread.currentThread().getName());
 
         System.out.println("Demo name is : " + testClass.getName());
+
+        countDownLatch.countDown();
     }
 }

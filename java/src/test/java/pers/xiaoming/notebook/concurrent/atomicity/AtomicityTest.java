@@ -4,7 +4,8 @@ import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
-@Ignore("don't run in mvn build")
+import java.util.concurrent.CountDownLatch;
+
 public class AtomicityTest {
     private static final int CONCURRENT_THREAD_NUM = 1000;
     private static final int RUN_FREQUENCY = 1000;
@@ -46,6 +47,8 @@ public class AtomicityTest {
     }
 
     private int test(ConcurrentAdd addClass) {
+        CountDownLatch countDownLatch = new CountDownLatch(CONCURRENT_THREAD_NUM);
+
         for (int i = 0; i < CONCURRENT_THREAD_NUM; i++) {
             new Thread(
                     () -> {
@@ -57,13 +60,16 @@ public class AtomicityTest {
                         if (addClass instanceof ThreadLocalAdd) {
                             Assert.assertEquals(RUN_FREQUENCY, addClass.getRes());
                         }
+                        countDownLatch.countDown();
                     }
             ).start();
         }
 
         // wait all thread finish
-        while (Thread.activeCount() > 2) {
-            Thread.yield();
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
         int res = addClass.getRes();

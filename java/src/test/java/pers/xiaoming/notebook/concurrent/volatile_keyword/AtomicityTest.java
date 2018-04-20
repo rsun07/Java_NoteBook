@@ -1,13 +1,18 @@
 package pers.xiaoming.notebook.concurrent.volatile_keyword;
 
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.concurrent.CountDownLatch;
 
-@Ignore("demo tests")
 public class AtomicityTest {
+    private static final int CONCURRENT_THREAD_NUM = 1000;
+    private static final int RUN_FREQUENCY = 1000;
+    private static final int EXPECT_RES = CONCURRENT_THREAD_NUM * RUN_FREQUENCY;
+
     /*
         Every time it run, the result is different but less than 1000*1000
         Time cost is around 110ms
@@ -29,27 +34,39 @@ public class AtomicityTest {
     private void test(boolean isSynchroized) {
         AtomicityDemo testClass = new AtomicityDemo();
 
+        CountDownLatch countDownLatch = new CountDownLatch(CONCURRENT_THREAD_NUM);
+
         Instant start = Instant.now();
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < CONCURRENT_THREAD_NUM; i++) {
             new Thread(
                 () -> {
-                    for (int j = 0; j < 1000; j++) {
+                    for (int j = 0; j < RUN_FREQUENCY; j++) {
                         if (isSynchroized) {
                             testClass.addResSynchronized();
                         } else {
                             testClass.addRes();
                         }
                     }
+                    countDownLatch.countDown();
                 }
             ).start();
         }
 
-        while(Thread.activeCount() > 2) {
-            Thread.yield();
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
         Instant end = Instant.now();
+
+        int res = testClass.getRes(isSynchroized);
+        if (isSynchroized) {
+            Assert.assertEquals(EXPECT_RES, res);
+        } else {
+            Assert.assertTrue(EXPECT_RES > res);
+        }
 
         System.out.printf("Result is %d, \nTime cost is %s\n",
                 testClass.getRes(isSynchroized), Duration.between(start, end).toMillis());
