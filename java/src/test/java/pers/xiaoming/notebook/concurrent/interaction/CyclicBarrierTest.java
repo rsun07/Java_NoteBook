@@ -20,7 +20,39 @@ public class CyclicBarrierTest {
 
      */
     @Test
-    public void test() {
+    public void testCyclicBarrier() {
+        test();
+    }
+
+    /*
+
+        Thread[Thread-0,5,main] is executing.
+        Thread[Thread-1,5,main] is executing.
+        Thread[Thread-2,5,main] is executing.
+
+        // wait 1s
+        Thread[Thread-3,5,main] is executing.
+
+        // no wait time
+        Reset barrier
+
+        Thread[Thread-0,5,main] is executing.
+        Thread[Thread-1,5,main] is executing.
+        Thread[Thread-2,5,main] is executing.
+
+        // wait 1s
+        Thread[Thread-3,5,main] is executing.
+
+     */
+    @Test
+    public void testRest() {
+        test();
+        barrier.reset();
+        System.out.println("\nReset barrier\n");
+        test();
+    }
+
+    private void test() {
         new Thread(this::faster).start();
         new Thread(this::faster).start();
         new Thread(this::faster).start();
