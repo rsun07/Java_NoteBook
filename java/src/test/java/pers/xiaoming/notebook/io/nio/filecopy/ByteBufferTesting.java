@@ -52,8 +52,6 @@ public class ByteBufferTesting {
     @Test
     public void correctFileCopy() throws IOException {
         while (true) {
-
-
             // Because ByteBuffer is allocate to 128, so the ByteBuffer will read 128 byte each time.
             // That means the attribute inside ByteBuffer, capacity = 128.
             int eof = inChannel.read(buffer);
@@ -68,6 +66,9 @@ public class ByteBufferTesting {
             // position is equals to the int eof
             // flip will set limit to current position
             // and then set position to 0
+
+            // position is like the start index
+            // limit is like the end index
             buffer.flip();
 
             // write from position to limit
@@ -76,6 +77,26 @@ public class ByteBufferTesting {
             // after write, set position to 0
             // limit to capacity
             // free the buffer to receive more message
+            buffer.clear();
+        }
+    }
+
+    // use debug mode to see what happens
+    @Test
+    public void testWithoutFlip() throws IOException {
+        while (true) {
+            int eof = inChannel.read(buffer);
+
+            if (eof == -1) {
+                break;
+            }
+
+            // buffer.flip();
+
+            // without flip, position won't back to 0
+            // out channel write from the position
+            outChannel.write(buffer);
+
             buffer.clear();
         }
     }

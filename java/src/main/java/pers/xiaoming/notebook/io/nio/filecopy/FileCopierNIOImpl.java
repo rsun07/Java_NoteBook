@@ -32,6 +32,9 @@ public class FileCopierNIOImpl {
                 // position is equals to the int eof
                 // flip will set limit to current position
                 // and then set position to 0
+
+                // position is like the start index
+                // limit is like the end index
                 buffer.flip();
 
                 // write from position to limit
