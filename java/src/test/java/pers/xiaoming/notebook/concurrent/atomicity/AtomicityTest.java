@@ -46,6 +46,21 @@ public class AtomicityTest {
         Assert.assertEquals(0, res);
     }
 
+    @Test
+    public void testSemaphoreOneAdd() {
+        ConcurrentAdd addClass = new SemaphoreAdd(1);
+        int res = test(addClass);
+        Assert.assertEquals(EXPECT_RES, res);
+    }
+
+    // semaphore doesn't achieve atomic
+    @Test
+    public void testSemaphoreMoreAdd() {
+        ConcurrentAdd addClass = new SemaphoreAdd(10);
+        int res = test(addClass);
+        Assert.assertTrue(res < EXPECT_RES);
+    }
+
     private int test(ConcurrentAdd addClass) {
         CountDownLatch countDownLatch = new CountDownLatch(CONCURRENT_THREAD_NUM);
 
