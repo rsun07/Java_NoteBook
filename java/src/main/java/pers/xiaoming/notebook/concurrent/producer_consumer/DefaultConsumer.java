@@ -3,11 +3,11 @@ package pers.xiaoming.notebook.concurrent.producer_consumer;
 import java.util.Queue;
 
 public class DefaultConsumer {
-    static int consume(Queue<Integer> queue, int count) {
+    static void consume(Queue<Integer> queue) {
         int val = queue.poll();
-        count--;
 
-        System.out.printf("Consumer %s consumes number %d, value %d\n", Thread.currentThread().getName(), count, val);
-        return  count;
+        System.out.printf("Consumer %s consumes number %d, value %d\n", Thread.currentThread().getName(), ProducerConsumerRunnable.getCount(), val);
+
+        ProducerConsumerRunnable.subCount();
     }
 }

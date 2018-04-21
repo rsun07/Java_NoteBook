@@ -4,7 +4,7 @@ import java.util.Queue;
 
 class ProducerConsumerRunnable {
 
-    private static int count = 0;
+    private static int count;
 
     private final Queue<Integer> queue;
 
@@ -13,6 +13,7 @@ class ProducerConsumerRunnable {
     private final IProducerConsumer producerConsumerImpl;
 
     ProducerConsumerRunnable(Queue<Integer> queue, final int queueSize, IProducerConsumer producerConsumerImpl) {
+        this.count = 0;
         this.queue = queue;
         this.queueSize = queueSize;
         this.producerConsumerImpl = producerConsumerImpl;
@@ -22,19 +23,35 @@ class ProducerConsumerRunnable {
         @Override
         public void run() {
             while (true) {
-                count = producerConsumerImpl.produce(queue, queueSize, count);
+                producerConsumerImpl.produce(queue, queueSize);
             }
         }
-
-
     }
 
     class Consumer implements Runnable {
         @Override
         public void run() {
             while (true) {
-                count = producerConsumerImpl.consume(queue, queueSize, count);
+                producerConsumerImpl.consume(queue, queueSize);
             }
+        }
+    }
+
+    static void addCount() {
+        synchronized (ProducerConsumerRunnable.class) {
+            count++;
+        }
+    }
+
+    static void subCount() {
+        synchronized (ProducerConsumerRunnable.class) {
+            count--;
+        }
+    }
+
+    static int getCount() {
+        synchronized (ProducerConsumerRunnable.class) {
+            return count;
         }
     }
 }

@@ -4,15 +4,14 @@ import java.util.Queue;
 import java.util.Random;
 
 public class DefaultProducer {
-    static int produce(Queue<Integer> queue, int count) {
+    static void produce(Queue<Integer> queue) {
         Random random = new Random();
 
         int val = random.nextInt(100);
         queue.offer(val);
 
-        count++;
+        System.out.printf("Producer %s produces number %d, value %d\n", Thread.currentThread().getName(), ProducerConsumerRunnable.getCount(), val);
 
-        System.out.printf("Producer %s produces number %d, value %d\n", Thread.currentThread().getName(), count, val);
-        return count;
+        ProducerConsumerRunnable.addCount();
     }
 }

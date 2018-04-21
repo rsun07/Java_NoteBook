@@ -11,46 +11,44 @@ public class ConditionImpl implements IProducerConsumer {
     private final Lock lock;
     private final Condition condition;
 
-    public ConditionImpl() {
+    ConditionImpl() {
         this.lock = new ReentrantLock();
         this.condition = lock.newCondition();
     }
 
-    public int produce(Queue<Integer> queue, int count, final int queueSize) {
+    public void produce(Queue<Integer> queue, final int queueSize) {
         // sleep is very important here
         // otherwise, consumer will get stuck and never go through
         ThreadSleep.sleep();
         lock.lock();
         try {
-            while (count == queueSize) {
+            while (ProducerConsumerRunnable.getCount() == queueSize) {
                 try {
                     condition.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            count = DefaultProducer.produce(queue, count);
+            DefaultProducer.produce(queue);
             condition.signalAll();
-            return count;
         } finally {
             lock.unlock();
         }
     }
 
-    public int consume(Queue<Integer> queue, int count, final int queueSize) {
+    public void consume(Queue<Integer> queue, final int queueSize) {
         ThreadSleep.sleep();
         lock.lock();
         try {
-            while (count == 0) {
+            while (ProducerConsumerRunnable.getCount() == 0) {
                 try {
                     condition.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-            count = DefaultConsumer.consume(queue, count);
+            DefaultConsumer.consume(queue);
             condition.signalAll();
-            return count;
         } finally {
             lock.unlock();
         }

@@ -12,12 +12,12 @@ public class ProducerConsumerTest {
     private static final int PRODUCER_NUM = 3;
     private static final int CONSUMER_NUM = 2;
 
-    private static final int QUEUE_SIZE = 9;
+    private static final int QUEUE_SIZE = 10;
 
     private Queue<Integer> queue;
     private IProducerConsumer producerConsumerImpl;
 
-    @Test(timeout = 10000)
+    @Test
     public void testWaitAndNotifyImpl() {
 
         queue = new LinkedList<>();
@@ -27,7 +27,7 @@ public class ProducerConsumerTest {
         runTest();
     }
 
-    @Test(timeout = 10000)
+    @Test
     public void testConditionImpl() {
 
         queue = new LinkedList<>();
