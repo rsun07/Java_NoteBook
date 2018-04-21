@@ -1,5 +1,7 @@
 package pers.xiaoming.notebook.concurrent.util;
 
+import java.util.concurrent.TimeUnit;
+
 public class ThreadSleep {
     // default sleep 1s
     public static void sleep() {
@@ -13,6 +15,14 @@ public class ThreadSleep {
     public static void sleep(int millisecs) {
         try {
             Thread.sleep(millisecs);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void sleepSecs(int secs) {
+        try {
+            TimeUnit.SECONDS.sleep(secs);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

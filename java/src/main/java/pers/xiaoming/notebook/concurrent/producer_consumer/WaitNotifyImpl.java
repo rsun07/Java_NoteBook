@@ -1,5 +1,8 @@
 package pers.xiaoming.notebook.concurrent.producer_consumer;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 class WaitNotifyImpl {
@@ -9,13 +12,17 @@ class WaitNotifyImpl {
     private static final int QUEUE_SIZE = 10;
     private static final String LOCK = "lock";
 
+    private static Queue<Integer> queue = new LinkedList<>();
+
+    private static Random random = new Random();
+
     class Producer implements Runnable {
         @Override
         public void run() {
             while (true) {
                 // sleep is very important here
                 // otherwise, consumer will get stuck and never go through
-//                sleep();
+                sleep();
                 synchronized (LOCK) {
                     while (count == QUEUE_SIZE) {
                         try {
@@ -31,8 +38,12 @@ class WaitNotifyImpl {
         }
 
         private void produce() {
+            int val = random.nextInt(100);
+            queue.offer(val);
+
             count++;
-            System.out.println(Thread.currentThread().getName() + "  Producer produce; " + " current count = " + count);
+
+            System.out.printf("Producer %s produces number %d, value %d\n", Thread.currentThread().getName(), count, val);
             LOCK.notifyAll();
         }
     }
@@ -41,7 +52,7 @@ class WaitNotifyImpl {
         @Override
         public void run() {
             while (true) {
-//                sleep();
+                sleep();
                 synchronized (LOCK) {
                     while (count == 0) {
                         try {
@@ -56,8 +67,10 @@ class WaitNotifyImpl {
         }
 
         private void consume() {
+            int val = queue.poll();
             count--;
-            System.out.println(Thread.currentThread().getName() + "  Consumer consume; " + " current count = " + count);
+
+            System.out.printf("Consumer %s consumes number %d, value %d\n", Thread.currentThread().getName(), count, val);
             LOCK.notifyAll();
         }
     }

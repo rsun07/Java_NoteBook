@@ -1,48 +1,27 @@
 package pers.xiaoming.notebook.concurrent.producer_consumer;
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import org.junit.Ignore;
+import org.junit.Test;
+import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
+@Ignore("demo test, will throw exception, don't run in mvn build")
 public class WaitNotifyTest {
-    // config for thread pool
-    private final static int corePoolSize = 5;
-    private final static int maximumPoolSize = 5;
-    private final static int keepAliveTime = 10;
-    private final static TimeUnit unit = TimeUnit.MILLISECONDS;
-    private final static BlockingQueue<Runnable> workQueue = new ArrayBlockingQueue<Runnable>(10);
+    private static final int PRODUCER_NUM = 3;
+    private static final int CONSUMER_NUM = 2;
+    private WaitNotifyImpl waitNotifyImpl = new WaitNotifyImpl();
 
-    public static void main(String[] args) {
-        WaitNotifyImpl waitNotifyImpl = new WaitNotifyImpl();
+    @Test(timeout = 10000)
+    public void test() {
 
-//        traditionalTreadSolution(waitNotifyImpl);
+        for (int i = 0; i < PRODUCER_NUM; i++) {
+            new Thread(waitNotifyImpl.new Producer()).start();
+        }
 
-        threadPoolSolution(waitNotifyImpl);
+        for (int i = 0; i < CONSUMER_NUM; i++) {
+            new Thread(waitNotifyImpl.new Consumer()).start();
+        }
 
-    }
-
-    private static void traditionalTreadSolution(WaitNotifyImpl waitNotifyImpl) {
-        new Thread(waitNotifyImpl.new Producer()).start();
-        new Thread(waitNotifyImpl.new Consumer()).start();
-        new Thread(waitNotifyImpl.new Producer()).start();
-    }
-
-    private static void threadPoolSolution(WaitNotifyImpl waitNotifyImpl) {
-        ThreadPoolExecutor threadPoolExecutorLocal = new ThreadPoolExecutor(
-                corePoolSize,
-                maximumPoolSize,
-                keepAliveTime,
-                unit,
-                workQueue,
-                new ThreadPoolExecutor.DiscardPolicy()
-        );
-
-        threadPoolExecutorLocal.execute(waitNotifyImpl.new Consumer());
-        threadPoolExecutorLocal.execute(waitNotifyImpl.new Producer());
-        threadPoolExecutorLocal.execute(waitNotifyImpl.new Producer());
-        threadPoolExecutorLocal.execute(waitNotifyImpl.new Producer());
-        threadPoolExecutorLocal.execute(waitNotifyImpl.new Consumer());
+        ThreadSleep.sleepSecs(10);
     }
 
     /*
