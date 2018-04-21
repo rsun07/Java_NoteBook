@@ -4,9 +4,15 @@ import org.junit.Ignore;
 import org.junit.Test;
 import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 @Ignore("demo test, don't run on mvn")
-public class WaitNotifyTest {
-    private static final String LOCK = "lock";
+public class ConditionTest {
+    private Lock lock = new ReentrantLock();
+    private Condition condition = lock.newCondition();
+
 
     /*
         Thread[Thread-0,5,main] is Waiting for notification!
@@ -18,6 +24,7 @@ public class WaitNotifyTest {
      */
     @Test
     public void testWaitAndNotify() {
+
         new Thread(this::threadWait).start();
         new Thread(this::threadWait).start();
         ThreadSleep.sleep(10);
@@ -55,32 +62,42 @@ public class WaitNotifyTest {
     }
 
     private void threadWait() {
+        lock.lock();
 
-        synchronized (LOCK) {
-            try {
-                System.out.println(Thread.currentThread() + " is Waiting for notification!");
-                LOCK.wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
+        try {
+            System.out.println(Thread.currentThread() + " is Waiting for notification!");
+            condition.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
             System.out.println(Thread.currentThread() + " is notified!");
+            lock.unlock();
         }
+
     }
 
     private void threadNotify() {
         System.out.println(Thread.currentThread() + " is Notifying!");
 
-        synchronized (LOCK) {
-            LOCK.notify();
+        lock.lock();
+
+        try {
+            condition.signal();
+        } finally {
+            lock.unlock();
         }
+
     }
 
     private void threadNotifyAll() {
         System.out.println(Thread.currentThread() + " is Notifying ALL!");
 
-        synchronized (LOCK) {
-            LOCK.notifyAll();
+        lock.lock();
+
+        try {
+            condition.signalAll();
+        } finally {
+            lock.unlock();
         }
     }
 }
