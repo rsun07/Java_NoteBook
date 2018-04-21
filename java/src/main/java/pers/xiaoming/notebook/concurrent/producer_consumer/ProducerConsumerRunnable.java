@@ -1,10 +1,8 @@
 package pers.xiaoming.notebook.concurrent.producer_consumer;
 
-import pers.xiaoming.notebook.concurrent.producer_consumer.producer_and_consumer.IProducerConsumer;
-
 import java.util.Queue;
 
-class ProducerConsumerDemo {
+class ProducerConsumerRunnable {
 
     private static int count = 0;
 
@@ -14,7 +12,7 @@ class ProducerConsumerDemo {
 
     private final IProducerConsumer producerConsumerImpl;
 
-    ProducerConsumerDemo(Queue<Integer> queue, final int queueSize, IProducerConsumer producerConsumerImpl) {
+    ProducerConsumerRunnable(Queue<Integer> queue, final int queueSize, IProducerConsumer producerConsumerImpl) {
         this.queue = queue;
         this.queueSize = queueSize;
         this.producerConsumerImpl = producerConsumerImpl;

@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.concurrent.producer_consumer.producer_and_consumer;
+package pers.xiaoming.notebook.concurrent.producer_consumer;
 
 import java.util.Queue;
 import java.util.Random;

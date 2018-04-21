@@ -2,9 +2,6 @@ package pers.xiaoming.notebook.concurrent.producer_consumer;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import pers.xiaoming.notebook.concurrent.producer_consumer.producer_and_consumer.ConditionImpl;
-import pers.xiaoming.notebook.concurrent.producer_consumer.producer_and_consumer.IProducerConsumer;
-import pers.xiaoming.notebook.concurrent.producer_consumer.producer_and_consumer.WaitAndNotifyImpl;
 import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
 import java.util.LinkedList;
@@ -41,14 +38,14 @@ public class ProducerConsumerTest {
     }
 
     private void runTest() {
-        ProducerConsumerDemo producerConsumerDemo = new ProducerConsumerDemo(queue, QUEUE_SIZE, producerConsumerImpl);
+        ProducerConsumerRunnable producerConsumerRunnable = new ProducerConsumerRunnable(queue, QUEUE_SIZE, producerConsumerImpl);
 
         for (int i = 0; i < PRODUCER_NUM; i++) {
-            new Thread(producerConsumerDemo.new Producer()).start();
+            new Thread(producerConsumerRunnable.new Producer()).start();
         }
 
         for (int i = 0; i < CONSUMER_NUM; i++) {
-            new Thread(producerConsumerDemo.new Consumer()).start();
+            new Thread(producerConsumerRunnable.new Consumer()).start();
         }
 
         ThreadSleep.sleepSecs(10);
