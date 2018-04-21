@@ -2,23 +2,39 @@ package pers.xiaoming.notebook.concurrent.producer_consumer;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import pers.xiaoming.notebook.concurrent.producer_consumer.producer_and_consumer.IProducerConsumer;
+import pers.xiaoming.notebook.concurrent.producer_consumer.producer_and_consumer.WaitAndNotify;
 import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 @Ignore("demo test, will throw exception, don't run in mvn build")
-public class WaitNotifyTest {
+public class ProducerConsumerTest {
     private static final int PRODUCER_NUM = 3;
     private static final int CONSUMER_NUM = 2;
-    private WaitNotifyImpl waitNotifyImpl = new WaitNotifyImpl();
+
+    private static final int QUEUE_SIZE = 9;
+
+    private Queue<Integer> queue;
+    private IProducerConsumer producerConsumerImpl;
+    private ProducerConsumerDemo producerConsumerDemo;
 
     @Test(timeout = 10000)
     public void test() {
 
+        queue = new LinkedList<>();
+
+        producerConsumerImpl = new WaitAndNotify();
+
+        producerConsumerDemo = new ProducerConsumerDemo(queue, QUEUE_SIZE, producerConsumerImpl);
+
         for (int i = 0; i < PRODUCER_NUM; i++) {
-            new Thread(waitNotifyImpl.new Producer()).start();
+            new Thread(producerConsumerDemo.new Producer()).start();
         }
 
         for (int i = 0; i < CONSUMER_NUM; i++) {
-            new Thread(waitNotifyImpl.new Consumer()).start();
+            new Thread(producerConsumerDemo.new Consumer()).start();
         }
 
         ThreadSleep.sleepSecs(10);
