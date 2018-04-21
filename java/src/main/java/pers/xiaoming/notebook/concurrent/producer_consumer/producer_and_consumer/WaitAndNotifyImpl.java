@@ -4,7 +4,7 @@ import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
 import java.util.Queue;
 
-public class WaitAndNotify implements IProducerConsumer {
+public class WaitAndNotifyImpl implements IProducerConsumer {
     private static final String LOCK = "lock";
 
     public int produce(Queue<Integer> queue, int count, final int queueSize) {
