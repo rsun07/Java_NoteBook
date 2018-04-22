@@ -1,13 +1,12 @@
 package pers.xiaoming.notebook.concurrent.producer_consumer;
 
-import java.util.Random;
 import java.util.concurrent.BlockingQueue;
 
 public class BlockingQueueProducer {
     static void produce(BlockingQueue<Integer> queue) {
-        Random random = new Random();
 
-        int val = random.nextInt(100);
+        int val = ProducerSource.produceInt();
+
         boolean success = queue.offer(val);
 
         System.out.printf("Producer %s %s produces value %d, queue size is %d, \n",
