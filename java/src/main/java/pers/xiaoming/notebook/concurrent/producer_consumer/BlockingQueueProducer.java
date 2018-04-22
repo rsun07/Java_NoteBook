@@ -7,11 +7,19 @@ public class BlockingQueueProducer {
 
         int val = ProducerSource.produceInt();
 
-        boolean success = queue.offer(val);
+        // Don't use queue.offer(val), it WON'T blocking when queue is full!
+        // it will return false and let the program moving on
+        // see source code for more detail
+        // boolean success = queue.offer(val);
 
-        System.out.printf("Producer %s %s produces value %d, queue size is %d, \n",
+        try {
+            queue.put(val);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.printf("Producer %s produces value %d, queue size is %d, \n",
                 Thread.currentThread().getName(),
-                success ? "successfully" : "failed to",
                 val,
                 queue.size());
     }
