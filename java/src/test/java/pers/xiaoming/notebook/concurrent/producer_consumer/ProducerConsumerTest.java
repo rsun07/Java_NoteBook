@@ -6,6 +6,7 @@ import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
 
 @Ignore("demo test, will throw exception, don't run in mvn build")
 public class ProducerConsumerTest {
@@ -31,6 +32,16 @@ public class ProducerConsumerTest {
     public void testConditionImpl() {
 
         queue = new LinkedList<>();
+
+        producerConsumerImpl = new ConditionImpl();
+
+        runTest();
+    }
+
+    @Test
+    public void testBlockingQueueImpl() {
+
+        queue = new ArrayBlockingQueue<>(QUEUE_SIZE);
 
         producerConsumerImpl = new ConditionImpl();
 
