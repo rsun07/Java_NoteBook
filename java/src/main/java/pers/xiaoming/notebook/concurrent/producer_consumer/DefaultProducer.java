@@ -14,8 +14,6 @@ public class DefaultProducer {
                 Thread.currentThread().getName(),
                 success ? "successfully" : "failed to",
                 val,
-                ProducerConsumerRunnable.getCount());
-
-        ProducerConsumerRunnable.addCount();
+                queue.size());
     }
 }

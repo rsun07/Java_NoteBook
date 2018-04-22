@@ -6,8 +6,6 @@ import java.util.Queue;
 
 class ProducerConsumerRunnable {
 
-    private static int count;
-
     private final Queue<Integer> queue;
 
     private final int queueSize;
@@ -15,7 +13,6 @@ class ProducerConsumerRunnable {
     private final IProducerConsumer producerConsumerImpl;
 
     ProducerConsumerRunnable(Queue<Integer> queue, final int queueSize, IProducerConsumer producerConsumerImpl) {
-        count = 0;
         this.queue = queue;
         this.queueSize = queueSize;
         this.producerConsumerImpl = producerConsumerImpl;
@@ -39,24 +36,6 @@ class ProducerConsumerRunnable {
                 ThreadSleep.sleep500();
                 producerConsumerImpl.consume(queue, queueSize);
             }
-        }
-    }
-
-    static void addCount() {
-        synchronized (ProducerConsumerRunnable.class) {
-            count++;
-        }
-    }
-
-    static void subCount() {
-        synchronized (ProducerConsumerRunnable.class) {
-            count--;
-        }
-    }
-
-    static int getCount() {
-        synchronized (ProducerConsumerRunnable.class) {
-            return count;
         }
     }
 }

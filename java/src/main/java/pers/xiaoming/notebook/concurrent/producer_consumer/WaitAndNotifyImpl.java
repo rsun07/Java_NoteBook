@@ -9,11 +9,12 @@ public class WaitAndNotifyImpl implements IProducerConsumer {
 
     public void produce(Queue<Integer> queue, final int queueSize) {
         synchronized (LOCK) {
-            while (ProducerConsumerRunnable.getCount() == queueSize) {
+            while (queue.size() == queueSize) {
                 try {
                     LOCK.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                    LOCK.notifyAll();
                 }
             }
             DefaultProducer.produce(queue);
@@ -26,11 +27,12 @@ public class WaitAndNotifyImpl implements IProducerConsumer {
         // otherwise, consumer will get stuck and never go through
         ThreadSleep.sleep();
         synchronized (LOCK) {
-            while (ProducerConsumerRunnable.getCount() == 0) {
+            while (queue.size() == 0) {
                 try {
                     LOCK.wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                    LOCK.notifyAll();
                 }
             }
             DefaultConsumer.consume(queue);

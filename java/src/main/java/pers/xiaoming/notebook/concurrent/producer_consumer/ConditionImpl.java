@@ -19,7 +19,7 @@ public class ConditionImpl implements IProducerConsumer {
     public void produce(Queue<Integer> queue, final int queueSize) {
         lock.lock();
         try {
-            while (ProducerConsumerRunnable.getCount() == queueSize) {
+            while (queue.size() == queueSize) {
                 try {
                     condition.await();
                 } catch (InterruptedException e) {
@@ -37,7 +37,7 @@ public class ConditionImpl implements IProducerConsumer {
         ThreadSleep.sleep();
         lock.lock();
         try {
-            while (ProducerConsumerRunnable.getCount() == 0) {
+            while (queue.size() == 0) {
                 try {
                     condition.await();
                 } catch (InterruptedException e) {
