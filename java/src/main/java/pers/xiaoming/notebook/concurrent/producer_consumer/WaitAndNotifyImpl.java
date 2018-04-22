@@ -8,9 +8,6 @@ public class WaitAndNotifyImpl implements IProducerConsumer {
     private static final String LOCK = "lock";
 
     public void produce(Queue<Integer> queue, final int queueSize) {
-        // sleep is very important here
-        // otherwise, consumer will get stuck and never go through
-        ThreadSleep.sleep();
         synchronized (LOCK) {
             while (ProducerConsumerRunnable.getCount() == queueSize) {
                 try {
@@ -25,6 +22,8 @@ public class WaitAndNotifyImpl implements IProducerConsumer {
     }
 
     public void consume(Queue<Integer> queue, final int queueSize) {
+        // sleep is very important here
+        // otherwise, consumer will get stuck and never go through
         ThreadSleep.sleep();
         synchronized (LOCK) {
             while (ProducerConsumerRunnable.getCount() == 0) {

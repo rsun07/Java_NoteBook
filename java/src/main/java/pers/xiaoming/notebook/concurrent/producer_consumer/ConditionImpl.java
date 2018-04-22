@@ -17,9 +17,6 @@ public class ConditionImpl implements IProducerConsumer {
     }
 
     public void produce(Queue<Integer> queue, final int queueSize) {
-        // sleep is very important here
-        // otherwise, consumer will get stuck and never go through
-        ThreadSleep.sleep();
         lock.lock();
         try {
             while (ProducerConsumerRunnable.getCount() == queueSize) {

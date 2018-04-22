@@ -43,7 +43,7 @@ public class ProducerConsumerTest {
 
         queue = new ArrayBlockingQueue<>(QUEUE_SIZE);
 
-        producerConsumerImpl = new ConditionImpl();
+        producerConsumerImpl = new BlockingQueueImpl();
 
         runTest();
     }

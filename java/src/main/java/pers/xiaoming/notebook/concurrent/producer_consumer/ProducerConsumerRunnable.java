@@ -1,5 +1,7 @@
 package pers.xiaoming.notebook.concurrent.producer_consumer;
 
+import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
+
 import java.util.Queue;
 
 class ProducerConsumerRunnable {
@@ -13,7 +15,7 @@ class ProducerConsumerRunnable {
     private final IProducerConsumer producerConsumerImpl;
 
     ProducerConsumerRunnable(Queue<Integer> queue, final int queueSize, IProducerConsumer producerConsumerImpl) {
-        this.count = 0;
+        count = 0;
         this.queue = queue;
         this.queueSize = queueSize;
         this.producerConsumerImpl = producerConsumerImpl;
@@ -23,6 +25,7 @@ class ProducerConsumerRunnable {
         @Override
         public void run() {
             while (true) {
+                ThreadSleep.sleep500();
                 producerConsumerImpl.produce(queue, queueSize);
             }
         }
@@ -31,7 +34,9 @@ class ProducerConsumerRunnable {
     class Consumer implements Runnable {
         @Override
         public void run() {
+            ThreadSleep.sleep(10);
             while (true) {
+                ThreadSleep.sleep500();
                 producerConsumerImpl.consume(queue, queueSize);
             }
         }

@@ -8,26 +8,22 @@ import java.util.concurrent.BlockingQueue;
 public class BlockingQueueImpl implements IProducerConsumer {
 
     public void produce(Queue<Integer> queue, final int queueSize) {
-        queueCheck(queue);
+        BlockingQueue<Integer> blockingQueue = queueCheck(queue);
 
-        ThreadSleep.sleep();
-        while (ProducerConsumerRunnable.getCount() == queueSize) {
-            DefaultProducer.produce(queue);
-        }
+        BlockingQueueProducer.produce(blockingQueue);
     }
 
     public void consume(Queue<Integer> queue, final int queueSize) {
-        queueCheck(queue);
+        BlockingQueue<Integer> blockingQueue = queueCheck(queue);
 
         ThreadSleep.sleep();
-        while (ProducerConsumerRunnable.getCount() == 0) {
-            DefaultConsumer.consume(queue);
-        }
+        BlockingQueueConsumer.consume(blockingQueue);
     }
 
-    private void queueCheck(Queue<Integer> queue) {
+    private BlockingQueue<Integer> queueCheck(Queue<Integer> queue) {
         if (!(queue instanceof BlockingQueue)) {
             throw new RuntimeException("Must be blocking queue!");
         }
+        return (BlockingQueue<Integer>) queue;
     }
 }
