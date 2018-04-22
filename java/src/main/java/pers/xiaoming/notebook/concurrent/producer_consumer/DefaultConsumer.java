@@ -6,7 +6,7 @@ public class DefaultConsumer {
     static void consume(Queue<Integer> queue) {
         int val = queue.poll();
 
-        System.out.printf("Consumer %s consumes number %d, value %d\n", Thread.currentThread().getName(), ProducerConsumerRunnable.getCount(), val);
+        System.out.printf("Consumer %s consumes value %d, queue size is %d, \n", Thread.currentThread().getName(), val, ProducerConsumerRunnable.getCount());
 
         ProducerConsumerRunnable.subCount();
     }

@@ -10,7 +10,7 @@ public class DefaultProducer {
         int val = random.nextInt(100);
         queue.offer(val);
 
-        System.out.printf("Producer %s produces number %d, value %d\n", Thread.currentThread().getName(), ProducerConsumerRunnable.getCount(), val);
+        System.out.printf("Producer %s produces value %d, queue size is %d, \n", Thread.currentThread().getName(), val, ProducerConsumerRunnable.getCount());
 
         ProducerConsumerRunnable.addCount();
     }
