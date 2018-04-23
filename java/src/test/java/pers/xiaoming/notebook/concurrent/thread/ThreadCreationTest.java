@@ -10,7 +10,7 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 
 @Ignore("demo tests")
-public class TraditionalThread {
+public class ThreadCreationTest {
 
     @Test
     public void testThread() {
