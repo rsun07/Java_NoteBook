@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.concurrent.thread;
+package pers.xiaoming.notebook.concurrent.thread.threadlocal;
 
 interface ThreadLocalDemo {
     int getRes();

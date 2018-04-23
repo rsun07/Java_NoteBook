@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.concurrent.thread;
+package pers.xiaoming.notebook.concurrent.thread.threadlocal;
 
 import org.junit.Ignore;
 import org.junit.Test;

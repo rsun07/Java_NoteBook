@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.concurrent.thread;
+package pers.xiaoming.notebook.concurrent.thread.threadlocal;
 
 public class NoThreadLocalDemo implements ThreadLocalDemo {
     private int res;
