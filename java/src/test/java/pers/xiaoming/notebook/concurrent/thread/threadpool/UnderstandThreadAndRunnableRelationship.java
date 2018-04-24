@@ -1,6 +1,7 @@
 package pers.xiaoming.notebook.concurrent.thread.threadpool;
 
 import org.junit.Test;
+import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
 /*
     Thread.run() will run the implementation of the functional interface Runnable's run() method
@@ -30,26 +31,25 @@ public class UnderstandThreadAndRunnableRelationship {
         System.out.println(Thread.currentThread() + " is executing");
     }
 
-    // failed to change Runnable for MyThread because Runnable is a private attribute
+    // failed to change Runnable for ReusableRunnable because Runnable is a private attribute
     // within Thread class an there is no setter access
     @Test
     public void testReuseThread() throws InterruptedException {
-        MyThread myThread = new MyThread(
+        ReusableRunnable reusableRunnable = new ReusableRunnable(
                 () -> System.out.println("1. Executing my thread with initial runnable")
         );
 
-        myThread.start();
+        new Thread(reusableRunnable).start();
 
-        myThread.setMyRunnable(this::myRunnable);
-        myThread.run();
+        reusableRunnable.setTask(this::myRunnable);
 
-        myThread.setMyRunnable(
+        reusableRunnable.setTask(
                 () -> {
                     System.out.println("2. Executing my thread with updated runnable");
                     System.out.println("3. Executing my thread with updated runnable");
                 }
         );
 
-        myThread.join();
+        ThreadSleep.sleepSecs(10);
     }
 }
