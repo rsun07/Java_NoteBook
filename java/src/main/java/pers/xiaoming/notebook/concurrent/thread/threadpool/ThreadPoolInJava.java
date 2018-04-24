@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.concurrent.threadpool;
+package pers.xiaoming.notebook.concurrent.thread.threadpool;
 
 import java.util.concurrent.*;
 
