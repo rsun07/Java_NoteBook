@@ -3,8 +3,6 @@ package pers.xiaoming.notebook.concurrent.thread.threadlocal;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 @Ignore("demo tests")

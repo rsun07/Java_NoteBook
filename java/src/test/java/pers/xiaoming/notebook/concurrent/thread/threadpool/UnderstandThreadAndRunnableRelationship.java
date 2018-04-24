@@ -29,4 +29,27 @@ public class UnderstandThreadAndRunnableRelationship {
     private void myRunnable() {
         System.out.println(Thread.currentThread() + " is executing");
     }
+
+    // failed to change Runnable for MyThread because Runnable is a private attribute
+    // within Thread class an there is no setter access
+    @Test
+    public void testReuseThread() throws InterruptedException {
+        MyThread myThread = new MyThread(
+                () -> System.out.println("1. Executing my thread with initial runnable")
+        );
+
+        myThread.start();
+
+        myThread.setMyRunnable(this::myRunnable);
+        myThread.run();
+
+        myThread.setMyRunnable(
+                () -> {
+                    System.out.println("2. Executing my thread with updated runnable");
+                    System.out.println("3. Executing my thread with updated runnable");
+                }
+        );
+
+        myThread.join();
+    }
 }
