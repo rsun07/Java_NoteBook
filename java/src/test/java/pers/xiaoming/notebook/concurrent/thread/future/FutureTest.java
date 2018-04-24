@@ -27,5 +27,8 @@ public class FutureTest {
         int res = future.get();
 
         System.out.println("Result is : " + res);
+
+        int resCopy = future.get();
+        System.out.println("Result Copy is : " + res);
     }
 }

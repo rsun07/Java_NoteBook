@@ -3,10 +3,12 @@ package pers.xiaoming.notebook.concurrent.thread.threadlocal;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 @Ignore("demo tests")
-public class ThreadLocalTest {
+public class MultiThreadTest {
 
     /*
         Result in Thread[Thread-0,5,main] is : 100
