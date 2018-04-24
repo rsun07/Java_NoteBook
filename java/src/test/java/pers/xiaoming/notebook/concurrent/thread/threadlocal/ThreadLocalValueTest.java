@@ -1,6 +1,8 @@
 package pers.xiaoming.notebook.concurrent.thread.threadlocal;
 
+import org.junit.Assert;
 import org.junit.Test;
+import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,39 +10,32 @@ import java.util.List;
 public class ThreadLocalValueTest {
 
     @Test
-    public void testThreadLocalInMain() {
+    public void test_thread_local_for_list_reference() {
         List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(2);
-        ThreadLocal<List<Integer>> threadLocal = new ThreadLocal<>();
-        threadLocal.set(list);
-
-        list.remove(0);
-        list.add(8);
+        ThreadLocal<List<Integer>> localList = new ThreadLocal<>();
+        localList.set(list);
 
         new Thread(() -> {
+            ThreadLocal<List<Integer>> localThreadList = new ThreadLocal<>();
+            localThreadList.set(list);
+
             list.add(3);
-        });
+            localThreadList.get().add(3);
 
-        System.out.println(threadLocal.get());
-    }
+            Assert.assertTrue(list == localThreadList.get());
 
-    @Test
-    public void testMultiEncapValue() {
-        Entity entity = new Entity("Main_Entity");
-        Entity subEntity = new Entity("Sub_Entity");
-        entity.getList().add(1);
-        entity.getSubEntities().add(subEntity);
+            System.out.printf("List in Thread %s is : %s\n", Thread.currentThread(), list.toString());
+            System.out.printf("Main Local List in Thread %s is : %s\n", Thread.currentThread(), localList.get());
+            System.out.printf("Local Thread List in Thread %s is : %s\n", Thread.currentThread(), localThreadList.get());
+        }, "Backend_Thread").start();
 
-        new Thread(() -> updateEntity(entity)).start();
+        Assert.assertTrue(list == localList.get());
 
-        System.out.println("entity in main thread" + entity.toString());
-    }
-
-    private void updateEntity(Entity entity) {
-        entity.getList().add(2);
-        entity.getSubEntities().add(new Entity("Thread_Entity"));
-
-        System.out.println("entity in background thread" + entity.toString());
+        ThreadSleep.sleep(100);
+        System.out.println( );
+        System.out.printf("List in Thread %s is : %s\n", Thread.currentThread(), list.toString());
+        System.out.printf("ThreadLocal List in Thread %s is : %s\n", Thread.currentThread(), localList.get());
     }
 }
