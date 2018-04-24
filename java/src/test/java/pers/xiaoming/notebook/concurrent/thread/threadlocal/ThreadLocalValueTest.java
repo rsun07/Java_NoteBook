@@ -38,4 +38,33 @@ public class ThreadLocalValueTest {
         System.out.printf("List in Thread %s is : %s\n", Thread.currentThread(), list.toString());
         System.out.printf("ThreadLocal List in Thread %s is : %s\n", Thread.currentThread(), localList.get());
     }
+
+    @Test
+    public void test_thread_local_for_string_builder_non_reference() {
+        StringBuilder sb = new StringBuilder("a");
+        sb.append('b');
+        ThreadLocal<StringBuilder> localList = new ThreadLocal<>();
+        localList.set(sb);
+
+        new Thread(() -> {
+            ThreadLocal<StringBuilder> localThreadList = new ThreadLocal<>();
+            localThreadList.set(sb);
+
+            sb.append('c');
+            localThreadList.get().append('d');
+
+            Assert.assertTrue(sb == localThreadList.get());
+
+            System.out.printf("List in Thread %s is : %s\n", Thread.currentThread(), sb.toString());
+            System.out.printf("Main Local List in Thread %s is : %s\n", Thread.currentThread(), localList.get());
+            System.out.printf("Local Thread List in Thread %s is : %s\n", Thread.currentThread(), localThreadList.get());
+        }, "Backend_Thread").start();
+
+        Assert.assertTrue(sb == localList.get());
+
+        ThreadSleep.sleep(100);
+        System.out.println( );
+        System.out.printf("List in Thread %s is : %s\n", Thread.currentThread(), sb.toString());
+        System.out.printf("ThreadLocal List in Thread %s is : %s\n", Thread.currentThread(), localList.get());
+    }
 }
