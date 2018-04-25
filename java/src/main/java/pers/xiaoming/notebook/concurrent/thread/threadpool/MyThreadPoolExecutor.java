@@ -15,6 +15,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+// more for understanding the mechanism rather than run it
 class MyThreadPoolExecutor implements ExecutorService {
     private static final Lock LOCK = new ReentrantLock();
     private static final Condition condition = LOCK.newCondition();
