@@ -3,6 +3,7 @@ package pers.xiaoming.notebook.concurrent.thread.threadpool;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -16,7 +17,9 @@ import java.util.concurrent.locks.ReentrantLock;
 
 class MyThreadPoolExecutor implements ExecutorService {
     private static final Lock LOCK = new ReentrantLock();
-    private final Condition condition = LOCK.newCondition();
+    private static final Condition condition = LOCK.newCondition();
+
+    private static final int DEFAULT_QUEUE_SIZE = 10;
 
     private final int corePoolSize;
     private final int maxPoolSize;
@@ -24,7 +27,15 @@ class MyThreadPoolExecutor implements ExecutorService {
     private List<Worker> workers;
     private BlockingQueue<Runnable> tasks;
 
-    public MyThreadPoolExecutor(int corePoolSize, BlockingQueue<Runnable> queue) {
+    MyThreadPoolExecutor(int corePoolSize) {
+        this.corePoolSize = corePoolSize;
+        this.maxPoolSize = 2 * corePoolSize;
+        this.workers = new LinkedList<>();
+        this.tasks = new ArrayBlockingQueue<>(DEFAULT_QUEUE_SIZE);
+        initWorkers();
+    }
+
+    MyThreadPoolExecutor(int corePoolSize, BlockingQueue<Runnable> queue) {
         this.corePoolSize = corePoolSize;
         this.maxPoolSize = 2 * corePoolSize;
         this.workers = new LinkedList<>();
@@ -38,7 +49,9 @@ class MyThreadPoolExecutor implements ExecutorService {
             try {
                 Worker worker = new Worker();
                 workers.add(worker);
-                new Thread(worker).start();
+
+                String threadName = Thread.currentThread().getName() + ", Thread - " + i;
+                new Thread(worker, threadName).start();
             } finally {
                 LOCK.unlock();
             }
@@ -65,6 +78,10 @@ class MyThreadPoolExecutor implements ExecutorService {
     private final class Worker implements Runnable {
         private boolean isRunning;
 
+        Worker() {
+            this.isRunning = true;
+        }
+
         @Override
         public void run() {
             while(isRunning) {
@@ -73,8 +90,11 @@ class MyThreadPoolExecutor implements ExecutorService {
                     if (tasks.isEmpty()) {
                         condition.await();
                     }
+
                     Runnable task = tasks.take();
-                    task.run();
+                    if (task != null) {
+                        task.run();
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
