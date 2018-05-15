@@ -1,23 +1,23 @@
-package pers.xiaoming.notebook.io.serialization;
+package pers.xiaoming.notebook.io.serialization.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-class MySerializableObject implements Serializable {
+public class MySerializableObject implements Serializable {
     private String name;
     private int age;
     private transient int salary;
 
-    MySerializableObject() {
+    public MySerializableObject() {
     }
 
-    MySerializableObject(String name, int age, int salary) {
+    public MySerializableObject(String name, int age, int salary) {
         this.name = name;
         this.age = age;
         this.salary = salary;
     }
 
-    void setSalary(int salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
 

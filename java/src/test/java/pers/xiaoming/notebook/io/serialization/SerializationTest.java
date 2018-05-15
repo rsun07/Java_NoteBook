@@ -5,6 +5,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import pers.xiaoming.notebook.io.serialization.entity.MySerializableObject;
 
 import java.io.File;
 import java.io.IOException;
