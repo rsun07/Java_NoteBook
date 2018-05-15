@@ -12,6 +12,18 @@
   <artifactId>java</artifactId>
   <name>java</name>
 
+  <properties>
+    <jackson.version>2.9.1</jackson.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-xml</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>
