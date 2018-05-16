@@ -27,21 +27,26 @@ public class ReflectionPerson {
         System.out.println("ReflectionPerson List private constructor");
     }
 
-    public void method() {
+    public void noArgPublicMethod() {
         System.out.println("Function without parameter called");
     }
 
-    public void method(String str) {
+    public void oneArgPublicMethod(String str) {
         System.out.println(str);
     }
 
-    private Class[] method(String str, int[] password) {
+    public void twoArgsPublicMethod(String str, int i) {
+        System.out.println(str + " " + i);
+
+    }
+
+    private Class[] privateMethod(String str, int[] password) {
         System.out.println(str);
         System.out.println("passwords: " + Arrays.toString(password));
         return new Class[]{Boolean.class, Float.class};
     }
 
-    public static void method(int i) {
+    public static void staticPublicMethod(int i) {
         System.out.println("Static Function with one int parameter called : i = " + i);
     }
 

@@ -18,33 +18,10 @@ public class ReflectionBasicTest {
     public void testFunctions() throws NoSuchMethodException, ClassNotFoundException,
             IllegalAccessException, InvocationTargetException, InstantiationException {
 
-        Class clazz = Class.forName("basic.entity.ReflectionPerson");
-        Constructor c = clazz.getConstructor(null);
-        ReflectionPerson p = (ReflectionPerson) c.newInstance();
+
         System.out.println("\n");
 
 
-        Method method = clazz.getMethod("method", null);
-        method.invoke(p, null);
-        System.out.println("\n");
-
-        method = clazz.getMethod("method", String.class);
-        method.invoke(p, "Method with one String method called");
-        System.out.println("\n");
-
-        method = clazz.getDeclaredMethod("method", String.class, int[].class);
-        method.setAccessible(true);
-        Class[] classes = (Class[]) method.invoke(
-                p,
-                "Private Function with String and int[] parameters called",
-                new int[]{1, 2, 3}
-        );
-        System.out.println("Classes as follows: " + Arrays.toString(classes));
-        System.out.println("\n");
-
-        method = clazz.getMethod("method", int.class);
-        method.invoke(null, 3);
-        System.out.println("\n");
     }
 
     @Test
