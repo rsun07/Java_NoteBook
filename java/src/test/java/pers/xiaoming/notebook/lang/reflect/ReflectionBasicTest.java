@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook;
+package pers.xiaoming.notebook.lang.reflect;
 
 import org.junit.Test;
 import pers.xiaoming.notebook.entity.ReflectionPerson;
@@ -18,43 +18,7 @@ public class ReflectionBasicTest {
     public void testConstructor() throws ClassNotFoundException, NoSuchMethodException,
             IllegalAccessException, InvocationTargetException, InstantiationException {
 
-        // use the 'copy reference to get the address'
-        Class clazz = Class.forName("basic.entity.ReflectionPerson");
 
-
-        Constructor c1 = clazz.getConstructor(null);
-        ReflectionPerson p1 = (ReflectionPerson) c1.newInstance();
-        System.out.println(p1.name);
-
-        System.out.println("\n");
-
-        System.out.println("Another way to create new instance");
-        ReflectionPerson p12 = (ReflectionPerson) clazz.newInstance();
-
-        System.out.println("\n");
-
-
-        Constructor c2 = clazz.getConstructor(String.class);
-        ReflectionPerson p2 = (ReflectionPerson) c2.newInstance("String Constructor");
-        System.out.println(p2.name);
-
-        System.out.println("\n");
-
-
-        Constructor c3 = clazz.getConstructor(String.class, int.class);
-        ReflectionPerson p3 = (ReflectionPerson) c3.newInstance("String and int Constructor", 12);
-        System.out.println(p3.name);
-
-        System.out.println("\n");
-
-        Constructor c4 = clazz.getDeclaredConstructor(List.class);
-        // without this line to brute force it
-        // java.lang.IllegalAccessException: Class basic.reflection.ReflectionBasic can not access a member of class basic.entity.ReflectionPerson with modifiers "private"
-        c4.setAccessible(true);
-        ReflectionPerson p4 = (ReflectionPerson) c4.newInstance(new ArrayList<>());
-        System.out.println(p4.name);
-
-        System.out.println("\n");
     }
 
     @Test

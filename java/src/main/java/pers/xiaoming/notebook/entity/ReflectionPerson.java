@@ -27,9 +27,6 @@ public class ReflectionPerson {
         System.out.println("ReflectionPerson List private constructor");
     }
 
-
-
-
     public void method() {
         System.out.println("Function without parameter called");
     }
