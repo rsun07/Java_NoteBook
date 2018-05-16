@@ -1,15 +1,12 @@
 package pers.xiaoming.notebook.lang.reflect;
 
 import org.junit.Test;
-import pers.xiaoming.notebook.entity.ReflectionPerson;
+import pers.xiaoming.notebook.reflection.Person;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ReflectionBasicTest {
     @Test
@@ -27,9 +24,9 @@ public class ReflectionBasicTest {
     @Test
     // test get fields
     public void testFields() throws Exception {
-        Class clazz = Class.forName("basic.entity.ReflectionPerson");
+        Class clazz = Class.forName("basic.entity.Person");
         Constructor c = clazz.getConstructor(null);
-        ReflectionPerson p = (ReflectionPerson) c.newInstance();
+        Person p = (Person) c.newInstance();
         System.out.println("\n");
 
         Field field = clazz.getField("name");
@@ -50,7 +47,7 @@ public class ReflectionBasicTest {
         System.out.println("\n");
     }
 
-    private void getAndPrintField(Class clazz, ReflectionPerson p, Field field)
+    private void getAndPrintField(Class clazz, Person p, Field field)
             throws NoSuchFieldException, IllegalAccessException {
 
         Object value = field.get(p);
@@ -67,9 +64,9 @@ public class ReflectionBasicTest {
     @Test
     // test get fields
     public void testOtherFunctions() throws Exception {
-        Class clazz = Class.forName("basic.entity.ReflectionPerson");
+        Class clazz = Class.forName("basic.entity.Person");
 //        Constructor c = clazz.getConstructor(null);
-//        ReflectionPerson p = (ReflectionPerson) c.newInstance();
+//        Person p = (Person) c.newInstance();
         System.out.println("\n");
 
         System.out.println("Package is :" + clazz.getPackage());

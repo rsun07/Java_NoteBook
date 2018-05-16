@@ -1,30 +1,30 @@
-package pers.xiaoming.notebook.entity;
+package pers.xiaoming.notebook.reflection;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class ReflectionPerson {
+public class Person {
 
     public String name = "person_name";
     private int age = 23;
 
-    public ReflectionPerson() {
-        System.out.println("ReflectionPerson default constructor");
+    public Person() {
+        System.out.println("Person default constructor");
     }
 
-    public ReflectionPerson(String name) {
+    public Person(String name) {
         this.name = name;
-        System.out.println("ReflectionPerson name constructor");
+        System.out.println("Person name constructor");
     }
 
-    public ReflectionPerson(String name, int age) {
+    public Person(String name, int age) {
         this.name = name;
         this.age = age;
-        System.out.println("ReflectionPerson name and age constructor");
+        System.out.println("Person name and age constructor");
     }
 
-    private ReflectionPerson(List list) {
-        System.out.println("ReflectionPerson List private constructor");
+    private Person(List list) {
+        System.out.println("Person List private constructor");
     }
 
     public void noArgPublicMethod() {

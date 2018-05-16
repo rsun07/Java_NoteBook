@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-import pers.xiaoming.notebook.entity.ReflectionPerson;
+import pers.xiaoming.notebook.reflection.Person;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -12,13 +12,13 @@ import java.util.Arrays;
 
 @Ignore("demo test")
 public class MethodTest extends TestBase {
-    private static ReflectionPerson person;
+    private static Person person;
 
     @BeforeClass
     public static void setup() throws ClassNotFoundException,
             IllegalAccessException, InstantiationException {
         testClass = Class.forName(TEST_CLASS);
-        person = (ReflectionPerson) testClass.newInstance();
+        person = (Person) testClass.newInstance();
     }
 
     @After

@@ -3,7 +3,7 @@ package pers.xiaoming.notebook.lang.reflect;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-import pers.xiaoming.notebook.entity.ReflectionPerson;
+import pers.xiaoming.notebook.reflection.Person;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -36,11 +36,11 @@ public class ConstructorTest extends TestBase {
             InvocationTargetException, InstantiationException {
         @SuppressWarnings("unchecked")
         Constructor constructor = testClass.getConstructor();
-        ReflectionPerson person = (ReflectionPerson) constructor.newInstance();
+        Person person = (Person) constructor.newInstance();
         printName(person);
 
         System.out.println("\tAnother way to create new instance, Only allowed for no arg constructor");
-        printName((ReflectionPerson) testClass.newInstance());
+        printName((Person) testClass.newInstance());
     }
 
     @Test
@@ -48,7 +48,7 @@ public class ConstructorTest extends TestBase {
             IllegalAccessException, InvocationTargetException, InstantiationException {
         @SuppressWarnings("unchecked")
         Constructor constructor = testClass.getConstructor(String.class);
-        ReflectionPerson person = (ReflectionPerson) constructor.newInstance("String Constructor");
+        Person person = (Person) constructor.newInstance("String Constructor");
         printName(person);
     }
 
@@ -57,7 +57,7 @@ public class ConstructorTest extends TestBase {
             IllegalAccessException, InvocationTargetException, InstantiationException {
         @SuppressWarnings("unchecked")
         Constructor constructor = testClass.getConstructor(String.class, int.class);
-        ReflectionPerson person = (ReflectionPerson) constructor.newInstance("String and int Constructor", 12);
+        Person person = (Person) constructor.newInstance("String and int Constructor", 12);
         printName(person);
     }
 
@@ -69,7 +69,7 @@ public class ConstructorTest extends TestBase {
 
         constructor.setAccessible(true);
 
-        ReflectionPerson person = (ReflectionPerson) constructor.newInstance(new ArrayList<>());
+        Person person = (Person) constructor.newInstance(new ArrayList<>());
         printName(person);
     }
 
@@ -83,14 +83,14 @@ public class ConstructorTest extends TestBase {
         // still able to get the constructor, but don't have access to it
 
         try {
-            ReflectionPerson person = (ReflectionPerson) constructor.newInstance(new ArrayList<>());
+            Person person = (Person) constructor.newInstance(new ArrayList<>());
         } catch (IllegalAccessException e) {
             e.printStackTrace();
             throw e;
         }
     }
 
-    private void printName(ReflectionPerson person) {
+    private void printName(Person person) {
         System.out.printf("Name for the person is : %s\n", person.name);
         System.out.println();
     }
