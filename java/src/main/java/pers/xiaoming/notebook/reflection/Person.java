@@ -2,6 +2,7 @@ package pers.xiaoming.notebook.reflection;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class Person {
 
@@ -27,6 +28,10 @@ public class Person {
         System.out.println("Person List private constructor");
     }
 
+    Person(Map map) {
+        System.out.println("Person Map default access constructor");
+    }
+
     public void noArgPublicMethod() {
         System.out.println("Function without parameter called");
     }
@@ -46,8 +51,15 @@ public class Person {
         return new Class[]{Boolean.class, Float.class};
     }
 
+    void defaultAccessMethod(String str) {
+        System.out.println(str);
+    }
+
+    void protectedAccessMethod(String str) {
+        System.out.println(str);
+    }
+
     public static void staticPublicMethod(int i) {
         System.out.println("Static Function with one int parameter called : i = " + i);
     }
-
 }

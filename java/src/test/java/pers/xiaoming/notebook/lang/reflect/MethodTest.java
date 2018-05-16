@@ -27,6 +27,19 @@ public class MethodTest extends TestBase {
     }
 
     @Test
+    public void testGetAllMethods() {
+        System.out.println("\nPublic Methods as following: ");
+        for (Method method : testClass.getMethods()) {
+            System.out.println("Method is :" + method);
+        }
+
+        System.out.println("\nDeclared Methods as following: ");
+        for (Method method : testClass.getDeclaredMethods()) {
+            System.out.println("Method is :" + method);
+        }
+    }
+
+    @Test
     public void testNoArgMethod() throws InvocationTargetException,
             IllegalAccessException, NoSuchMethodException {
         @SuppressWarnings("unchecked")

@@ -5,21 +5,9 @@ import pers.xiaoming.notebook.reflection.Person;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ReflectionBasicTest {
-    @Test
-    @SuppressWarnings("unchecked")
-    // test reflection functions
-    public void testFunctions() throws NoSuchMethodException, ClassNotFoundException,
-            IllegalAccessException, InvocationTargetException, InstantiationException {
-
-
-        System.out.println("\n");
-
-
-    }
 
     @Test
     // test get fields
@@ -65,8 +53,6 @@ public class ReflectionBasicTest {
     // test get fields
     public void testOtherFunctions() throws Exception {
         Class clazz = Class.forName("basic.entity.Person");
-//        Constructor c = clazz.getConstructor(null);
-//        Person p = (Person) c.newInstance();
         System.out.println("\n");
 
         System.out.println("Package is :" + clazz.getPackage());
@@ -76,11 +62,6 @@ public class ReflectionBasicTest {
 
         System.out.println("Superclass is :" + clazz.getSuperclass());
         System.out.println("Modifiers is :" + clazz.getModifiers());
-
-
-        System.out.println("\nDeclared Methods as following: ");
-        for (Method method : clazz.getDeclaredMethods())
-            System.out.println("Method is :" +  method);
 
 
         System.out.println("\nDeclared Fields as following: ");

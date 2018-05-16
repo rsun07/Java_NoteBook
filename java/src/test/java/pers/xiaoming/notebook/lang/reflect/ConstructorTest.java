@@ -20,7 +20,7 @@ public class ConstructorTest extends TestBase {
 
     @Test
     public void testGetAllConstructors() {
-        System.out.println("\nConstructors as following: ");
+        System.out.println("\nPublic Constructors as following: ");
         for (Constructor constructor : testClass.getConstructors())
             System.out.println("Constructor is :" +  constructor);
 
