@@ -16,8 +16,8 @@ public class PersonXML {
     private int age;
 
     @JacksonXmlProperty(isAttribute = false)
-    private transient int salary;
+    private int salary;
 
     @JacksonXmlProperty(namespace = "phone_number", isAttribute = true)
-    private transient int phoneNum;
+    private String phoneNum;
 }
