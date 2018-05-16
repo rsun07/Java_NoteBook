@@ -59,8 +59,7 @@ public class MethodTest extends TestBase {
     public void testTwoArgsMethod() throws NoSuchMethodException,
             InvocationTargetException, IllegalAccessException {
         @SuppressWarnings("unchecked")
-        Method method = testClass.getDeclaredMethod("privateMethod", String.class, int[].class);
-        method.setAccessible(true);
+        Method method = testClass.getDeclaredMethod("twoArgsPublicMethod", String.class, int[].class);
         Class[] classes = (Class[]) method.invoke(
                 person,
                 "Private Function with String and int[] parameters called",
@@ -77,5 +76,14 @@ public class MethodTest extends TestBase {
         // static method doesn't need the instance/object of the class to invoke
         method.invoke(null, 3);
         System.out.println("\n");
+    }
+
+    @Test
+    public void testPrivateMethod() throws NoSuchMethodException,
+            InvocationTargetException, IllegalAccessException {
+        @SuppressWarnings("unchecked")
+        Method method = testClass.getDeclaredMethod("privateMethod", String.class, int[].class);
+        method.setAccessible(true);
+        System.out.println("Classes as follows: ");
     }
 }
