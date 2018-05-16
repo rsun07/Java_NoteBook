@@ -1,6 +1,7 @@
 package pers.xiaoming.notebook.lang.reflect;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import pers.xiaoming.notebook.entity.ReflectionPerson;
 
@@ -9,11 +10,25 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Ignore("demo test")
 public class ConstructorTest extends TestBase {
 
     @BeforeClass
     public static void setup() throws ClassNotFoundException {
         testClass = Class.forName(TEST_CLASS);
+    }
+
+    @Test
+    public void testGetAllConstructors() {
+        System.out.println("\nConstructors as following: ");
+        for (Constructor constructor : testClass.getConstructors())
+            System.out.println("Constructor is :" +  constructor);
+
+        System.out.println("\nDeclared Constructors as following: ");
+        for (Constructor constructor : testClass.getDeclaredConstructors())
+            System.out.println("Constructor is :" +  constructor);
+
+        System.out.println();
     }
 
     @Test
@@ -56,6 +71,23 @@ public class ConstructorTest extends TestBase {
 
         ReflectionPerson person = (ReflectionPerson) constructor.newInstance(new ArrayList<>());
         printName(person);
+    }
+
+    @Test(expected = IllegalAccessException.class)
+    public void testPrivateConstructorFail() throws NoSuchMethodException,
+            IllegalAccessException, InvocationTargetException, InstantiationException {
+        @SuppressWarnings("unchecked")
+        Constructor constructor = testClass.getDeclaredConstructor(List.class);
+        System.out.println(constructor);
+
+        // still able to get the constructor, but don't have access to it
+
+        try {
+            ReflectionPerson person = (ReflectionPerson) constructor.newInstance(new ArrayList<>());
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            throw e;
+        }
     }
 
     private void printName(ReflectionPerson person) {

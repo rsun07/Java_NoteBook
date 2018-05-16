@@ -14,15 +14,6 @@ import java.util.List;
 public class ReflectionBasicTest {
     @Test
     @SuppressWarnings("unchecked")
-    // test reflection constructors
-    public void testConstructor() throws ClassNotFoundException, NoSuchMethodException,
-            IllegalAccessException, InvocationTargetException, InstantiationException {
-
-
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
     // test reflection functions
     public void testFunctions() throws NoSuchMethodException, ClassNotFoundException,
             IllegalAccessException, InvocationTargetException, InstantiationException {
@@ -111,14 +102,6 @@ public class ReflectionBasicTest {
 
         System.out.println("Superclass is :" + clazz.getSuperclass());
         System.out.println("Modifiers is :" + clazz.getModifiers());
-
-        System.out.println("\nConstructors as following: ");
-        for (Constructor constructor : clazz.getConstructors())
-            System.out.println("Constructor is :" +  constructor);
-
-        System.out.println("\nDeclared Constructors as following: ");
-        for (Constructor constructor : clazz.getDeclaredConstructors())
-            System.out.println("Constructor is :" +  constructor);
 
 
         System.out.println("\nDeclared Methods as following: ");
