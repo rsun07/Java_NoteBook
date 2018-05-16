@@ -46,4 +46,6 @@ public class Utils {
     public static final String SERIALIZATION_FILE_NAME = "file";
 
     public static final String XML_SERIALIZATION_FILE_NAME = "xml_file.xml";
+
+    public static final String JSON_SERIALIZATION_FILE_NAME = "json_file.json";
 }
