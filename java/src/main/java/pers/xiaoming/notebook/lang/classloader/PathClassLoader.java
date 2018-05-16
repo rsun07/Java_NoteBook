@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class PathClassLoader extends ClassLoader {
-    private String classPath;
-    private String packagePath;
+    private final String classPath;
+    private final String packagePath;
 
     public PathClassLoader(String classPath, String packagePath) {
         this.classPath = classPath;
