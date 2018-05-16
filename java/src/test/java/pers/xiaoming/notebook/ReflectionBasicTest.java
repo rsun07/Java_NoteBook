@@ -1,7 +1,7 @@
-package pers.xiaoming.notebook.reflection;
+package pers.xiaoming.notebook;
 
-import pers.xiaoming.notebook.entity.ReflectionPerson;
 import org.junit.Test;
+import pers.xiaoming.notebook.entity.ReflectionPerson;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -11,13 +11,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ReflectionBasic {
-
+public class ReflectionBasicTest {
     @Test
     @SuppressWarnings("unchecked")
     // test reflection constructors
     public void testConstructor() throws ClassNotFoundException, NoSuchMethodException,
-        IllegalAccessException, InvocationTargetException, InstantiationException {
+            IllegalAccessException, InvocationTargetException, InstantiationException {
 
         // use the 'copy reference to get the address'
         Class clazz = Class.forName("basic.entity.ReflectionPerson");
@@ -62,7 +61,7 @@ public class ReflectionBasic {
     @SuppressWarnings("unchecked")
     // test reflection functions
     public void testFunctions() throws NoSuchMethodException, ClassNotFoundException,
-        IllegalAccessException, InvocationTargetException, InstantiationException {
+            IllegalAccessException, InvocationTargetException, InstantiationException {
 
         Class clazz = Class.forName("basic.entity.ReflectionPerson");
         Constructor c = clazz.getConstructor(null);
@@ -81,10 +80,10 @@ public class ReflectionBasic {
         method = clazz.getDeclaredMethod("method", String.class, int[].class);
         method.setAccessible(true);
         Class[] classes = (Class[]) method.invoke(
-            p,
-            "Private Function with String and int[] parameters called",
-            new int[]{1, 2, 3}
-            );
+                p,
+                "Private Function with String and int[] parameters called",
+                new int[]{1, 2, 3}
+        );
         System.out.println("Classes as follows: " + Arrays.toString(classes));
         System.out.println("\n");
 
@@ -120,7 +119,7 @@ public class ReflectionBasic {
     }
 
     private void getAndPrintField(Class clazz, ReflectionPerson p, Field field)
-        throws NoSuchFieldException, IllegalAccessException {
+            throws NoSuchFieldException, IllegalAccessException {
 
         Object value = field.get(p);
         Class type = field.getType();
