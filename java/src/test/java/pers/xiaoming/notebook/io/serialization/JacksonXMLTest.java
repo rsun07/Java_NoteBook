@@ -1,24 +1,25 @@
 package pers.xiaoming.notebook.io.serialization;
 
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.junit.Assert;
 import org.junit.Test;
 import pers.xiaoming.notebook.io.Utils;
 import pers.xiaoming.notebook.io.serialization.entity.PersonXML;
-import pers.xiaoming.notebook.io.serialization.xml.PersonXmlMapper;
 
 import java.io.File;
 import java.io.IOException;
 
 public class JacksonXMLTest {
+    private final static PersonObjectMapper<PersonXML> XML_MAPPER = new PersonObjectMapper<>(new XmlMapper(), PersonXML.class);
     private PersonXML person = new PersonXML("myName", 23, 5000, "310-000-0000");
 
     // <PersonXML name="myName" age="23" xmlns:wstxns1="phone_number" wstxns1:phoneNum="310-000-0000"><salary>5000</salary></PersonXML>
     @Test
     public void objectToXMLStringTest() throws IOException {
-        String xmlString = PersonXmlMapper.serialize(person);
+        String xmlString = XML_MAPPER.serialize(person);
         System.out.println(xmlString);
 
-        PersonXML personFromXML = PersonXmlMapper.deserialize(xmlString);
+        PersonXML personFromXML = XML_MAPPER.deserialize(xmlString);
         Assert.assertNotSame(person, personFromXML);
         Assert.assertEquals(person, personFromXML);
     }
@@ -28,9 +29,9 @@ public class JacksonXMLTest {
     public void objectToXMLFileTest() throws IOException {
         PersonXML person = new PersonXML("myName", 23, 5000, "310-000-0000");
         File file = new File(XML_SERIALIZATION_FILE_PATH);
-        PersonXmlMapper.serialize(person, file);
+        XML_MAPPER.serialize(person, file);
 
-        PersonXML personFromXML = PersonXmlMapper.deserialize(file);
+        PersonXML personFromXML = XML_MAPPER.deserialize(file);
         Assert.assertNotSame(person, personFromXML);
         Assert.assertEquals(person, personFromXML);
     }
