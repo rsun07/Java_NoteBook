@@ -14,9 +14,7 @@ public class MethodTest extends TestBase {
     private static Person person;
 
     @BeforeClass
-    public static void setup() throws ClassNotFoundException,
-            IllegalAccessException, InstantiationException {
-        testClass = Class.forName(TEST_CLASS);
+    public static void setupMethodTest() throws IllegalAccessException, InstantiationException {
         person = (Person) testClass.newInstance();
     }
 

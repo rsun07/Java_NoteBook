@@ -1,6 +1,5 @@
 package pers.xiaoming.notebook.lang.reflect;
 
-import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import pers.xiaoming.notebook.reflection.Person;
@@ -12,11 +11,6 @@ import java.util.List;
 
 @Ignore("demo test")
 public class ConstructorTest extends TestBase {
-
-    @BeforeClass
-    public static void setup() throws ClassNotFoundException {
-        testClass = Class.forName(TEST_CLASS);
-    }
 
     @Test
     public void testGetAllConstructors() {

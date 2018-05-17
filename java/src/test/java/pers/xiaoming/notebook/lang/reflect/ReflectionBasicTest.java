@@ -49,24 +49,5 @@ public class ReflectionBasicTest {
         }
     }
 
-    @Test
-    // test get fields
-    public void testOtherFunctions() throws Exception {
-        Class clazz = Class.forName("basic.entity.Person");
-        System.out.println("\n");
 
-        System.out.println("Package is :" + clazz.getPackage());
-        System.out.println("Name is :" + clazz.getName());
-        System.out.println("Simple Name is :" + clazz.getSimpleName());
-        System.out.println("Type Name is :" + clazz.getTypeName());
-
-        System.out.println("Superclass is :" + clazz.getSuperclass());
-        System.out.println("Modifiers is :" + clazz.getModifiers());
-
-
-        System.out.println("\nDeclared Fields as following: ");
-        for (Field field : clazz.getDeclaredFields())
-            System.out.println("Method is :" +  field);
-
-    }
 }
