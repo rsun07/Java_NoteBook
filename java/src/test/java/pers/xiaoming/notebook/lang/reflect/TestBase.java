@@ -4,11 +4,11 @@ package pers.xiaoming.notebook.lang.reflect;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-import pers.xiaoming.notebook.reflection.Person;
+import pers.xiaoming.notebook.lang.reflection.Person;
 
 @Ignore("Demo test")
 public class TestBase {
-    private static final String TEST_CLASS = "pers.xiaoming.notebook.reflection.Person";
+    private static final String TEST_CLASS = "pers.xiaoming.notebook.lang.reflection.Person";
 
     static Class testClass;
     static Person person;

@@ -2,7 +2,7 @@ package pers.xiaoming.notebook.lang.reflect;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import pers.xiaoming.notebook.reflection.Person;
+import pers.xiaoming.notebook.lang.reflection.Person;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
