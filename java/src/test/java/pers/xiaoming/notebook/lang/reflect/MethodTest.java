@@ -1,22 +1,14 @@
 package pers.xiaoming.notebook.lang.reflect;
 
 import org.junit.After;
-import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-import pers.xiaoming.notebook.reflection.Person;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 @Ignore("demo test")
 public class MethodTest extends TestBase {
-    private static Person person;
-
-    @BeforeClass
-    public static void setupMethodTest() throws IllegalAccessException, InstantiationException {
-        person = (Person) testClass.newInstance();
-    }
 
     @After
     public void after() {

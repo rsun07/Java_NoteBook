@@ -4,18 +4,21 @@ package pers.xiaoming.notebook.lang.reflect;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
-
-import java.lang.reflect.Field;
+import pers.xiaoming.notebook.reflection.Person;
 
 @Ignore("Demo test")
 public class TestBase {
-    static final String TEST_CLASS = "pers.xiaoming.notebook.reflection.Person";
+    private static final String TEST_CLASS = "pers.xiaoming.notebook.reflection.Person";
 
     static Class testClass;
+    static Person person;
+
 
     @BeforeClass
-    public static void setup() throws ClassNotFoundException {
+    public static void setup() throws ClassNotFoundException,
+            IllegalAccessException, InstantiationException {
         testClass = Class.forName(TEST_CLASS);
+        person = (Person) testClass.newInstance();
     }
 
     @Test
@@ -30,10 +33,5 @@ public class TestBase {
 
         System.out.println("Superclass is :" + testClass.getSuperclass());
         System.out.println("Modifiers is :" + testClass.getModifiers());
-
-        System.out.println("\nDeclared Fields as following: ");
-        for (Field field : testClass.getDeclaredFields())
-            System.out.println("Method is :" +  field);
-
     }
 }
