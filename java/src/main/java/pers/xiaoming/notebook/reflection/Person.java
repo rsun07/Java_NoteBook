@@ -40,10 +40,8 @@ public class Person {
         printMethodMsg("one arg public", str);
     }
 
-    public Class[] twoArgsPublicMethod(String str, int[] password) {
-        printMethodMsg("two args public", str);
-        System.out.println("passwords: " + Arrays.toString(password));
-        return new Class[]{Boolean.class, Float.class};
+    public void twoArgsPublicMethod(String str, int myInt) {
+        printMethodMsg("two args public", str + " " + myInt);
     }
 
     private void privateMethod(String str) {
@@ -54,7 +52,7 @@ public class Person {
         printMethodMsg("default access", str);
     }
 
-    void protectedAccessMethod(String str) {
+    protected void protectedAccessMethod(String str) {
         printMethodMsg("protected", str);
     }
 
