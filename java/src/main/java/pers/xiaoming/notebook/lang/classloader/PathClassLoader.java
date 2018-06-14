@@ -17,7 +17,11 @@ public class PathClassLoader extends ClassLoader {
 
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
-        if (packagePath.startsWith(name)) {
+        if (name == null) {
+            throw new ClassNotFoundException();
+        }
+
+        if (name.startsWith(packagePath)) {
             byte[] classData = getData(name);
             if (classData == null) {
                 throw new ClassNotFoundException();
@@ -25,7 +29,8 @@ public class PathClassLoader extends ClassLoader {
                 return defineClass(name, classData, 0, classData.length);
             }
         } else {
-            return super.loadClass(name);
+            // Don't call super.loadClass(name);
+            throw new ClassNotFoundException();
         }
     }
 
