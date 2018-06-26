@@ -1,4 +1,4 @@
-package practice.InputStream;
+package pers.xiaoming.notebook.practice.InputStream;
 
 import java.util.Map;
 

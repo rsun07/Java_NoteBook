@@ -1,4 +1,4 @@
-package practice.BirthdateValidation;
+package pers.xiaoming.notebook.practice.BirthdateValidation;
 
 
 import java.io.IOException;

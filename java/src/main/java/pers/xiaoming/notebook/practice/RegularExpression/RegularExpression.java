@@ -1,4 +1,4 @@
-package practice.RegularExpression;
+package pers.xiaoming.notebook.practice.RegularExpression;
 
 import java.util.ArrayList;
 import java.util.Arrays;
