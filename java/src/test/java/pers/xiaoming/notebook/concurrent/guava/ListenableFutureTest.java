@@ -53,6 +53,10 @@ public class ListenableFutureTest {
         // wait 2s
         Main, get future value : 100
     */
+
+    // Compare the result of this with testMultiThreadTask() under java.thread.future directory
+    // The java example, each time the future.get() is blocked
+    // In guava here, is not.
     @Test
     public void testAddCallback() {
 
