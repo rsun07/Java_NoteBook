@@ -23,7 +23,7 @@ public class GenericType {
         // Based on Liskov Substitution Principal, subtype can substitute super type
         // still confused
 
-        //System.out.println(new arrayList<String>() instanceof List<Object>);
+        //System.out.println(new arraylist<String>() instanceof List<Object>);
 
 
         // For Array it works fine.
