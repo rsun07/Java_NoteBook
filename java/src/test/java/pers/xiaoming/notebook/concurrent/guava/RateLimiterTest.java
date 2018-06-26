@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.guava;
+package pers.xiaoming.notebook.concurrent.guava;
 
 import com.google.common.util.concurrent.RateLimiter;
 import org.junit.Assert;

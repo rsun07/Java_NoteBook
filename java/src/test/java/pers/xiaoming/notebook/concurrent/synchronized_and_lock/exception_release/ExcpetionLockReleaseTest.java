@@ -8,8 +8,8 @@ public class ExcpetionLockReleaseTest {
 
     /*
         Exception in thread "Thread-0" java.lang.ArithmeticException: / by zero
-            at pers.xiaoming.notebook.concurrent.synchronized_and_lock.exception_release.BlockPrinter.syncDiv(BlockPrinter.java:5)
-            at pers.xiaoming.notebook.concurrent.synchronized_and_lock.exception_release.ExcpetionLockReleaseTest.lambda$test$0(ExcpetionLockReleaseTest.java:10)
+            at pers.xiaoming.notebook.guava.synchronized_and_lock.exception_release.BlockPrinter.syncDiv(BlockPrinter.java:5)
+            at pers.xiaoming.notebook.guava.synchronized_and_lock.exception_release.ExcpetionLockReleaseTest.lambda$test$0(ExcpetionLockReleaseTest.java:10)
             at java.lang.Thread.run(Thread.java:748)
 
         // no waiting time here
@@ -36,8 +36,8 @@ public class ExcpetionLockReleaseTest {
 
     /*
         Exception in thread "Thread-0" java.lang.ArithmeticException: / by zero
-            at pers.xiaoming.notebook.concurrent.synchronized_and_lock.exception_release.BlockPrinter.poorLockDiv(BlockPrinter.java:25)
-            at pers.xiaoming.notebook.concurrent.synchronized_and_lock.exception_release.ExcpetionLockReleaseTest.lambda$testLockFailToRelease$2(ExcpetionLockReleaseTest.java:41)
+            at pers.xiaoming.notebook.guava.synchronized_and_lock.exception_release.BlockPrinter.poorLockDiv(BlockPrinter.java:25)
+            at pers.xiaoming.notebook.guava.synchronized_and_lock.exception_release.ExcpetionLockReleaseTest.lambda$testLockFailToRelease$2(ExcpetionLockReleaseTest.java:41)
             at java.lang.Thread.run(Thread.java:748)
 
         And main thread get blocked, never go through until test timeout
