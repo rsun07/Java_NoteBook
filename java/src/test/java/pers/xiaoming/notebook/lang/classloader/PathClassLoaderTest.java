@@ -1,7 +1,9 @@
 package pers.xiaoming.notebook.lang.classloader;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore("Ignore for now")
 public class PathClassLoaderTest {
     private static final String PACKAGE_PATH = "pers.xiaoming.notebook.entity";
     private static final String CLASS_PATH = "pers.xiaoming.notebook";
