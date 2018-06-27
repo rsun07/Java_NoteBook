@@ -20,6 +20,8 @@ public class FutureTest {
     @Test
     public void testFutureUseThread() throws Exception {
         CallableTask task = new CallableTask();
+
+        // FutureTask implements RunnableFuture which extends both Runnable and Future
         FutureTask<Integer> future = new FutureTask<>(task);
 
         // this cannot start the thread
@@ -33,17 +35,18 @@ public class FutureTest {
         System.out.println("Result is : " + res);
 
         int resCopy = future.get();
-        System.out.println("Result Copy is : " + res);
+        System.out.println("Result Copy is : " + resCopy);
     }
+
 
     // following use thread pool to test future
     private static ExecutorService executor;
-    private static CallableTask mySingleTask;
+    private static CallableTask task;
 
     @BeforeClass
     public static void setup() {
         executor = Executors.newFixedThreadPool(10);
-        mySingleTask = new CallableTask();
+        task = new CallableTask();
     }
 
     /*
@@ -53,7 +56,7 @@ public class FutureTest {
     */
     @Test
     public void submitCallable() throws Exception {
-        Future<Integer> future = executor.submit(mySingleTask);
+        Future<Integer> future = executor.submit(task);
 
         System.out.println(future.get());
     }
@@ -68,7 +71,7 @@ public class FutureTest {
 
         Runnable runnable = () -> {
             try {
-                mySingleTask.call();
+                task.call();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -88,7 +91,7 @@ public class FutureTest {
     @Test
     public void submitFutureTask() throws Exception {
 
-        FutureTask<?> futureTask = new FutureTask<>(mySingleTask);
+        FutureTask<?> futureTask = new FutureTask<>(task);
 
         Future<?> future = executor.submit(futureTask);
 

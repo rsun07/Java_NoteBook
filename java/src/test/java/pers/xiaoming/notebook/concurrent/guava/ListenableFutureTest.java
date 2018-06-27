@@ -30,20 +30,22 @@ public class ListenableFutureTest {
      */
     @Test
     public void testGetListener() {
-        ListenableFuture<?> listenableFuture = service.submit(new CallableTask());
-        listenableFuture.addListener(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            System.out.println("Main, get future value : " + listenableFuture.get());
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        } catch (ExecutionException e) {
-                            e.printStackTrace();
+        for (int i = 0; i < 5; i++) {
+            ListenableFuture<?> listenableFuture = service.submit(new CallableTask());
+            listenableFuture.addListener(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                System.out.println("Main, get future value : " + listenableFuture.get());
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            } catch (ExecutionException e) {
+                                e.printStackTrace();
+                            }
                         }
-                    }
-                }, service);
+                    }, service);
+        }
 
         ThreadSleep.sleepSecs(3);
     }
