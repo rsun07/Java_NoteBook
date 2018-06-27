@@ -24,6 +24,40 @@ public class ListenableFutureTest {
     }
 
     /*
+        Main - Callable task submitted, waiting:
+        Start task and wait
+        // wait 2s
+        Main - waiting finished
+        Main, get future value : 100
+     */
+    @Test
+    public void testSubmit() {
+        ListenableFuture<?> listenableFuture = service.submit(new CallableTask());
+
+        System.out.println("Main - Callable task submitted, waiting: ");
+        ThreadSleep.sleepSecs(3);
+        System.out.println("Main - waiting finished");
+
+        listenableFuture.addListener(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            System.out.println("Main, get future value : " + listenableFuture.get());
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        } catch (ExecutionException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                service);
+
+        ThreadSleep.sleepSecs(3);
+    }
+
+
+    /*
         Start task and wait
         // wait 2s
         Main, get future value : 100
@@ -44,7 +78,8 @@ public class ListenableFutureTest {
                                 e.printStackTrace();
                             }
                         }
-                    }, service);
+                    },
+                    service);
         }
 
         ThreadSleep.sleepSecs(3);
