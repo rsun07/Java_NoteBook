@@ -3,9 +3,7 @@ package pers.xiaoming.notebook.concurrent.thread.future;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -24,6 +22,24 @@ public class MultiThreadFutureTest {
 
     // This test, every task will block the next one.
     // The guava ListenableFutureTest wont!
+
+    /*
+        pool-1-thread-1 is running num 0
+        // wait 2s
+        Main method : pool-1-thread-1 is running num 0
+        pool-1-thread-2 is running num 1
+        // wait 2s
+        Main method : pool-1-thread-2 is running num 1
+        pool-1-thread-3 is running num 2
+        // wait 2s
+        Main method : pool-1-thread-3 is running num 2
+        pool-1-thread-4 is running num 3
+        // wait 2s
+        Main method : pool-1-thread-4 is running num 3
+        pool-1-thread-5 is running num 4
+        // wait 2s
+        Main method : pool-1-thread-5 is running num 4
+     */
     @Test
     public void testMultiThreadTask() throws Exception {
         for (int i = 0; i < 5; i++) {

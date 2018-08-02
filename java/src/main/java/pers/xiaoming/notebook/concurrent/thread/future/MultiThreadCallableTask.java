@@ -4,7 +4,7 @@ import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
 import java.util.concurrent.Callable;
 
-class MultiThreadCallableTask implements Callable<String> {
+public class MultiThreadCallableTask implements Callable<String> {
 
     private static int count = 0;
 

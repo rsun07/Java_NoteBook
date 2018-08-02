@@ -8,6 +8,7 @@ import com.google.common.util.concurrent.MoreExecutors;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import pers.xiaoming.notebook.concurrent.thread.future.MultiThreadCallableTask;
 import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
 import javax.annotation.Nullable;
@@ -94,22 +95,36 @@ public class ListenableFutureTest {
     // Compare the result of this with testMultiThreadTask() under java.thread.future directory
     // The java example, each time the future.get() is blocked
     // In guava here, is not.
+
+    /*
+        pool-1-thread-1 is running num 0
+        pool-1-thread-2 is running num 1
+        pool-1-thread-3 is running num 2
+        pool-1-thread-4 is running num 3
+        pool-1-thread-5 is running num 4
+        // wait 2s
+        Main, get future value : pool-1-thread-1 is running num 0
+        Main, get future value : pool-1-thread-2 is running num 1
+        Main, get future value : pool-1-thread-3 is running num 2
+        Main, get future value : pool-1-thread-5 is running num 4
+        Main, get future value : pool-1-thread-4 is running num 3
+     */
     @Test
     public void testAddCallback() {
 
         for (int i = 0; i < 5; i++) {
-            ListenableFuture<Integer> listenableFuture = service.submit(new HalfFailureCallableTask());
+            ListenableFuture<String> listenableFuture = service.submit(new MultiThreadCallableTask());
 
             Futures.addCallback(
                     listenableFuture,
 
-                    new FutureCallback<Integer>() {
+                    new FutureCallback<String>() {
                         @Override
                         public void onFailure(Throwable throwable) {
                             System.out.println("Main, get future value Failed!");
                         }
                         @Override
-                        public void onSuccess(@Nullable Integer result) {
+                        public void onSuccess(@Nullable String result) {
                             System.out.println("Main, get future value : " + result);
                         }
                     },
