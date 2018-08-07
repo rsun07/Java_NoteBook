@@ -8,12 +8,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>junit</module>
         <module>java</module>
-        <module>testng</module>
-        <module>logging</module>
-    <module>jdbc</module>
-  </modules>
+        <module>jdbc</module>
+    </modules>
 
     <properties>
         <!-- project properties -->
