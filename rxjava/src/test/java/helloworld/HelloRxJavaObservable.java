@@ -5,6 +5,7 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
@@ -50,5 +51,43 @@ public class HelloRxJavaObservable {
         }); // No back pressure strategy config comparing to Flowable
 
         observable.subscribe(observer);
+    }
+
+    @Test
+    public void simplifiedObservableDemo() {
+        StringBuilder sb = new StringBuilder();
+
+        // in rx 1.x, it was called "Action1"
+        Consumer<String> onNextAction = new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+                sb.append(s);
+                log.info("append {}, new the sb is {}", s, sb.toString());
+            }
+        };
+
+        // only one onNext() event
+        Observable<String> myObservable = Observable.just("a");
+
+        myObservable.subscribe(onNextAction);
+
+        // Could be even simplified like:
+        Observable.just("b").subscribe(
+                new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        sb.append(s);
+                        log.info("append {}, new the sb is {}", s, sb.toString());
+                    }
+                }
+        );
+
+        // lambda impl
+        Observable.just("c").subscribe(
+                s -> {
+                    sb.append(s);
+                    log.info("append {}, new the sb is {}", s, sb.toString());
+                }
+        );
     }
 }
