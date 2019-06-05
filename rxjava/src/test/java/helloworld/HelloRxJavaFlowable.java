@@ -9,7 +9,6 @@ import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
 @Slf4j
@@ -49,7 +48,7 @@ public class HelloRxJavaFlowable {
                 flowableEmitter.onNext("a");
                 flowableEmitter.onNext("b");
                 flowableEmitter.onComplete();
-                log.info("Result string is: {}" ,sb.toString());
+                log.info("Result string is: {}", sb.toString());
             }
         }, BackpressureStrategy.BUFFER);
 
@@ -68,7 +67,7 @@ public class HelloRxJavaFlowable {
                 flowableEmitter.onNext("a");
                 flowableEmitter.onNext("b");
                 flowableEmitter.onComplete();
-                log.info("Result string is: {}" ,sb.toString());
+                log.info("Result string is: {}", sb.toString());
             }
         }, BackpressureStrategy.BUFFER);
 
@@ -91,7 +90,7 @@ public class HelloRxJavaFlowable {
                 flowableEmitter.onNext("a");
                 flowableEmitter.onNext("b");
                 flowableEmitter.onComplete();
-                log.info("Result string is: {}" ,sb.toString());
+                log.info("Result string is: {}", sb.toString());
             }
         }, BackpressureStrategy.BUFFER);
 
