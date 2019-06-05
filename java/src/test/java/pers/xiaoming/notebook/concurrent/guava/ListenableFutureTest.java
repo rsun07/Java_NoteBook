@@ -33,7 +33,7 @@ public class ListenableFutureTest {
      */
     @Test
     public void testSubmit() {
-        ListenableFuture<?> listenableFuture = service.submit(new CallableTask());
+        ListenableFuture<?> listenableFuture = service.submit(new MyCallableTask());
 
         System.out.println("Main - Callable task submitted, waiting: ");
         ThreadSleep.sleepSecs(3);
@@ -66,7 +66,7 @@ public class ListenableFutureTest {
     @Test
     public void testGetListener() {
         for (int i = 0; i < 5; i++) {
-            ListenableFuture<?> listenableFuture = service.submit(new CallableTask());
+            ListenableFuture<?> listenableFuture = service.submit(new MyCallableTask());
             listenableFuture.addListener(
                     new Runnable() {
                         @Override
