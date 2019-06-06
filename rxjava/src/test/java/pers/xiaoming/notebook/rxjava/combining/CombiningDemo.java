@@ -3,11 +3,14 @@ package pers.xiaoming.notebook.rxjava.combining;
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableOnSubscribe;
+import io.reactivex.functions.BiConsumer;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Ignore;
 import org.junit.Test;
 import pers.xiaoming.notebook.rxjava.DemoBase;
 
+import java.util.ArrayList;
+import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
@@ -73,5 +76,59 @@ public class CombiningDemo extends DemoBase {
                 Flowable.create(source, BackpressureStrategy.ERROR),
                 Flowable.just(5, 6, 7)
         ).subscribe(createConsumer("mergeDelayError with error"));
+    }
+
+    @Test
+    public void zipDemo() {
+        // output a new Flowable with 0*5 and 1*6.
+        // 2 and 3 in first stream are ignored
+        Flowable.zip(
+            Flowable.just(0, 1, 2, 3),
+            Flowable.just(5, 6),
+            (int1, int2) -> int1 * int2
+        ).subscribe(createConsumer("zip"));
+    }
+
+    @Test
+    public void reduceDemo() {
+        Flowable.just(9, 8, 7)
+                .reduce((result, x) -> {
+                    log.info("reduce item {} with pre-result {}", x, result);
+                    return result + x;
+                })
+                .subscribe(createConsumer("reduce"));
+    }
+
+    @Test
+    public void countDemo() {
+        Flowable.just(7, 8, 9)
+                .count()
+                .subscribe(createConsumer("count"));
+    }
+
+    @Test
+    public void collect() {
+        // for better understand, first version is traditional Java implementation
+        Flowable.just(1, 2, 3)
+                .collect(
+                        new Callable<ArrayList<Integer>>() {
+                            @Override
+                            public ArrayList<Integer> call() throws Exception {
+                                return new ArrayList<>();
+                            }
+                        },
+                        new BiConsumer<ArrayList<Integer>, Integer>() {
+                            @Override
+                            public void accept(ArrayList<Integer> list, Integer integer) throws Exception {
+                                list.add(integer);
+                            }
+                        }
+                ).subscribe(createConsumer("collect"));
+
+        // pure lambda version, short
+        Flowable.just(1, 2, 3)
+                .collect(ArrayList::new, ArrayList::add)
+                .subscribe(createConsumer("collect (lambda impl)"));
+
     }
 }
