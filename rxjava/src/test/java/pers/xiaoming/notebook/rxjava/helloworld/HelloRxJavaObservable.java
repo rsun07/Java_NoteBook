@@ -1,4 +1,4 @@
-package helloworld;
+package pers.xiaoming.notebook.rxjava.helloworld;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;

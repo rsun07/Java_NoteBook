@@ -1,11 +1,11 @@
-package filtering;
+package pers.xiaoming.notebook.rxjava;
 
 import io.reactivex.functions.Consumer;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-class FilteringDemoBase {
-    <T> Consumer<T> createConsumer(String msg) {
+public class DemoBase {
+    protected <T> Consumer<T> createConsumer(String msg) {
         return new Consumer<T>() {
             @Override
             public void accept(T t) throws Exception {
@@ -14,7 +14,7 @@ class FilteringDemoBase {
         };
     }
 
-    void sleep(long sleeptimeInMillis) {
+    protected void sleep(long sleeptimeInMillis) {
         try {
             Thread.sleep(sleeptimeInMillis);
         } catch (InterruptedException e) {

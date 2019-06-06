@@ -14,7 +14,7 @@ public class PropertyFileTest {
     public void readPropertiesFile() {
         // Don't need the ".properties" suffix
         // Must add the property file into CLASSPATH
-        ResourceBundle rb = ResourceBundle.getBundle("helloworld");
+        ResourceBundle rb = ResourceBundle.getBundle("pers.xiaoming.notebook.rxjava.helloworld");
         System.out.println(rb);
 
         String message = rb.getString("wel.msg");
@@ -26,7 +26,7 @@ public class PropertyFileTest {
 
     @Test
     public void readPropertiesWithWildcard() {
-        ResourceBundle rb = ResourceBundle.getBundle("helloworld");
+        ResourceBundle rb = ResourceBundle.getBundle("pers.xiaoming.notebook.rxjava.helloworld");
         System.out.println(rb);
 
         String message = rb.getString("wel.wildcard");
@@ -38,13 +38,13 @@ public class PropertyFileTest {
 
     @Test
     public void readPropertiesInfo() {
-        ResourceBundle rb = ResourceBundle.getBundle("helloworld");
+        ResourceBundle rb = ResourceBundle.getBundle("pers.xiaoming.notebook.rxjava.helloworld");
 
         Set<String> expectKeySet = new HashSet<>(Arrays.asList("wel.wildcard", "wel.msg"));
         Assert.assertEquals(expectKeySet, rb.keySet());
         System.out.println(rb.keySet());
 
-        Assert.assertEquals("helloworld", rb.getBaseBundleName());
+        Assert.assertEquals("pers.xiaoming.notebook.rxjava.helloworld", rb.getBaseBundleName());
         System.out.println(rb.getBaseBundleName());
     }
 }

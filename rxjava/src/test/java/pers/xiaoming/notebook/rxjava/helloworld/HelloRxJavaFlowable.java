@@ -1,4 +1,4 @@
-package helloworld;
+package pers.xiaoming.notebook.rxjava.helloworld;
 
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;

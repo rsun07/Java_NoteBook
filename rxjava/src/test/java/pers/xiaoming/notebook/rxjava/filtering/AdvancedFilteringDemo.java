@@ -1,16 +1,17 @@
-package filtering;
+package pers.xiaoming.notebook.rxjava.filtering;
 
 import io.reactivex.Flowable;
 import io.reactivex.functions.Action;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Ignore;
 import org.junit.Test;
+import pers.xiaoming.notebook.rxjava.DemoBase;
 
 import java.util.Arrays;
 
 @Slf4j
 @Ignore("don't run demo during maven build")
-public class AdvancedFilteringDemo extends FilteringDemoBase {
+public class AdvancedFilteringDemo extends DemoBase {
 
     @Test
     public void ofTypeDemo() {

@@ -1,4 +1,4 @@
-package creation;
+package pers.xiaoming.notebook.rxjava.creation;
 
 import io.reactivex.Flowable;
 import io.reactivex.functions.Consumer;
@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.model.TestTimedOutException;
+import pers.xiaoming.notebook.rxjava.DemoBase;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,41 +14,31 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Ignore("don't run demo during maven build")
-public class AdvancedCreationDemo {
-
-
-    private Consumer<Long> consumer = new Consumer<Long>() {
-        @Override
-        public void accept(Long aLong) throws Exception {
-            log.info("{} milliseconds passed", aLong);
-        }
-    };
-
-    private void demoSubscribe(Flowable<Long> flowable) {
-        flowable.subscribe(consumer);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+public class AdvancedCreationDemo extends DemoBase {
 
     @Test
     public void fromIterableDemo() {
         List<Long> list = Arrays.asList(1000L, 2000L, 3000L);
 
-        demoSubscribe(Flowable.fromIterable(list));
+        Flowable.fromIterable(list)
+                .subscribe(createConsumer("from iterable"));
     }
 
     @Test
     public void fromTimerBuilder() {
-        demoSubscribe(Flowable.timer(1, TimeUnit.MILLISECONDS));
+        Flowable.timer(1, TimeUnit.MILLISECONDS)
+                .subscribe(createConsumer("from timer"));
+
+        sleep(1000);
     }
 
     @Test(timeout = 300L, expected = TestTimedOutException.class)
     public void fromIntervalBuilder() throws InterruptedException {
         // this never stop
-        demoSubscribe(Flowable.interval(2, 1, TimeUnit.MILLISECONDS));
+        Flowable.interval(2, 1, TimeUnit.MILLISECONDS)
+                .subscribe(createConsumer("from interval"));
+
+        sleep(5000);
     }
 
     @Test

@@ -1,7 +1,6 @@
-package helloworld;
+package pers.xiaoming.notebook.rxjava.helloworld;
 
 import io.reactivex.Flowable;
-import io.reactivex.Single;
 import io.reactivex.functions.Consumer;
 
 public class HelloWorld {

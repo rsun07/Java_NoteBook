@@ -1,4 +1,4 @@
-package creation;
+package pers.xiaoming.notebook.rxjava.creation;
 
 import io.reactivex.Flowable;
 import lombok.extern.slf4j.Slf4j;
@@ -31,7 +31,7 @@ public class BasicCreationDemo {
         );
     }
 
-    // [main] ERROR creation.BasicCreationDemo - Error happens, Runtime Exception triggered!
+    // [main] ERROR pers.xiaoming.notebook.rxjava.creation.BasicCreationDemo - Error happens, Runtime Exception triggered!
     @Test
     public void errorDemo() {
         Flowable.error(new RuntimeException("Runtime Exception triggered!")).subscribe(
