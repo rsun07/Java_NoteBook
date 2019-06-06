@@ -7,10 +7,12 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Ignore;
 import org.junit.Test;
 
 
 @Slf4j
+@Ignore("don't run demo during maven build")
 public class HelloRxJavaObservable {
 
     // Diff between Observable and Flowable

@@ -8,10 +8,12 @@ import io.reactivex.FlowableSubscriber;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.reactivestreams.Subscription;
 
 @Slf4j
+@Ignore("don't run demo during maven build")
 public class HelloRxJavaFlowable {
 
     @Test
