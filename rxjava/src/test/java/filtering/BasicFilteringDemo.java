@@ -1,7 +1,6 @@
 package filtering;
 
 import io.reactivex.Flowable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Predicate;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Ignore;
@@ -11,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Ignore("don't run demo during maven build")
-public class FilteringDemo {
+public class BasicFilteringDemo extends FilteringDemoBase {
 
     @Test
     public void BasicFilterDemo() {
@@ -23,23 +22,6 @@ public class FilteringDemo {
                     }
                 })
         .subscribe(integer -> log.info("Even number in stream: {}", integer));
-    }
-
-    private <T> Consumer<T> createConsumer(String msg) {
-        return new Consumer<T>() {
-            @Override
-            public void accept(T t) throws Exception {
-                log.info("{}, {}", msg, t);
-            }
-        };
-    }
-
-    private void sleep(long sleeptimeInMillis) {
-        try {
-            Thread.sleep(sleeptimeInMillis);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     @Test
