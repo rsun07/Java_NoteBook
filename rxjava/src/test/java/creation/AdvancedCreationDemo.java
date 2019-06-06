@@ -9,14 +9,12 @@ import org.junit.runners.model.TestTimedOutException;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Ignore("don't run demo during maven build")
 public class AdvancedCreationDemo {
 
-    private CountDownLatch countDownLatch = new CountDownLatch(2);
 
     private Consumer<Long> consumer = new Consumer<Long>() {
         @Override
@@ -28,7 +26,7 @@ public class AdvancedCreationDemo {
     private void demoSubscribe(Flowable<Long> flowable) {
         flowable.subscribe(consumer);
         try {
-            countDownLatch.await();
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
