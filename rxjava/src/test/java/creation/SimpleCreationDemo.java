@@ -7,12 +7,12 @@ import org.junit.Test;
 
 @Slf4j
 @Ignore("don't run demo during maven build")
-public class CreationDemo {
+public class SimpleCreationDemo {
 
     @Test
     public void justDemo() {
         Flowable.just("1", "2")
-                .subscribe(str -> log.info("just {}", str));
+                .subscribe(/* here means an onNext() Consumer lambda impl*/str -> log.info("just {}", str));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class CreationDemo {
         );
     }
 
-    // [main] ERROR creation.CreationDemo - Error happens, Runtime Exception triggered!
+    // [main] ERROR creation.SimpleCreationDemo - Error happens, Runtime Exception triggered!
     @Test
     public void errorDemo() {
         Flowable.error(new RuntimeException("Runtime Exception triggered!")).subscribe(
