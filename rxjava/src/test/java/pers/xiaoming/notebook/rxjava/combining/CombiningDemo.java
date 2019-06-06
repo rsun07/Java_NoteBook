@@ -1,6 +1,8 @@
 package pers.xiaoming.notebook.rxjava.combining;
 
+import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
+import io.reactivex.FlowableOnSubscribe;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -50,5 +52,26 @@ public class CombiningDemo extends DemoBase {
         ).subscribe(createConsumer("merge"));
 
         sleep(3000);
+    }
+
+    // concat is similar
+    @Test
+    public void mergeDelayErrorDemo() {
+        FlowableOnSubscribe<Integer> source = s ->
+                s.onError(new NullPointerException());
+
+        Flowable.merge(
+                Flowable.just(1, 2, 3),
+                Flowable.create(source, BackpressureStrategy.ERROR),
+                Flowable.just(5, 6, 7)
+        ).subscribe(createConsumer("merge with error"));
+
+        log.info("\n\nseparator\n\n");
+
+        Flowable.mergeDelayError(
+                Flowable.just(1, 2, 3),
+                Flowable.create(source, BackpressureStrategy.ERROR),
+                Flowable.just(5, 6, 7)
+        ).subscribe(createConsumer("mergeDelayError with error"));
     }
 }
