@@ -7,7 +7,7 @@ import org.junit.Test;
 
 @Slf4j
 @Ignore("don't run demo during maven build")
-public class SimpleCreationDemo {
+public class BasicCreationDemo {
 
     @Test
     public void justDemo() {
@@ -31,7 +31,7 @@ public class SimpleCreationDemo {
         );
     }
 
-    // [main] ERROR creation.SimpleCreationDemo - Error happens, Runtime Exception triggered!
+    // [main] ERROR creation.BasicCreationDemo - Error happens, Runtime Exception triggered!
     @Test
     public void errorDemo() {
         Flowable.error(new RuntimeException("Runtime Exception triggered!")).subscribe(

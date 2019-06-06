@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class FilteringDemo {
 
     @Test
-    public void filterDemo() {
+    public void BasicFilterDemo() {
         Flowable.just(0, 1, 2, 3)
                 .filter(new Predicate<Integer>() {
                     @Override
@@ -79,21 +79,13 @@ public class FilteringDemo {
                 .firstElement()
                 .subscribe(createConsumer("firstElement"));
 
-        sleep(100);
-
-
         Flowable.just(1, 2, 3)
                 .lastElement()
                 .subscribe(createConsumer("lastElement"));
 
-        sleep(100);
-
-
         Flowable.empty()
                 .firstElement()
                 .subscribe(createConsumer("firstElement from empty"));
-
-        sleep(100);
     }
 
     @Test
@@ -104,16 +96,10 @@ public class FilteringDemo {
                 .first(20)
                 .subscribe(createConsumer("first"));
 
-        sleep(100);
-
-
         Flowable.empty()
                 // here means the default value
                 .first(20)
                 .subscribe(createConsumer("first from empty"));
-
-        sleep(100);
-
 
         Flowable.just(1, 2, 3)
                 // returns a new Single<T> instead of Flowable<T>
@@ -121,14 +107,57 @@ public class FilteringDemo {
                 .last(20)
                 .subscribe(createConsumer("last"));
 
-        sleep(100);
-
-
         Flowable.empty()
                 // here means the default value
                 .last(20)
                 .subscribe(createConsumer("last from empty"));
+    }
+
+    @Test
+    public void firstOrErrorDemo() {
+        Flowable.just(1, 2, 3)
+                // return a new Single<T> of first element, if no then throw error
+                .firstOrError()
+                .subscribe(createConsumer("firstOrError"));
+
+        log.info("line separator \n\n");
+
+        Flowable.empty()
+                .firstOrError()
+                .subscribe(
+                    // onSuccess()
+                    createConsumer("firstOrError from empty"),
+                    // onError()
+                    e -> {
+                        log.error(e.getMessage());
+                        throw (Exception) e;
+                    }
+                );
 
         sleep(100);
     }
+
+    @Test
+    public void elementAtDemo() {
+        Flowable.just(1 ,2, 3)
+                .elementAt(2)
+                .subscribe(createConsumer("elementAt"));
+
+        log.info("line separator \n\n");
+
+        Flowable.just(1, 2, 3)
+                .elementAt(20)
+                .subscribe(createConsumer("elementAt out of bound"));
+
+        log.info("line separator \n\n");
+
+        Flowable.just(1, 2, 3)
+                .elementAtOrError(20)
+                .subscribe(createConsumer("elementAt out of bound"),
+                        e -> {
+                            log.error(e.getMessage());
+                            throw (Exception) e;
+                        });
+    }
+
 }
