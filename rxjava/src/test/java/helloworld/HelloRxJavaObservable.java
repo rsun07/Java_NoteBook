@@ -13,6 +13,8 @@ import org.junit.Test;
 @Slf4j
 public class HelloRxJavaObservable {
 
+    // Diff between Observable and Flowable
+    // https://github.com/ReactiveX/RxJava/wiki/What's-different-in-2.0#observable-and-flowable
     @Test
     public void ObservableDemo() {
         StringBuilder sb = new StringBuilder();
