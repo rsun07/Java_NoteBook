@@ -9,8 +9,6 @@ import pers.xiaoming.notebook.rxjava.DemoBase;
 
 import java.util.concurrent.TimeUnit;
 
-import static java.lang.Thread.sleep;
-
 @Slf4j
 @Ignore("don't run demo during maven build")
 public class BasicFilteringDemo extends DemoBase {
