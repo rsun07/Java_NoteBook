@@ -24,6 +24,43 @@ public class ConditionDemo extends DemoBase {
     }
 
     @Test
+    public void isEmptyDemo() {
+        // source code
+        // all(Functions.alwaysFalse())
+        Observable.just(1, 2, 3)
+                .isEmpty()
+                .subscribe(createConsumer("is just() empty?"));
+
+        Observable.empty()
+                .isEmpty()
+                .subscribe(createConsumer("is empty() empty?"));
+    }
+
+    @Test
+    public void defaultIfEmptyDemo() {
+        Observable.just(1, 2, 3)
+                .defaultIfEmpty(2)
+                .subscribe(createConsumer("defaultIfEmpty() with just()"));
+
+        Observable.empty()
+                .defaultIfEmpty(20)
+                .subscribe(createConsumer("defaultIfEmpty() with empty()"));
+    }
+
+    @Test
+    public void switchIfEmptyDemo() {
+        // source code
+        // all(Functions.alwaysFalse())
+        Observable.just(1, 2, 3)
+                .switchIfEmpty(Observable.just(6, 7, 8))
+                .subscribe(createConsumer("switchIfEmpty() with just()"));
+
+        Observable.empty()
+                .switchIfEmpty(Observable.just(6, 7, 8))
+                .subscribe(createConsumer("switchIfEmpty() with empty()"));
+    }
+
+    @Test
     @SuppressWarnings("unchecked")
     public void ambArrayDemo() {
         Observable.ambArray(
