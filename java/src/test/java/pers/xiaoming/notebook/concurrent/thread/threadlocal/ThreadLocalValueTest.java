@@ -22,8 +22,8 @@ public class ThreadLocalValueTest {
         List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(2);
-        ThreadLocal<List<Integer>> localList = new ThreadLocal<>();
-        localList.set(list);
+        ThreadLocal<List<Integer>> mainLocalList = new ThreadLocal<>();
+        mainLocalList.set(list);
 
         new Thread(() -> {
             ThreadLocal<List<Integer>> localThreadList = new ThreadLocal<>();
@@ -35,16 +35,16 @@ public class ThreadLocalValueTest {
             Assert.assertTrue(list == localThreadList.get());
 
             System.out.printf("List in Thread %s is : %s\n", Thread.currentThread(), list.toString());
-            System.out.printf("Main Local List in Thread %s is : %s\n", Thread.currentThread(), localList.get());
+            System.out.printf("Main Local List in Thread %s is : %s\n", Thread.currentThread(), mainLocalList.get());
             System.out.printf("Local Thread List in Thread %s is : %s\n", Thread.currentThread(), localThreadList.get());
         }, "Backend_Thread").start();
 
-        Assert.assertTrue(list == localList.get());
+        Assert.assertTrue(list == mainLocalList.get());
 
         ThreadSleep.sleep(100);
         System.out.println( );
         System.out.printf("List in Thread %s is : %s\n", Thread.currentThread(), list.toString());
-        System.out.printf("ThreadLocal List in Thread %s is : %s\n", Thread.currentThread(), localList.get());
+        System.out.printf("ThreadLocal List in Thread %s is : %s\n", Thread.currentThread(), mainLocalList.get());
     }
 
     /*
@@ -59,8 +59,8 @@ public class ThreadLocalValueTest {
     public void test_thread_local_for_string_builder() {
         StringBuilder sb = new StringBuilder("a");
         sb.append('b');
-        ThreadLocal<StringBuilder> localSb = new ThreadLocal<>();
-        localSb.set(sb);
+        ThreadLocal<StringBuilder> mainLocalSb = new ThreadLocal<>();
+        mainLocalSb.set(sb);
 
         new Thread(() -> {
             ThreadLocal<StringBuilder> localThreadSb = new ThreadLocal<>();
@@ -72,16 +72,16 @@ public class ThreadLocalValueTest {
             Assert.assertTrue(sb == localThreadSb.get());
 
             System.out.printf("List in Thread %s is : %s\n", Thread.currentThread(), sb.toString());
-            System.out.printf("Main Local List in Thread %s is : %s\n", Thread.currentThread(), localSb.get());
+            System.out.printf("Main Local List in Thread %s is : %s\n", Thread.currentThread(), mainLocalSb.get());
             System.out.printf("Local Thread List in Thread %s is : %s\n", Thread.currentThread(), localThreadSb.get());
         }, "Backend_Thread").start();
 
-        Assert.assertTrue(sb == localSb.get());
+        Assert.assertTrue(sb == mainLocalSb.get());
 
         ThreadSleep.sleep(100);
         System.out.println( );
         System.out.printf("List in Thread %s is : %s\n", Thread.currentThread(), sb.toString());
-        System.out.printf("ThreadLocal List in Thread %s is : %s\n", Thread.currentThread(), localSb.get());
+        System.out.printf("ThreadLocal List in Thread %s is : %s\n", Thread.currentThread(), mainLocalSb.get());
     }
 
 
@@ -103,22 +103,22 @@ public class ThreadLocalValueTest {
             ThreadLocal<String> localThreadStr = new ThreadLocal<>();
             localThreadStr.set(str);
 
-            // cannot change str value because in lambda it's
+            // cannot change str value because in lambda it should be final or effectively final
             // str = "b";
             localThreadStr.set(localThreadStr.get() + "b");
 
             Assert.assertTrue(str != localThreadStr.get());
 
-            System.out.printf("List in Thread %s is : %s\n", Thread.currentThread(), str);
-            System.out.printf("Main Local List in Thread %s is : %s\n", Thread.currentThread(), localStr.get());
-            System.out.printf("Local Thread List in Thread %s is : %s\n", Thread.currentThread(), localThreadStr.get());
+            System.out.printf("String in Thread %s is : %s\n", Thread.currentThread(), str);
+            System.out.printf("Main Local String in Thread %s is : %s\n", Thread.currentThread(), localStr.get());
+            System.out.printf("Local Thread String in Thread %s is : %s\n", Thread.currentThread(), localThreadStr.get());
         }, "Backend_Thread").start();
 
         Assert.assertTrue(str == localStr.get());
 
         ThreadSleep.sleep(100);
         System.out.println( );
-        System.out.printf("List in Thread %s is : %s\n", Thread.currentThread(), str);
-        System.out.printf("ThreadLocal List in Thread %s is : %s\n", Thread.currentThread(), localStr.get());
+        System.out.printf("String in Thread %s is : %s\n", Thread.currentThread(), str);
+        System.out.printf("ThreadLocal String in Thread %s is : %s\n", Thread.currentThread(), localStr.get());
     }
 }
