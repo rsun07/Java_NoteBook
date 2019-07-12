@@ -1,7 +1,7 @@
 package pers.xiaoming.notebook.concurrent.thread.threadlocal;
 
 interface ThreadLocalDemo {
-    int getRes();
+    int getI();
 
     void add();
 

@@ -1,23 +1,23 @@
 package pers.xiaoming.notebook.concurrent.thread.threadlocal;
 
 public class UseThreadLocalDemo implements ThreadLocalDemo {
-    private ThreadLocal<Integer> res;
+    private ThreadLocal<Integer> i;
     private ThreadLocal<String> name;
 
     UseThreadLocalDemo() {
-        res = ThreadLocal.withInitial(() -> 0);
+        i = ThreadLocal.withInitial(() -> 0);
 
         name = ThreadLocal.withInitial(() -> "");
     }
 
     @Override
-    public int getRes() {
-        return res.get();
+    public int getI() {
+        return i.get();
     }
 
     @Override
     public void add() {
-        res.set(res.get() + 1);
+        i.set(i.get() + 1);
     }
 
     @Override

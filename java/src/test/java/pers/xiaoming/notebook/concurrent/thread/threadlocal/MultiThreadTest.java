@@ -21,7 +21,7 @@ public class MultiThreadTest {
         ThreadLocalDemo testClass = new NoThreadLocalDemo();
         test(testClass);
 
-        System.out.println("Result in Main Thread is : " + testClass.getRes());
+        System.out.println("Result in Main Thread is : " + testClass.getI());
         System.out.println("Name in Main Thread is : " + testClass.getName());
     }
 
@@ -38,7 +38,7 @@ public class MultiThreadTest {
         ThreadLocalDemo testClass = new UseThreadLocalDemo();
         test(testClass);
 
-        System.out.println("Result in Main Thread is : " + testClass.getRes());
+        System.out.println("Result in Main Thread is : " + testClass.getI());
         System.out.println("Name in Main Thread is : " + testClass.getName());
     }
 
@@ -62,7 +62,7 @@ public class MultiThreadTest {
             testClass.add();
         }
 
-        System.out.println("Result in " + Thread.currentThread() + " is : " + testClass.getRes());
+        System.out.println("Result in " + Thread.currentThread() + " is : " + testClass.getI());
 
         testClass.setName(Thread.currentThread().getName());
 

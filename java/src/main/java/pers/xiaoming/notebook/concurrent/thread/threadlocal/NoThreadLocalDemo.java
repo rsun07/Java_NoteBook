@@ -1,17 +1,17 @@
 package pers.xiaoming.notebook.concurrent.thread.threadlocal;
 
 public class NoThreadLocalDemo implements ThreadLocalDemo {
-    private int res;
+    private int i;
     private String name;
 
     @Override
-    public int getRes() {
-        return res;
+    public int getI() {
+        return i;
     }
 
     @Override
     public void add() {
-        res++;
+        i++;
     }
 
     @Override
