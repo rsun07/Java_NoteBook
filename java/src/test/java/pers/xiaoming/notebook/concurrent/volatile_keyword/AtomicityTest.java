@@ -1,7 +1,6 @@
 package pers.xiaoming.notebook.concurrent.volatile_keyword;
 
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.time.Duration;
@@ -9,8 +8,8 @@ import java.time.Instant;
 import java.util.concurrent.CountDownLatch;
 
 public class AtomicityTest {
-    private static final int CONCURRENT_THREAD_NUM = 1000;
-    private static final int RUN_FREQUENCY = 1000;
+    private static final int CONCURRENT_THREAD_NUM = 100;
+    private static final int RUN_FREQUENCY = 100;
     private static final int EXPECT_RES = CONCURRENT_THREAD_NUM * RUN_FREQUENCY;
 
     /*
@@ -43,9 +42,9 @@ public class AtomicityTest {
                 () -> {
                     for (int j = 0; j < RUN_FREQUENCY; j++) {
                         if (isSynchroized) {
-                            testClass.addResSynchronized();
+                            testClass.addISynchronized();
                         } else {
-                            testClass.addRes();
+                            testClass.addI();
                         }
                     }
                     countDownLatch.countDown();
@@ -68,7 +67,7 @@ public class AtomicityTest {
             Assert.assertTrue(EXPECT_RES > res);
         }
 
-        System.out.printf("Result is %d, \nTime cost is %s\n",
+        System.out.printf("Result is %d, \nTime cost is %s\n\n",
                 testClass.getRes(isSynchroized), Duration.between(start, end).toMillis());
     }
 }

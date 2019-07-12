@@ -6,31 +6,27 @@ import org.junit.Test;
 @Ignore("demo tests")
 public class VolatileTest {
     @Test
-    public void testFailVisibility() throws InterruptedException {
-        FailVisibility thread = new FailVisibility();
+    public void testNoVisibility() throws InterruptedException {
+        NoVolatileThread thread = new NoVolatileThread();
         thread.start();
 
-        new Thread(() ->
-            {
-                thread.setStoped(true);
-                System.out.println("Already set stop to true");
-            }
-        ).start();
+        new Thread(() -> {
+                thread.setKeepRunning(false);
+                System.out.println("Already set keepRunning to false");
+            }).start();
 
         thread.join();
     }
 
     @Test
     public void testAchieveVisibility() throws InterruptedException {
-        AchieveVisibility thread = new AchieveVisibility();
+        VolatileThread thread = new VolatileThread();
         thread.start();
 
-        new Thread(() ->
-            {
-                thread.setStoped(true);
-                System.out.println("Already set stop to true");
-            }
-        ).start();
+        new Thread(() -> {
+                thread.setKeepRunning(false);
+                System.out.println("Already set keepRunning to false");
+            }).start();
 
         thread.join();
     }

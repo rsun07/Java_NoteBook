@@ -1,20 +1,20 @@
 package pers.xiaoming.notebook.concurrent.volatile_keyword;
 
 public class AtomicityDemo extends Thread {
-    volatile int res;
+    volatile int i;
 
-    int syncRes;
+    int syncI;
 
-    void addRes() {
-        res++;
+    void addI() {
+        i++;
     }
 
-    synchronized void addResSynchronized() {
-        syncRes++;
+    synchronized void addISynchronized() {
+        syncI++;
     }
 
     int getRes(boolean isSync) {
-        return isSync ? syncRes : res;
+        return isSync ? syncI : i;
     }
 
 }
