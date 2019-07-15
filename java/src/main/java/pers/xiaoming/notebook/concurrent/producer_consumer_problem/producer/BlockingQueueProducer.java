@@ -1,11 +1,11 @@
-package pers.xiaoming.notebook.concurrent.producer_consumer;
+package pers.xiaoming.notebook.concurrent.producer_consumer_problem.producer;
 
 import java.util.concurrent.BlockingQueue;
 
 public class BlockingQueueProducer {
-    static void produce(BlockingQueue<Integer> queue) {
+    public void produce(BlockingQueue<Integer> queue) {
 
-        int val = ProducerSource.produceInt();
+        int val = ProducerDataSource.produceInt();
 
         // Don't use queue.offer(val), it WON'T blocking when queue is full!
         // it will return false and let the program moving on

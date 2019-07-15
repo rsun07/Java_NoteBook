@@ -1,4 +1,4 @@
-package pers.xiaoming.notebook.concurrent.producer_consumer;
+package pers.xiaoming.notebook.concurrent.producer_consumer_problem.producer_consumer;
 
 import java.util.Queue;
 

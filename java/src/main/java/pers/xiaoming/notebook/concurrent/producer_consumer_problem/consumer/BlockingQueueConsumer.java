@@ -1,9 +1,9 @@
-package pers.xiaoming.notebook.concurrent.producer_consumer;
+package pers.xiaoming.notebook.concurrent.producer_consumer_problem.consumer;
 
 import java.util.concurrent.BlockingQueue;
 
 public class BlockingQueueConsumer {
-    static void consume(BlockingQueue<Integer> queue) {
+    public void consume(BlockingQueue<Integer> queue) {
         // Don't use queue.poll(), it WON'T block the program when queue is empty
         // It will return false and let the program moving on
         // int val = queue.poll();

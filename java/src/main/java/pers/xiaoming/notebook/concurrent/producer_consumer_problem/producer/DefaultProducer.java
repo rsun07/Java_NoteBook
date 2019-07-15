@@ -1,11 +1,11 @@
-package pers.xiaoming.notebook.concurrent.producer_consumer;
+package pers.xiaoming.notebook.concurrent.producer_consumer_problem.producer;
 
 import java.util.Queue;
 
 public class DefaultProducer {
-    static void produce(Queue<Integer> queue) {
+    public void produce(Queue<Integer> queue) {
 
-        int val = ProducerSource.produceInt();
+        int val = ProducerDataSource.produceInt();
 
         boolean success = queue.offer(val);
 

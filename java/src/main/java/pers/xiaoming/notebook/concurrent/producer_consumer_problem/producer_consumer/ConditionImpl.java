@@ -1,5 +1,7 @@
-package pers.xiaoming.notebook.concurrent.producer_consumer;
+package pers.xiaoming.notebook.concurrent.producer_consumer_problem.producer_consumer;
 
+import pers.xiaoming.notebook.concurrent.producer_consumer_problem.consumer.DefaultConsumer;
+import pers.xiaoming.notebook.concurrent.producer_consumer_problem.producer.DefaultProducer;
 import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
 import java.util.Queue;
@@ -11,9 +13,15 @@ public class ConditionImpl implements IProducerConsumer {
     private final Lock lock;
     private final Condition condition;
 
-    ConditionImpl() {
+    private DefaultProducer producer;
+    private DefaultConsumer consumer;
+
+    public ConditionImpl() {
         this.lock = new ReentrantLock();
         this.condition = lock.newCondition();
+
+        this.producer = new DefaultProducer();
+        this.consumer = new DefaultConsumer();
     }
 
     public void produce(Queue<Integer> queue, final int queueSize) {
@@ -26,7 +34,7 @@ public class ConditionImpl implements IProducerConsumer {
                     e.printStackTrace();
                 }
             }
-            DefaultProducer.produce(queue);
+            producer.produce(queue);
             condition.signalAll();
         } finally {
             lock.unlock();
@@ -44,7 +52,7 @@ public class ConditionImpl implements IProducerConsumer {
                     e.printStackTrace();
                 }
             }
-            DefaultConsumer.consume(queue);
+            consumer.consume(queue);
             condition.signalAll();
         } finally {
             lock.unlock();

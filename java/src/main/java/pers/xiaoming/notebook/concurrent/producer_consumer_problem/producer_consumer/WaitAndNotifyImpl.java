@@ -1,11 +1,21 @@
-package pers.xiaoming.notebook.concurrent.producer_consumer;
+package pers.xiaoming.notebook.concurrent.producer_consumer_problem.producer_consumer;
 
+import pers.xiaoming.notebook.concurrent.producer_consumer_problem.consumer.DefaultConsumer;
+import pers.xiaoming.notebook.concurrent.producer_consumer_problem.producer.DefaultProducer;
 import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
 import java.util.Queue;
 
 public class WaitAndNotifyImpl implements IProducerConsumer {
     private static final String LOCK = "lock";
+
+    private DefaultProducer producer;
+    private DefaultConsumer consumer;
+
+    public WaitAndNotifyImpl() {
+        this.producer = new DefaultProducer();
+        this.consumer = new DefaultConsumer();
+    }
 
     public void produce(Queue<Integer> queue, final int queueSize) {
         synchronized (LOCK) {
@@ -17,7 +27,7 @@ public class WaitAndNotifyImpl implements IProducerConsumer {
                     LOCK.notifyAll();
                 }
             }
-            DefaultProducer.produce(queue);
+            producer.produce(queue);
             LOCK.notifyAll();
         }
     }
@@ -35,7 +45,7 @@ public class WaitAndNotifyImpl implements IProducerConsumer {
                     LOCK.notifyAll();
                 }
             }
-            DefaultConsumer.consume(queue);
+            consumer.consume(queue);
             LOCK.notifyAll();
         }
     }

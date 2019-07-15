@@ -1,7 +1,11 @@
-package pers.xiaoming.notebook.concurrent.producer_consumer;
+package pers.xiaoming.notebook.concurrent.producer_consumer_problem;
 
 import org.junit.Ignore;
 import org.junit.Test;
+import pers.xiaoming.notebook.concurrent.producer_consumer_problem.producer_consumer.BlockingQueueImpl;
+import pers.xiaoming.notebook.concurrent.producer_consumer_problem.producer_consumer.ConditionImpl;
+import pers.xiaoming.notebook.concurrent.producer_consumer_problem.producer_consumer.IProducerConsumer;
+import pers.xiaoming.notebook.concurrent.producer_consumer_problem.producer_consumer.WaitAndNotifyImpl;
 import pers.xiaoming.notebook.concurrent.util.ThreadSleep;
 
 import java.util.LinkedList;
@@ -15,48 +19,45 @@ public class ProducerConsumerTest {
 
     private static final int QUEUE_SIZE = 10;
 
-    private Queue<Integer> queue;
-    private IProducerConsumer producerConsumerImpl;
-
     @Test
     public void testWaitAndNotifyImpl() {
 
-        queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
 
-        producerConsumerImpl = new WaitAndNotifyImpl();
+        IProducerConsumer producerConsumerImpl = new WaitAndNotifyImpl();
 
-        runTest();
+        runTest(queue, producerConsumerImpl);
     }
 
     @Test
     public void testConditionImpl() {
 
-        queue = new LinkedList<>();
+        Queue<Integer> queue = new LinkedList<>();
 
-        producerConsumerImpl = new ConditionImpl();
+        IProducerConsumer producerConsumerImpl = new ConditionImpl();
 
-        runTest();
+        runTest(queue, producerConsumerImpl);
     }
 
     @Test
     public void testBlockingQueueImpl() {
 
-        queue = new ArrayBlockingQueue<>(QUEUE_SIZE);
+        Queue<Integer> queue = new ArrayBlockingQueue<>(QUEUE_SIZE);
 
-        producerConsumerImpl = new BlockingQueueImpl();
+        IProducerConsumer producerConsumerImpl = new BlockingQueueImpl();
 
-        runTest();
+        runTest(queue, producerConsumerImpl);
     }
 
-    private void runTest() {
-        ProducerConsumerRunnable producerConsumerRunnable = new ProducerConsumerRunnable(queue, QUEUE_SIZE, producerConsumerImpl);
+    private void runTest(Queue<Integer> queue, IProducerConsumer producerConsumerImpl) {
+        ProducerConsumerRunner producerConsumerRunner = new ProducerConsumerRunner(queue, QUEUE_SIZE, producerConsumerImpl);
 
         for (int i = 0; i < PRODUCER_NUM; i++) {
-            new Thread(producerConsumerRunnable.new Producer()).start();
+            new Thread(producerConsumerRunner.new Producer()).start();
         }
 
         for (int i = 0; i < CONSUMER_NUM; i++) {
-            new Thread(producerConsumerRunnable.new Consumer()).start();
+            new Thread(producerConsumerRunner.new Consumer()).start();
         }
 
         ThreadSleep.sleepSecs(10);
