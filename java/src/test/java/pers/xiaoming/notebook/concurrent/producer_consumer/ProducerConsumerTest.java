@@ -63,7 +63,7 @@ public class ProducerConsumerTest {
     }
 
     /*
-    If you don't sleep within the threads, here is what happending
+    If you don't sleep within the threads, here is what happening
 
     cpu switch thread only when pool is full of product or pool has no product.
 
