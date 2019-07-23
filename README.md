@@ -10,12 +10,4 @@ Structure
 |----Basic java library <br />
 |----Java 8 new features <br />
 
-|--Junit <br />
-|----Junit3 <br />
-|----Junit4 <br />
-
-|--TestNG <br />
-
-|--logging (Log4j, logback, slf4j) <br />
-
 
