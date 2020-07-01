@@ -11,7 +11,7 @@
   <name>jdbc</name>
 
   <properties>
-    <mysql.version>5.1.38</mysql.version>
+    <mysql.version>8.0.16</mysql.version>
     <logback.version>1.2.3</logback.version>
     <testng.version>6.8</testng.version>
   </properties>
